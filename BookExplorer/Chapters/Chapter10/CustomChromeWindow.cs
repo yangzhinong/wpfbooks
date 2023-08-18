@@ -4,140 +4,142 @@ using System.Windows.Input;
 
 namespace Chapters.Chapter10
 {
-	[TemplatePart(Name = "PART_Close", Type = typeof(Button))]
-	[TemplatePart(Name = "PART_Minimize", Type = typeof(Button))]
-	[TemplatePart(Name = "PART_Maximize", Type = typeof(Button))]
-	public class CustomChromeWindow : Window
-	{
-		public static readonly DependencyProperty HoverImageProperty = DependencyProperty.RegisterAttached("HoverImage",
-																										   typeof(string),
-																										   typeof(
-																											CustomChromeWindow
-																											));
-		public static readonly DependencyProperty NormalImageProperty = DependencyProperty.RegisterAttached("NormalImage",
-																										   typeof(string),
-																										   typeof(
-																											CustomChromeWindow
-																											));
-		public static readonly DependencyProperty PressedImageProperty = DependencyProperty.RegisterAttached("PressedImage",
-																										   typeof(string),
-																										   typeof(
-																											CustomChromeWindow
-																											));
-		static CustomChromeWindow()
-		{
-			DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomChromeWindow),
-													 new FrameworkPropertyMetadata(
-														typeof(CustomChromeWindow)));
-		}
+    [TemplatePart(Name = "PART_Close", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_Minimize", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_Maximize", Type = typeof(Button))]
+    public class CustomChromeWindow : Window
 
-		public static void SetHoverImage(DependencyObject obj, string source)
-		{
-			obj.SetValue(HoverImageProperty, source);
-		}
+    {
+        public static readonly DependencyProperty HoverImageProperty = DependencyProperty.RegisterAttached("HoverImage",
+                                                                                                           typeof(string),
+                                                                                                           typeof(
+                                                                                                            CustomChromeWindow
+                                                                                                            ));
 
-		public static void SetNormalImage(DependencyObject obj, string source)
-		{
-			obj.SetValue(NormalImageProperty, source);
-		}
+        public static readonly DependencyProperty NormalImageProperty = DependencyProperty.RegisterAttached("NormalImage",
+                                                                                                           typeof(string),
+                                                                                                           typeof(
+                                                                                                            CustomChromeWindow
+                                                                                                            ));
 
-		public static void SetPressedImage(DependencyObject obj, string source)
-		{
-			obj.SetValue(PressedImageProperty, source);
-		}
+        public static readonly DependencyProperty PressedImageProperty = DependencyProperty.RegisterAttached("PressedImage",
+                                                                                                           typeof(string),
+                                                                                                           typeof(
+                                                                                                            CustomChromeWindow
+                                                                                                            ));
 
-		public static string GetHoverImage(DependencyObject obj)
-		{
-			return (string)obj.GetValue(HoverImageProperty);
-		}
+        static CustomChromeWindow()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(CustomChromeWindow),
+                                                     new FrameworkPropertyMetadata(
+                                                        typeof(CustomChromeWindow)));
+        }
 
-		public static string GetNormalImage(DependencyObject obj)
-		{
-			return (string)obj.GetValue(NormalImageProperty);
-		}
+        public static void SetHoverImage(DependencyObject obj, string source)
+        {
+            obj.SetValue(HoverImageProperty, source);
+        }
 
-		public static string GetPressedImage(DependencyObject obj)
-		{
-			return (string)obj.GetValue(PressedImageProperty);
-		}
+        public static void SetNormalImage(DependencyObject obj, string source)
+        {
+            obj.SetValue(NormalImageProperty, source);
+        }
 
-		public override void OnApplyTemplate()
-		{
-			base.OnApplyTemplate();
+        public static void SetPressedImage(DependencyObject obj, string source)
+        {
+            obj.SetValue(PressedImageProperty, source);
+        }
 
-			AttachToVisualTree();
-		}
+        public static string GetHoverImage(DependencyObject obj)
+        {
+            return (string)obj.GetValue(HoverImageProperty);
+        }
 
-		private void AttachToVisualTree()
-		{
-			// Close Button
-			Button closeButton = GetChildControl<Button>("PART_Close");
-			if (closeButton != null)
-			{
-				closeButton.Click += OnCloseButtonClick;
-			}
+        public static string GetNormalImage(DependencyObject obj)
+        {
+            return (string)obj.GetValue(NormalImageProperty);
+        }
 
-			// Minimize Button
-			Button minimizeButton = GetChildControl<Button>("PART_Minimize");
-			if (minimizeButton != null)
-			{
-				minimizeButton.Click += OnMinimizeButtonClick;
-			}
+        public static string GetPressedImage(DependencyObject obj)
+        {
+            return (string)obj.GetValue(PressedImageProperty);
+        }
 
-			// Maximize Button
-			Button maximizeButton = GetChildControl<Button>("PART_Maximize");
-			if (maximizeButton != null)
-			{
-				maximizeButton.Click += OnMaximizeButtonClick;
-			}
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
 
-			// Title Bar
-			Panel titleBar = GetChildControl<Panel>("PART_TitleBar");
-			if (titleBar != null)
-			{
-				titleBar.MouseLeftButtonDown += OnTitleBarMouseDown;
-			}
-		}
+            AttachToVisualTree();
+        }
 
-		private void OnMaximizeButtonClick(object sender, RoutedEventArgs e)
-		{
-			ToggleMaximize();
-		}
+        private void AttachToVisualTree()
+        {
+            // Close Button
+            Button closeButton = GetChildControl<Button>("PART_Close");
+            if (closeButton != null)
+            {
+                closeButton.Click += OnCloseButtonClick;
+            }
 
-		private void ToggleMaximize()
-		{
-			this.WindowState = (this.WindowState == WindowState.Maximized)
-								?
-									WindowState.Normal
-								: WindowState.Maximized;
-		}
+            // Minimize Button
+            Button minimizeButton = GetChildControl<Button>("PART_Minimize");
+            if (minimizeButton != null)
+            {
+                minimizeButton.Click += OnMinimizeButtonClick;
+            }
 
-		private void OnTitleBarMouseDown(object sender, MouseButtonEventArgs e)
-		{
-			if (ResizeMode != ResizeMode.NoResize && e.ClickCount == 2)
-			{
-				ToggleMaximize();
-				return;
-			}
-			this.DragMove();
-		}
+            // Maximize Button
+            Button maximizeButton = GetChildControl<Button>("PART_Maximize");
+            if (maximizeButton != null)
+            {
+                maximizeButton.Click += OnMaximizeButtonClick;
+            }
 
-		protected T GetChildControl<T>(string ctrlName) where T : DependencyObject
-		{
-			T ctrl = GetTemplateChild(ctrlName) as T;
-			return ctrl;
-		}
+            // Title Bar
+            Panel titleBar = GetChildControl<Panel>("PART_TitleBar");
+            if (titleBar != null)
+            {
+                titleBar.MouseLeftButtonDown += OnTitleBarMouseDown;
+            }
+        }
 
-		private void OnCloseButtonClick(object sender, RoutedEventArgs e)
-		{
-			Close();
-		}
+        private void OnMaximizeButtonClick(object sender, RoutedEventArgs e)
+        {
+            ToggleMaximize();
+        }
 
-		private void OnMinimizeButtonClick(object sender, RoutedEventArgs e)
-		{
-			WindowState = WindowState.Minimized;
-		}
+        private void ToggleMaximize()
+        {
+            this.WindowState = (this.WindowState == WindowState.Maximized)
+                                ?
+                                    WindowState.Normal
+                                : WindowState.Maximized;
+        }
 
+        private void OnTitleBarMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (ResizeMode != ResizeMode.NoResize && e.ClickCount == 2)
+            {
+                ToggleMaximize();
+                return;
+            }
+            this.DragMove();
+        }
 
-	}
+        protected T GetChildControl<T>(string ctrlName) where T : DependencyObject
+        {
+            T ctrl = GetTemplateChild(ctrlName) as T;
+            return ctrl;
+        }
+
+        private void OnCloseButtonClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void OnMinimizeButtonClick(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+    }
 }

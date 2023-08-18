@@ -1,0 +1,7 @@
+E:\books\wpfbooks\BookExplorer\Resources\bin\Debug\Resources.dll
+E:\books\wpfbooks\BookExplorer\Resources\bin\Debug\Resources.pdb
+E:\books\wpfbooks\BookExplorer\Resources\obj\Debug\Resources.csproj.AssemblyReference.cache
+E:\books\wpfbooks\BookExplorer\Resources\obj\Debug\Resources.g.resources
+E:\books\wpfbooks\BookExplorer\Resources\obj\Debug\Resources.csproj.CoreCompileInputs.cache
+E:\books\wpfbooks\BookExplorer\Resources\obj\Debug\Resources.dll
+E:\books\wpfbooks\BookExplorer\Resources\obj\Debug\Resources.pdb
