@@ -75,25 +75,24 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                            <ToggleButton
-                            x:Name="Expander"
-                            Width="28"
-                            Height="28"
-                            ClickMode="Press"
-                            IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
-                            Style="{StaticResource customToggleButtonStyle}" />
-                            <Border
+                        <ToggleButton
+                                x:Name="Expander"
+                                Width="28"
+                                Height="28"
+                                ClickMode="Press"
+                                IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                Style="{StaticResource customToggleButtonStyle}" />
+                        <Border
                             x:Name="Bd"
                             Grid.Column="1"
                             Padding="{TemplateBinding Padding}"
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
-                                <ContentPresenter
-                                x:Name="PART_Header"
-                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                VerticalAlignment="Center"
-                                ContentSource="Header" />
+                                <ContentPresenter x:Name="PART_Header"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="Center"
+                                    ContentSource="Header" />
                             </Border>
                             <ItemsPresenter
                             x:Name="ItemsHost"
@@ -197,7 +196,7 @@
             </Grid.RowDefinitions>
             <Rectangle Grid.RowSpan="2" Grid.ColumnSpan="2"
         RadiusX="5" RadiusY="5"
-        Stroke="Blue" Fill="LightBlue"/>
+        Stroke="Blue" />
             <StackPanel Margin="5,0,5,0" Grid.Row="0" Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=Title}"/>
             </StackPanel>

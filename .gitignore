@@ -1,1 +1,8 @@
-/C#inNutshell/我译的章节/~$程的高级技术.docx
+/C#inNutshell/我译的章节/~*.docx
+.vs/*.*
+*.vsidx
+*.suo
+packages
+obj
+bin
+.vs
