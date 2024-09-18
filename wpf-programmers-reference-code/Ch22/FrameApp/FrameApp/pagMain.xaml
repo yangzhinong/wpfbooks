@@ -1,0 +1,89 @@
+﻿<Page
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="FrameApp.pagMain"
+	x:Name="Page"
+	WindowTitle="Main Choices"
+	Title="Main Choices"
+	FlowDirection="LeftToRight"
+	Width="600" Height="400"
+	WindowWidth="640" WindowHeight="480">
+	<Page.Resources>
+		<Style TargetType="Label">
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+		</Style>
+		<Style TargetType="Button">
+			<Setter Property="Width" Value="100"/>
+			<Setter Property="Height" Value="100"/>
+			<Setter Property="Margin" Value="6"/>
+			<Setter Property="Button.BitmapEffect">
+				<Setter.Value>
+					<DropShadowBitmapEffect/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="Image">
+			<Setter Property="Height" Value="65"/>
+			<Setter Property="Margin" Value="0"/>
+		</Style>
+	</Page.Resources>
+	<Border Style="{StaticResource styBorder}">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="100"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Label Grid.Row="0" Grid.Column="0" FontSize="60" FontWeight="Bold"
+			 HorizontalAlignment="Center" VerticalAlignment="Center"
+			 Content="Main Choices" Foreground="Blue">
+				<Label.BitmapEffect>
+					<DropShadowBitmapEffect/>
+				</Label.BitmapEffect>
+			</Label>
+			<Grid Grid.Row="2" Grid.Column="0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="130"/>
+					<RowDefinition Height="130"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="150"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="150"/>
+				</Grid.ColumnDefinitions>
+			 	<Button Grid.Row="0" Grid.Column="1" Click="btnAddCustomer_Click">
+					<StackPanel>
+						<Image Source="Add.png"/>
+						<Label Content="Add Customer"/>
+					</StackPanel>
+				</Button>
+			 	<Button Grid.Row="1" Grid.Column="1" Click="btnFindCustomer_Click">
+					<StackPanel>
+						<Image Source="Find.png"/>
+						<Label Content="Find Customer"/>
+					</StackPanel>
+				</Button>
+			 	<Button Grid.Row="0" Grid.Column="2" Click="btnInvoices_Click">
+					<StackPanel>
+						<Image Source="Invoice.png"/>
+						<Label Content="Invoices"/>
+					</StackPanel>
+				</Button>
+			 	<Button Grid.Row="1" Grid.Column="2" Click="btnShipping_Click">
+					<StackPanel>
+						<Image Source="Shipping.png"/>
+						<Label Content="Shipping"/>
+					</StackPanel>
+				</Button>
+			</Grid>
+            <Image Source="Help.png" ToolTip="Help" MouseDown="btnHelp_Click"
+             Grid.Row="5" Grid.Column="3" Margin="5" Height="40"
+			 HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Image.BitmapEffect>
+                    <DropShadowBitmapEffect/>
+                </Image.BitmapEffect>
+            </Image>
+        </Grid>
+	</Border>
+</Page>

@@ -1,0 +1,33 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="StrokeLineJoins.Window1"
+	x:Name="Window"
+	Title="StrokeLineJoins"
+	Width="470" Height="210"
+	FontFamily="Comic Sans MS" FontSize="30" FontWeight="Bold">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			<GradientStop Color="#FFFF0000" Offset="1"/>
+			<GradientStop Color="#FFFDB6B6" Offset="0.652"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<StackPanel Orientation="Horizontal">
+		<StackPanel Margin="10">
+			<Polygon Stroke="Red" StrokeThickness="10" Points="20,20 120,40 30,70 80,10 110,90"
+			 Height="110" StrokeLineJoin="Miter"/>
+			<Label Content="Miter" HorizontalAlignment="Center"/>
+		</StackPanel>
+		<StackPanel Margin="10">
+			<Polygon Stroke="Red" StrokeThickness="10" Points="20,20 120,40 30,70 80,10 110,90"
+			 Height="110" StrokeLineJoin="Bevel"/>
+			<Label Content="Bevel" HorizontalAlignment="Center"/>
+		</StackPanel>
+		<StackPanel Margin="10">
+			<Polygon Stroke="Red" StrokeThickness="10" Points="20,20 120,40 30,70 80,10 110,90"
+			 Height="110" StrokeLineJoin="Round"/>
+			<Label Content="Round" HorizontalAlignment="Center"/>
+		</StackPanel>
+	</StackPanel>
+</Window>

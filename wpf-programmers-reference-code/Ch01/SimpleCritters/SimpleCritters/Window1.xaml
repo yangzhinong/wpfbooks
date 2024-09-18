@@ -1,0 +1,32 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="SimpleCritters.Window1"
+	x:Name="Window"
+	Title="SimpleCritters"
+	Width="557" Height="156"
+	FontSize="22" FontWeight="Bold" FontFamily="Comic Sans MS"
+	>
+	<StackPanel Orientation="Horizontal" Margin="5">
+		<StackPanel>
+			<Image Margin="5" Height="50" Source="Frog.jpg"/>
+			<Label Margin="5" Content="Frog"/>
+		</StackPanel>
+		<StackPanel>
+			<Image Margin="5" Height="50" Source="Butterfly.jpg"/>
+			<Label Margin="5" Content="Butterfly"/>
+		</StackPanel>
+		<StackPanel>
+			<Image Margin="5" Height="50" Source="Shark.jpg"/>
+			<Label Margin="5" Content="Shark"/>
+		</StackPanel>
+		<StackPanel>
+			<Image Margin="5" Height="50" Source="Tiger.jpg"/>
+			<Label Margin="5" Content="Tiger"/>
+		</StackPanel>
+		<StackPanel>
+			<Image Margin="5" Height="50" Source="Platypus.jpg"/>
+			<Label Margin="5" Content="Platypus"/>
+		</StackPanel>
+	</StackPanel>
+</Window>

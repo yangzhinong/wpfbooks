@@ -1,0 +1,405 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ShowFlowDocument.Window1"
+	x:Name="Window"
+	Title="ShowFlowDocument"
+	Width="500" Height="300">
+	<Window.Resources>
+		<Style TargetType="TextBlock">
+			<Setter Property="TextWrapping" Value="Wrap"/>
+		</Style>
+	</Window.Resources>
+	<FlowDocumentReader>
+		<FlowDocument>
+			<FlowDocument.Background>
+				<LinearGradientBrush>
+					<GradientStop Color="LightBlue" Offset="0"/>
+					<GradientStop Color="White" Offset="1"/>
+				</LinearGradientBrush>
+			</FlowDocument.Background>
+
+            <Paragraph>
+                <TextBlock>Here's some text.</TextBlock>
+            </Paragraph>
+
+            <BlockUIContainer>
+				<GroupBox Header="BlockUIContainer" Width="300" HorizontalAlignment="Left">
+					<StackPanel>
+						<TextBlock Margin="30,0,0,10">A FlowDocument can hold:</TextBlock>
+						<CheckBox Content="BlockUIContainer" Margin="50,0,0,5"/>
+						<CheckBox Content="List" Margin="50,0,0,5"/>
+						<CheckBox Content="Paragraph" Margin="50,0,0,5"/>
+						<CheckBox Content="Section" Margin="50,0,0,5"/>
+						<CheckBox Content="Table" Margin="50,0,0,5"/>
+					</StackPanel>
+				</GroupBox>
+			</BlockUIContainer>
+
+			<Paragraph>
+				<TextBlock>The following is a List with MarkerStyle = Decimal.</TextBlock>			
+			</Paragraph>
+			
+            <List MarkerStyle="Decimal">
+				<ListItem><Paragraph>Item one</Paragraph></ListItem>
+				<ListItem><Paragraph>Item two</Paragraph></ListItem>
+				<ListItem>
+                    <Paragraph>
+						Item three. The sub-list has MarkerStyle = LowerLatin.
+					</Paragraph>
+                    <List MarkerStyle="LowerLatin">
+                        <ListItem><Paragraph>Sub-item 3a</Paragraph></ListItem>
+                        <ListItem><Paragraph>Sub-item 3b</Paragraph></ListItem>
+                    </List>
+                </ListItem>
+            </List>
+
+			<Paragraph BorderBrush="Blue" BorderThickness="1">
+				<TextBlock>This is a fairly short Paragraph with a BorderBrush.</TextBlock>
+				<TextBlock>This is the second TextBlock within the same Paragraph.
+				 Notice how it started a new line</TextBlock>
+			</Paragraph>
+			<Paragraph BorderBrush="Red" BorderThickness="1">
+				<TextBlock><Run Text="    "/>This is a second Paragraph. Notice how it skipped some space between the paragraphs.
+					This paragraph also contains a hyperlink to the 
+					<Hyperlink ToolTip="Go to VB Helper"
+					 NavigateUri="http://www.vb-helper.com">
+					 	VB Helper
+					</Hyperlink> Web site.
+				</TextBlock>
+			</Paragraph>
+
+            <Paragraph>
+                <Figure Width="120" Height="100" Background="White" 
+                    HorizontalAnchor="PageRight"
+                    HorizontalOffset="-10" VerticalOffset="20"
+                >
+                    <BlockUIContainer>
+                        <Image Source="Frog.jpg" Stretch="Uniform" Width="100" Height="60"/>
+                    </BlockUIContainer>
+                    <Paragraph TextAlignment="Center">Fig 1. A frog.</Paragraph>
+                </Figure>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Quisque porttitor. Aliquam libero. Mauris dapibus enim sit amet risus. 
+                Mauris mollis faucibus ligula. Suspendisse potenti. Curabitur elit. 
+                <Floater Width="120" Background="White" HorizontalAlignment="Left">
+                    <BlockUIContainer>
+                        <Image Source="Bird.jpg" Stretch="Uniform" Width="100" Height="60"/>
+                    </BlockUIContainer>
+                    <Paragraph TextAlignment="Center">Fig 2. A bird.</Paragraph>
+                </Floater>
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                Curabitur non ipsum. Maecenas sit amet massa quis sem hendrerit blandit. 
+                Phasellus scelerisque hendrerit leo. Pellentesque id augue tempor turpis bibendum iaculis.
+                Morbi scelerisque, erat nec ullamcorper consectetur, nisi nisi interdum turpis, nec venenatis dui dui quis ligula. 
+				<InlineUIContainer>
+					<Border BorderBrush="Green" BorderThickness="1">
+						<StackPanel Orientation="Horizontal">
+							<Button Content="Click Me" Margin="5" VerticalAlignment="Center"/>
+							<CheckBox Content="Check Me" Margin="5" VerticalAlignment="Center"/>
+							<RadioButton Content="Check Me" Margin="5" VerticalAlignment="Center"/>
+						</StackPanel>
+					</Border>
+				</InlineUIContainer>
+                Donec justo mi, dapibus quis, condimentum ut, hendrerit nec, sem. Quisque gravida. 
+				(Line break follows.)
+				<LineBreak/>
+                Sed bibendum. Nunc tempus dui fringilla nisi.
+				<Run Background="LightGreen" FontSize="11" Foreground="Red">
+					A Run lets you change the properties of the text temporarily.
+					It can change the Background, font properties (size, weight, family),
+					color, and so forth.
+				</Run>
+				<Span Background="Pink" Foreground="Blue">
+					A Span is similar to a Run
+					<Italic>except</Italic>
+					it can also contain other inline elements such as
+					<Italic>Italic</Italic>
+					and
+					<Underline>Underline</Underline>.
+					<Ellipse Width="30" Height="20" Stroke="Black" Margin="10,0,10,0"/>.
+				</Span>
+            </Paragraph>
+			
+			<Paragraph BorderThickness="1">
+				<TextBlock>This is a short Paragraph.
+				Notice the vertical gap between this paragraph and the one that follows.
+				</TextBlock>
+			</Paragraph>
+			<Paragraph>
+				This paragraph contains a Floater.
+				Notice how the Floater is integrated into the paragraph.
+                <Floater Width="120" Background="White" HorizontalAlignment="Left">
+                    <BlockUIContainer>
+                        <Image Source="Bird.jpg" Stretch="Uniform" Width="100" Height="60"/>
+                    </BlockUIContainer>
+                    <Paragraph TextAlignment="Center">Fig 3. Chirp.</Paragraph>
+                </Floater>
+				The Paragraph also holds a
+				<Run Foreground="Blue" Background="Pink">
+                    Run with blue text on a pink background</Run>.
+				<Span>A Span includes an
+					<Ellipse Width="30" Height="10" Stroke="Red"/>
+                    and some text in various styles:
+					<Italic>Italic</Italic>
+                    and <Underline>Underline</Underline>.
+				 </Span>
+				 You can use Runs to make equations and formulas like:
+				 E=MC<Run BaselineAlignment="Superscript">2</Run> and
+				 C<Run 
+                     BaselineAlignment="Subscript">8</Run>H<Run
+                     BaselineAlignment="Subscript">10</Run>N<Run 
+                     BaselineAlignment="Subscript">4</Run>O<Run 
+                     BaselineAlignment="Subscript">2</Run>.
+            </Paragraph>
+
+			<Table CellSpacing="5">
+				<Table.Resources>
+					<Style TargetType="TableCell">
+						<Setter Property="TextAlignment" Value="Center"/>
+					</Style>
+					<Style TargetType="Paragraph">
+						<Setter Property="FontSize" Value="12"/>
+					</Style>
+					<Style TargetType="Image">
+						<Setter Property="Stretch" Value="Uniform"/>
+						<Setter Property="Height" Value="50"/>
+					</Style>
+				</Table.Resources>
+				<Table.Columns>
+					<TableColumn Width="100"/>
+					<TableColumn/>
+					<TableColumn/>
+					<TableColumn/>
+					<TableColumn/>
+				</Table.Columns>
+                <TableRowGroup>
+                    <!-- Title -->
+                    <TableRow Background="#FFA0A0FF">
+                        <TableCell ColumnSpan="5" TextAlignment="Center">
+                            <Paragraph FontSize="16" FontWeight="Bold">Planets</Paragraph>
+                        </TableCell>
+                    </TableRow>
+
+                    <!-- Headers -->
+                    <TableRow Background="#FFD0D0FF">
+                        <TableCell>
+                            <Paragraph FontWeight="Bold">Name</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontWeight="Bold">Picture</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontWeight="Bold">Dist. To Sun</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontWeight="Bold">Year</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph FontWeight="Bold">Mass</Paragraph>
+                        </TableCell>
+                    </TableRow>
+                </TableRowGroup>
+
+                <!-- The planets. -->
+                <TableRowGroup>
+                    <TableRowGroup.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="LightBlue" Offset="0"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TableRowGroup.Background>
+
+                    <!-- Mercury -->
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Mercury</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <BlockUIContainer>
+                                <Image Source="Mercury.jpg"/>
+                            </BlockUIContainer>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>0.39 AU</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>59 days</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>0.05 Earths</Paragraph>
+                        </TableCell>
+                    </TableRow>
+
+                    <!-- Venus -->
+                    <TableRow>
+                        <TableCell>
+                            <Paragraph>Venus</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <BlockUIContainer>
+                                <Image Source="Venus.jpg"/>
+                            </BlockUIContainer>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>0.72 AU</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>243 days</Paragraph>
+                        </TableCell>
+                        <TableCell>
+                            <Paragraph>0.89 Earths</Paragraph>
+                        </TableCell>
+                    </TableRow>
+
+                    <!-- Earth -->
+					<TableRow>
+						<TableCell>
+							<Paragraph>Earth</Paragraph>
+						</TableCell>
+						<TableCell>
+							<BlockUIContainer>
+								<Image Source="Earth.jpg"/>
+							</BlockUIContainer>
+						</TableCell>
+						<TableCell>
+							<Paragraph>1 AU</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>365 days</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>1 Earth</Paragraph>
+						</TableCell>
+					</TableRow>
+
+					<!-- Mars -->
+					<TableRow>
+						<TableCell>
+							<Paragraph>Mars</Paragraph>
+						</TableCell>
+						<TableCell>
+							<BlockUIContainer>
+								<Image Source="Mars.jpg"/>
+							</BlockUIContainer>
+						</TableCell>
+						<TableCell>
+							<Paragraph>1.5 AU</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>687 days</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>0.11 Earths</Paragraph>
+						</TableCell>
+					</TableRow>
+
+					<!-- Jupiter -->
+					<TableRow>
+						<TableCell>
+							<Paragraph>Jupiter</Paragraph>
+						</TableCell>
+						<TableCell>
+							<BlockUIContainer>
+								<Image Source="Jupiter.jpg"/>
+							</BlockUIContainer>
+						</TableCell>
+						<TableCell>
+							<Paragraph>5.2 AU</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>11.8 years</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>318 Earths</Paragraph>
+						</TableCell>
+					</TableRow>
+
+					<!-- Saturn -->
+					<TableRow>
+						<TableCell>
+							<Paragraph>Saturn</Paragraph>
+						</TableCell>
+						<TableCell>
+							<BlockUIContainer>
+								<Image Source="Saturn.jpg"/>
+							</BlockUIContainer>
+						</TableCell>
+						<TableCell>
+							<Paragraph>9.5 AU</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>29.5 years</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>95 Earths</Paragraph>
+						</TableCell>
+					</TableRow>
+
+					<!-- Uranus -->
+					<TableRow>
+						<TableCell>
+							<Paragraph>Uranus</Paragraph>
+						</TableCell>
+						<TableCell>
+							<BlockUIContainer>
+								<Image Source="Uranus.jpg"/>
+							</BlockUIContainer>
+						</TableCell>
+						<TableCell>
+							<Paragraph>19.2 AU</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>84 years</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>14 Earths</Paragraph>
+						</TableCell>
+					</TableRow>
+
+					<!-- Neptune -->
+					<TableRow>
+						<TableCell>
+							<Paragraph>Neptune</Paragraph>
+						</TableCell>
+						<TableCell>
+							<BlockUIContainer>
+								<Image Source="Neptune.jpg"/>
+							</BlockUIContainer>
+						</TableCell>
+						<TableCell>
+							<Paragraph>30.1 AU</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>165 years</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>17 Earths</Paragraph>
+						</TableCell>
+					</TableRow>
+
+					<!-- Pluto -->
+					<TableRow>
+						<TableCell>
+							<Paragraph>Pluto</Paragraph>
+						</TableCell>
+						<TableCell>
+							<BlockUIContainer>
+								<Image Source="Pluto.jpg"/>
+							</BlockUIContainer>
+						</TableCell>
+						<TableCell>
+							<Paragraph>39.5 AU</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>248 years</Paragraph>
+						</TableCell>
+						<TableCell>
+							<Paragraph>0.002 Earths</Paragraph>
+						</TableCell>
+					</TableRow>
+				</TableRowGroup>
+			</Table>
+		</FlowDocument>
+	</FlowDocumentReader>
+</Window>

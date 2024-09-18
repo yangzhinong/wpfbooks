@@ -1,0 +1,121 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="FlowDocuments.Window1"
+	x:Name="Window"
+	Title="FlowDocuments"
+	Width="830" Height="410">	
+	<Window.Resources>
+	    <Style x:Key="RowStyle" TargetType="{x:Type TableRow}">
+	        <Setter Property="Background">
+				<Setter.Value>
+			        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+			        	<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			        	<GradientStop Color="#FF00A0FF" Offset="1"/>
+			        </LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	
+    <FlowDocumentReader ViewingMode="Page" Zoom="2">
+        <FlowDocument Background="PaleGreen" Foreground="Blue">
+            <Section>
+                <Paragraph FontSize="20" FontWeight="700">FlowDocument</Paragraph>
+                <Paragraph>
+                    A FlowDocument can contain:
+                </Paragraph>
+                <List MarkerStyle="Square" MarkerOffset="5" Foreground="Black">
+                    <ListItem>
+                        <Paragraph>Paragraph - Contains elements grouped in a paragraph.</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>List - A numbered or bulleted list of items.</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Section - A higher-level section group.</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Table - A table of rows and columns.</Paragraph>
+                    </ListItem>
+                </List>
+            </Section>
+
+			<Section>
+				<Paragraph>
+				You can use Figures and Floaters to contain content around which text should flow.
+				</Paragraph>
+                <Table Foreground="Black"> 
+                    <Table.Columns>
+                        <TableColumn />
+                        <TableColumn />
+                    </Table.Columns>
+                    <TableRowGroup>
+                        <TableRow Background="DarkBlue" Foreground="Yellow" FontSize="16">
+                            <TableCell>
+                                <Paragraph FontWeight="Bold">Figure</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph FontWeight="Bold">Floater</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow Style="{StaticResource RowStyle}">
+                            <TableCell TextAlignment="Left">
+                                <Paragraph Margin="2">Can be positioned explicitly.</Paragraph>
+                            </TableCell>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph Margin="2">Cannot be positioned explicitly. It floats to a spot where it will fit.</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow Style="{StaticResource RowStyle}">
+                            <TableCell TextAlignment="Left">
+                                <Paragraph Margin="2">You can size it to fit more than one page or column.</Paragraph>
+                            </TableCell>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph Margin="2">Sizes to fit one column.</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow Style="{StaticResource RowStyle}">
+                            <TableCell TextAlignment="Left">
+                                <Paragraph Margin="2">Does not paginate. If some content doesn't fit on the page, the Figure is clipped.</Paragraph>
+                            </TableCell>
+                            <TableCell TextAlignment="Left">
+                                <Paragraph Margin="2">Paginates. If its content won't fit, it continues on the next column or page.</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>                    
+            </Section>
+
+			<Section>
+                <Paragraph Foreground="Red">
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc ut urna. Aliquam id dolor. Fusce nisi felis, ullamcorper nec, auctor in, blandit ut, purus. Sed consectetuer neque eu metus. Ut ac ante quis nunc viverra sagittis. Sed hendrerit metus eget odio. Donec semper luctus ante. Proin iaculis eleifend mauris. Nullam rhoncus. Morbi ultricies neque a tortor. Proin ac nisi vitae nunc mollis elementum. Integer fringilla. Curabitur ornare magna in leo. Maecenas auctor nisi id dolor. Praesent sit amet libero. Aliquam consequat, massa nec hendrerit luctus, elit metus commodo risus, suscipit gravida magna augue id massa. Suspendisse fringilla nulla.
+                    <Figure Width="200" Background="LightBlue" 
+                        HorizontalAnchor="ColumnLeft" HorizontalOffset="0"
+                        VerticalAnchor="ContentTop" VerticalOffset="0" TextAlignment="Left"
+						BorderBrush="DarkBlue" BorderThickness="3">
+                        <Paragraph Margin="3" FontStyle="Italic" Foreground="Black">
+                            This is a Figure aligned to ColumnLeft, ContentTop and containing a polygon.
+                        </Paragraph>
+						<BlockUIContainer>
+							<Polygon HorizontalAlignment="Right" Points="20,0 40,20 20,40 0,20" Stroke="Red" />
+						</BlockUIContainer>
+                     </Figure>
+                </Paragraph>
+
+               <Paragraph Foreground="Green">
+                    <Floater Width="200" HorizontalAlignment="Right" BorderBrush="DarkBlue" BorderThickness="1" TextAlignment="Left">
+						<Floater.Background>
+					        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+					        	<GradientStop Color="#FFFFA0A0" Offset="0"/>
+					        	<GradientStop Color="#FFFF0000" Offset="1"/>
+					        </LinearGradientBrush>
+						</Floater.Background>
+                        <Paragraph Foreground="White" FontWeight="Bold">This is a Floater with HorizontalAlignment = Right.</Paragraph>
+                    </Floater>
+                    Morbi a erat vel neque fermentum aliquam. Phasellus vulputate tellus quis urna. Ut malesuada consequat lacus. Nunc hendrerit. Proin eget sapien sed mauris pulvinar pretium. Cras et elit eu ante mattis auctor. Fusce quis augue ac eros gravida ultrices. Vestibulum a turpis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin lacus. Pellentesque fermentum risus lacinia ipsum. Aliquam erat volutpat. Vivamus adipiscing sapien ac enim. In vitae lacus non velit dignissim elementum. Vestibulum massa. Suspendisse pharetra justo vitae magna.
+                </Paragraph>
+            </Section>
+        </FlowDocument>
+    </FlowDocumentReader>
+</Window>

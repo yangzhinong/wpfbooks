@@ -1,0 +1,134 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|c:\\books\\wpfbooks\\wpf-programmers-reference-code\\ch18\\orgcharttreeview\\orgcharttreeview\\tvwstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|solutionrelative:orgcharttreeview\\tvwstyle.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|c:\\books\\wpfbooks\\wpf-programmers-reference-code\\ch18\\orgcharttreeview\\orgcharttreeview\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|solutionrelative:orgcharttreeview\\window1.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|c:\\books\\wpfbooks\\wpf-programmers-reference-code\\ch18\\orgcharttreeview\\orgcharttreeview\\window1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|solutionrelative:orgcharttreeview\\window1.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\orgcharttreeview\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|solutionrelative:orgcharttreeview\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\orgcharttreeview\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7FAD05B-CB06-42E9-93F8-C10EDF345F1F}|OrgChartTreeView\\OrgChartTreeView.csproj|solutionrelative:orgcharttreeview\\region.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 89,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{8332d89b-e52f-46d7-8d9e-6d201943c631}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "tvwStyle.xaml",
+              "DocumentMoniker": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\tvwStyle.xaml",
+              "RelativeDocumentMoniker": "OrgChartTreeView\\tvwStyle.xaml",
+              "ToolTip": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\tvwStyle.xaml",
+              "RelativeToolTip": "OrgChartTreeView\\tvwStyle.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-18T07:07:23.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Window1.xaml",
+              "DocumentMoniker": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\Window1.xaml",
+              "RelativeDocumentMoniker": "OrgChartTreeView\\Window1.xaml",
+              "ToolTip": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\Window1.xaml",
+              "RelativeToolTip": "OrgChartTreeView\\Window1.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-09-18T06:59:19.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Department.cs",
+              "DocumentMoniker": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\Department.cs",
+              "RelativeDocumentMoniker": "OrgChartTreeView\\Department.cs",
+              "ToolTip": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\Department.cs",
+              "RelativeToolTip": "OrgChartTreeView\\Department.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T06:58:31.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Region.cs",
+              "DocumentMoniker": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\Region.cs",
+              "RelativeDocumentMoniker": "OrgChartTreeView\\Region.cs",
+              "ToolTip": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\Region.cs",
+              "RelativeToolTip": "OrgChartTreeView\\Region.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T06:58:15.769Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 30,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:630652707:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:626047130:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Window1.xaml.cs",
+              "DocumentMoniker": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\Window1.xaml.cs",
+              "RelativeDocumentMoniker": "OrgChartTreeView\\Window1.xaml.cs",
+              "ToolTip": "C:\\books\\wpfbooks\\wpf-programmers-reference-code\\Ch18\\OrgChartTreeView\\OrgChartTreeView\\Window1.xaml.cs",
+              "RelativeToolTip": "OrgChartTreeView\\Window1.xaml.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAAwGIAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T07:00:13.063Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 374,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:836546505:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

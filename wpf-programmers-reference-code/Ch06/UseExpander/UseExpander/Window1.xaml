@@ -1,0 +1,79 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseExpander.Window1"
+	x:Name="Window"
+	Title="UseExpander"
+	Width="336" Height="340"
+	FontWeight="Bold">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.875,0.499" StartPoint="0.125,0.501">
+			<GradientStop Color="#FF00FFFF" Offset="0"/>
+			<GradientStop Color="#FF0000A0" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<StackPanel>
+		<Expander HorizontalAlignment="Left" VerticalAlignment="Top"
+		 Header="Personal Information " Background="Blue" Foreground="Yellow" 
+		 Margin="3" IsExpanded="True" BorderBrush="White" BorderThickness="2">
+			<Grid Margin="3" Width="300">
+				<Grid.Background>
+					<LinearGradientBrush EndPoint="0.775,0.496" StartPoint="0.225,0.504">
+						<GradientStop Color="#FF00FFFF" Offset="0"/>
+						<GradientStop Color="#FF0000FF" Offset="1"/>
+					</LinearGradientBrush>
+				</Grid.Background>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="80"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+				</Grid.RowDefinitions>
+				<Image Grid.Row="0" Source="Smiley.bmp" Width="75" Height="75" Margin="3"/>
+				<Label Grid.Row="1" Grid.Column="0" Content="First Name:"/>
+				<TextBox Grid.Row="1" Grid.Column="1" Height="22" Text="Happy"/>
+				<Label Grid.Row="2" Grid.Column="0" Content="Last Name:"/>
+				<TextBox Grid.Row="2" Grid.Column="1" Height="22" Text="Golucky"/>
+				<Label Grid.Row="3" Grid.Column="0" Content="Hair Color:"/>
+				<TextBox Grid.Row="3" Grid.Column="1" Height="22" Text="(None)"/>
+			</Grid>
+		</Expander>
+		<Expander HorizontalAlignment="Left" VerticalAlignment="Top"
+		 Header="Address " Background="Blue" Foreground="Yellow" Margin="3"
+		 BorderBrush="White" BorderThickness="2">
+			<Grid Margin="3" Width="300">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+				</Grid.RowDefinitions>
+				<Label Grid.Row="0" Grid.Column="0" Content="Street:"/>
+				<TextBox Grid.Row="0" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="1" Grid.Column="0" Content="Suite/Apt:"/>
+				<TextBox Grid.Row="1" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="2" Grid.Column="0" Content="City:"/>
+				<TextBox Grid.Row="2" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="3" Grid.Column="0" Content="State:"/>
+				<TextBox Grid.Row="3" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="4" Grid.Column="0" Content="ZIP:"/>
+				<TextBox Grid.Row="4" Grid.Column="1" Height="22"/>
+			</Grid>
+		</Expander>
+		<Expander HorizontalAlignment="Left" VerticalAlignment="Top" Header="Equipment Stats " Background="Blue" Foreground="Yellow" Margin="3"
+		 BorderBrush="White" BorderThickness="2">
+		</Expander>
+		<Expander HorizontalAlignment="Left" VerticalAlignment="Top" Header="Medical Information " Background="Blue" Foreground="Yellow" Margin="3"
+		 BorderBrush="White" BorderThickness="2">
+		</Expander>
+	</StackPanel>
+</Window>

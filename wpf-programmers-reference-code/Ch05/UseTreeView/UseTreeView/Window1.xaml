@@ -1,0 +1,42 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseTreeView.Window1"
+	x:Name="Window"
+	Title="UseTreeView"
+	Width="400" Height="290"
+	FontWeight="Bold" FontSize="14"
+	Background="Orange">
+	<Grid x:Name="LayoutRoot">
+		<TreeView Margin="5">
+		    <TreeView.Background>
+				<RadialGradientBrush>
+					<GradientStop Color="#FFFFFFFF" Offset="0"/>
+					<GradientStop Color="#FFFF3030" Offset="1"/>
+				</RadialGradientBrush>
+			</TreeView.Background>
+		    <TreeViewItem Header="Board of Directors" IsExpanded="True">
+			    <TreeViewItem Header="President/CEO" IsExpanded="True">
+				    <TreeViewItem Header="CIO" IsExpanded="True">
+			      		<TreeViewItem Header="VP Misinformation Systems"/>
+			      		<TreeViewItem Header="VP Digital Assets and Paranoia"/>
+			      		<TreeViewItem Header="VP Networks and Grossworks"/>
+			    	</TreeViewItem>
+				    <TreeViewItem Header="VP Administration" IsExpanded="True">
+			      		<TreeViewItem Header="Human Resources"/>
+			      		<TreeViewItem Header="Inhuman Resources"/>
+			      		<TreeViewItem Header="Advertising, Marketing, and Spam"/>
+			    	</TreeViewItem>
+				    <TreeViewItem Header="CFO" IsExpanded="False">
+			      		<TreeViewItem Header="VB Resource Mismanagement"/>
+			      		<TreeViewItem Header="General Accounting"/>
+			      		<TreeViewItem Header="Colonel Accounting"/>
+			      		<TreeViewItem Header="Internal &quot;Auditing&quot;"/>
+			      		<TreeViewItem Header="VB Perks and Boondoggles"/>
+			    	</TreeViewItem>
+				    <TreeViewItem Header="Phil the Janitor"/>
+				</TreeViewItem>
+		  	</TreeViewItem>
+		</TreeView>
+	</Grid>
+</Window>

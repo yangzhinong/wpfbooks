@@ -1,0 +1,423 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="CameraTypes.Window1"
+	x:Name="Window"
+	Title="CameraTypes"
+    Height="325" Width="600"
+	FontSize="16" FontWeight="Bold">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="AliceBlue" Offset="0"/>
+            <GradientStop Color="Blue" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="20"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="20"/>
+		</Grid.ColumnDefinitions>
+
+		<Slider Name="sliX" Grid.Row="0" Grid.Column="1" Orientation="Vertical" 
+		 Minimum="-90" Maximum="90" Value="-30"
+		 TickFrequency="10" TickPlacement="None">
+		 	<Slider.LayoutTransform>
+				<ScaleTransform ScaleX="1" ScaleY="-1"/>
+			</Slider.LayoutTransform>
+		</Slider>
+
+		<Slider Name="sliY" Grid.Row="2" Grid.Column="0" Orientation="Horizontal"
+		 Minimum="-180" Maximum="180" Value="30"
+		 TickFrequency="10" TickPlacement="None"/>
+
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="35"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<Label Grid.Row="1" Grid.Column="0" Content="Perspective Camera"
+			 HorizontalAlignment="Center"/>
+			<Label Grid.Row="1" Grid.Column="1" Content="Orthographic Camera"
+			 HorizontalAlignment="Center"/>
+
+	        <Viewport3D Grid.Column="0" Margin="4,4,4,4">
+				<Viewport3D.Resources>
+					<DiffuseMaterial x:Key="matRed" Brush="Red"/>
+					<DiffuseMaterial x:Key="matGreen" Brush="Green"/>
+					<DiffuseMaterial x:Key="matYellow" Brush="Yellow"/>
+	            </Viewport3D.Resources>
+	        	<Viewport3D.Camera>
+	        		<PerspectiveCamera
+	        			Position="0, 0, 8"
+	        			LookDirection="0, 0, -8"
+	        			UpDirection="0, 1, 0"
+	        			FieldOfView="60">
+						<PerspectiveCamera.Transform>
+	                    	<Transform3DGroup>
+	                            <RotateTransform3D>
+	                            	<RotateTransform3D.Rotation>
+	                                	<AxisAngleRotation3D Axis="1,0,0"
+	                                     Angle="{Binding ElementName=sliX,Path=Value}"/>
+	                                </RotateTransform3D.Rotation>
+	                            </RotateTransform3D>
+	                        	<RotateTransform3D>
+	                            	<RotateTransform3D.Rotation>
+	                                	<AxisAngleRotation3D Axis="0,1,0"
+	                                     Angle="{Binding ElementName=sliY,Path=Value}"/>
+	                                </RotateTransform3D.Rotation>
+	                            </RotateTransform3D>
+	                        </Transform3DGroup>
+						</PerspectiveCamera.Transform>
+					</PerspectiveCamera>
+	        	</Viewport3D.Camera>
+	            <ModelVisual3D >
+					<ModelVisual3D.Content>
+	                    <Model3DGroup>
+	                        <!-- Lights -->
+	                        <AmbientLight Color="White"/>
+
+							<!-- 3D objects go here. -->
+							<!-- Middle block. -->
+							<Model3DGroup>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,3,2 0,2,1"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="1,2,6 1,6,5"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="2,3,7 2,7,6"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="4,5,6 4,6,7"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,4,7 0,7,3"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,1,5 0,5,4"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+							</Model3DGroup>
+
+							<!-- Block2. -->
+							<Model3DGroup>
+								<Model3DGroup.Transform>
+									<TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="3"/>
+								</Model3DGroup.Transform>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,3,2 0,2,1"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="1,2,6 1,6,5"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="2,3,7 2,7,6"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="4,5,6 4,6,7"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,4,7 0,7,3"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,1,5 0,5,4"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+							</Model3DGroup>
+
+							<!-- Block3. -->
+							<Model3DGroup>
+								<Model3DGroup.Transform>
+									<TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="-3"/>
+								</Model3DGroup.Transform>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,3,2 0,2,1"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="1,2,6 1,6,5"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="2,3,7 2,7,6"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="4,5,6 4,6,7"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,4,7 0,7,3"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,1,5 0,5,4"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+							</Model3DGroup>
+	                    </Model3DGroup>
+	                </ModelVisual3D.Content>
+	            </ModelVisual3D>
+	        </Viewport3D>
+
+	        <Viewport3D Grid.Column="1" Margin="4,4,4,4">
+				<Viewport3D.Resources>
+					<DiffuseMaterial x:Key="matRed" Brush="Red"/>
+					<DiffuseMaterial x:Key="matGreen" Brush="Green"/>
+					<DiffuseMaterial x:Key="matYellow" Brush="Yellow"/>
+	            </Viewport3D.Resources>
+	        	<Viewport3D.Camera>
+					<OrthographicCamera
+						Position="0, 0, 8"
+	        			LookDirection="0, 0, -8"
+	        			UpDirection="0, 1, 0"
+						Width="8">
+						<OrthographicCamera.Transform>
+	                    	<Transform3DGroup>
+	                            <RotateTransform3D>
+	                            	<RotateTransform3D.Rotation>
+	                                	<AxisAngleRotation3D Axis="1,0,0"
+	                                     Angle="{Binding ElementName=sliX,Path=Value}"/>
+	                                </RotateTransform3D.Rotation>
+	                            </RotateTransform3D>
+	                        	<RotateTransform3D>
+	                            	<RotateTransform3D.Rotation>
+	                                	<AxisAngleRotation3D Axis="0,1,0"
+	                                     Angle="{Binding ElementName=sliY,Path=Value}"/>
+	                                </RotateTransform3D.Rotation>
+	                            </RotateTransform3D>
+	                        </Transform3DGroup>
+						</OrthographicCamera.Transform>
+					</OrthographicCamera>
+	        	</Viewport3D.Camera>
+	            <ModelVisual3D >
+					<ModelVisual3D.Content>
+	                    <Model3DGroup>
+	                        <!-- Lights -->
+	                        <AmbientLight Color="White"/>
+
+							<!-- 3D objects go here. -->
+							<!-- Middle block. -->
+							<Model3DGroup>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,3,2 0,2,1"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="1,2,6 1,6,5"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="2,3,7 2,7,6"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="4,5,6 4,6,7"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,4,7 0,7,3"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,1,5 0,5,4"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+							</Model3DGroup>
+
+							<!-- Block2. -->
+							<Model3DGroup>
+								<Model3DGroup.Transform>
+									<TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="3"/>
+								</Model3DGroup.Transform>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,3,2 0,2,1"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="1,2,6 1,6,5"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="2,3,7 2,7,6"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="4,5,6 4,6,7"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,4,7 0,7,3"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,1,5 0,5,4"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+							</Model3DGroup>
+
+							<!-- Block3. -->
+							<Model3DGroup>
+								<Model3DGroup.Transform>
+									<TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="-3"/>
+								</Model3DGroup.Transform>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,3,2 0,2,1"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="1,2,6 1,6,5"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="2,3,7 2,7,6"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matRed}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="4,5,6 4,6,7"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matGreen}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,4,7 0,7,3"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+								<GeometryModel3D Material="{StaticResource matYellow}">
+									<GeometryModel3D.Geometry>
+										<MeshGeometry3D
+					                     Positions="-1,-1,-1 -1,-1,1 1,-1,1 1,-1,-1 -1,1,-1 -1,1,1 1,1,1 1,1,-1"
+					                     TriangleIndices="0,1,5 0,5,4"/>
+									</GeometryModel3D.Geometry>
+								</GeometryModel3D>
+							</Model3DGroup>
+	                    </Model3DGroup>
+	                </ModelVisual3D.Content>
+	            </ModelVisual3D>
+	        </Viewport3D>
+		</Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,47 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseTextTrimming.Window1"
+	x:Name="Window"
+	Title="UseTextTrimming"
+	FontSize="16" FontWeight="Bold"
+	Width="400" Height="150">
+	<Window.Background>
+		<RadialGradientBrush>
+			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			<GradientStop Color="#FFFFFF40" Offset="1"/>
+		</RadialGradientBrush>
+	</Window.Background>
+	<Grid Margin="5">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="150"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		
+		<TextBlock Grid.Row="0" Grid.Column="0" Text="CharacterEllipsis" />
+		<TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+		 Grid.Row="0" Grid.Column="1"
+		 TextWrapping="NoWrap" TextTrimming="CharacterEllipsis">
+			C:\Program Files\CoolApplications
+		</TextBlock>
+
+		<TextBlock Grid.Row="1" Grid.Column="0" Text="WordEllipsis" />
+		<TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+		 Grid.Row="1" Grid.Column="1"
+		 TextWrapping="NoWrap" TextTrimming="WordEllipsis">
+			C:\Program Files\CoolApplications
+		</TextBlock>
+
+		<TextBlock Grid.Row="2" Grid.Column="0" Text="None" />
+		<TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+		 Grid.Row="2" Grid.Column="1"
+		 TextWrapping="NoWrap" TextTrimming="None">
+			C:\Program Files\CoolApplications
+		</TextBlock>
+	</Grid>
+</Window>

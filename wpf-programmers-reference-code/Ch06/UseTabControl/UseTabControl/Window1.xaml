@@ -1,0 +1,86 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseTabControl.Window1"
+	x:Name="Window"
+	Title="UseTabControl"
+	Width="480" Height="260"
+	FontWeight="Bold">
+	<TabControl Background="Blue" BorderBrush="Red" BorderThickness="3" Margin="5">
+<!--
+		<TabItem>
+			<TabItem.Header>
+				<StackPanel Orientation="Horizontal">
+					<Ellipse Width="30" Height="20" Stroke="Black" Fill="Yellow"/>
+					<Label Content="Ellipses" />
+				</StackPanel>
+			</TabItem.Header>
+			<Grid>
+				<Label Content="Hello"/>
+			</Grid>
+		</TabItem>
+-->
+		<TabItem Header="Personal Information" Foreground="Green" Background="LightBlue">
+			<Grid Margin="3" Width="Auto" HorizontalAlignment="Stretch">
+				<Grid.Background>
+					<LinearGradientBrush EndPoint="0.775,0.496" StartPoint="0.225,0.504">
+						<GradientStop Color="#FF00FFFF" Offset="0"/>
+						<GradientStop Color="#FF0000FF" Offset="1"/>
+					</LinearGradientBrush>
+				</Grid.Background>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="80"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+				</Grid.RowDefinitions>
+				<Image Grid.Row="0" Source="Smiley.bmp" Width="75" Height="75" Margin="12.5,3,12.5,2"/>
+				<Label Grid.Row="1" Grid.Column="0" Content="First Name:"/>
+				<TextBox Grid.Row="1" Grid.Column="1" Height="22" Text="Happy" Margin="0,4,0,4"/>
+				<Label Grid.Row="2" Grid.Column="0" Content="Last Name:"/>
+				<TextBox Grid.Row="2" Grid.Column="1" Height="22" Text="Golucky" Margin="0,4,0,4"/>
+				<Label Grid.Row="3" Grid.Column="0" Content="Hair Color:"/>
+				<TextBox Grid.Row="3" Grid.Column="1" Height="22" Text="(None)" Margin="0,4,0,4"/>
+			</Grid>
+		</TabItem>
+		<TabItem Header="Address" Foreground="Green" Background="LightBlue">
+			<Grid Margin="3" Width="Auto" HorizontalAlignment="Stretch">
+				<Grid.Background>
+					<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+						<GradientStop Color="#FF00FFFF" Offset="0"/>
+						<GradientStop Color="#FF0000FF" Offset="1"/>
+					</LinearGradientBrush>
+				</Grid.Background>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+				</Grid.RowDefinitions>
+				<Label Grid.Row="0" Grid.Column="0" Content="Street:"/>
+				<TextBox Grid.Row="0" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="1" Grid.Column="0" Content="Suite/Apt:"/>
+				<TextBox Grid.Row="1" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="2" Grid.Column="0" Content="City:"/>
+				<TextBox Grid.Row="2" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="3" Grid.Column="0" Content="State:"/>
+				<TextBox Grid.Row="3" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="4" Grid.Column="0" Content="ZIP:"/>
+				<TextBox Grid.Row="4" Grid.Column="1" Height="22"/>
+			</Grid>
+		</TabItem>
+		<TabItem Header="Equipment Stats" Foreground="Green" Background="LightBlue">
+		</TabItem>
+		<TabItem Header="Medical Information" Foreground="Green" Background="LightBlue">
+		</TabItem>
+	</TabControl>
+</Window>

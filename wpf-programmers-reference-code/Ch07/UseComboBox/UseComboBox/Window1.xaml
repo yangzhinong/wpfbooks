@@ -1,0 +1,88 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseComboBox.Window1"
+	x:Name="Window"
+	Title="UseComboBox"
+	Width="400" Height="450" Background="{x:Null}">
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="150"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Image Source="m8_vanderhaven.jpg" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+		 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill" />
+		<ComboBox IsSynchronizedWithCurrentItem="True" Grid.Row="0" Grid.Column="0"
+		 VerticalAlignment="Top" Margin="10"
+		 SelectedIndex="2" Height="25" Width="100" Name="ComboBox1">
+			<ComboBoxItem Content="Mercury"/>
+			<ComboBoxItem Content="Venus"/>
+			<ComboBoxItem Content="Earth"/>
+			<ComboBoxItem Content="Mars"/>
+			<ComboBoxItem Content="Jupiter"/>
+			<ComboBoxItem Content="Saturn"/>
+			<ComboBoxItem Content="Uranus"/>
+			<ComboBoxItem Content="Neptune"/>
+			<ComboBoxItem Content="(Pluto)"/>
+		</ComboBox>
+		<ComboBox IsSynchronizedWithCurrentItem="True" Grid.Row="0" Grid.Column="1"
+		 VerticalAlignment="Top" Background="Black"
+	 	 SelectedIndex="2" Height="90" Width="120" Margin="10"
+		 FontWeight="Bold" FontSize="16" Name="ComboBox2">
+			<ComboBoxItem Background="Black">
+				<StackPanel HorizontalAlignment="Stretch" Width="100">
+					<Image Source="Mercury.jpg" Height="50" Width="Auto" HorizontalAlignment="Center"/>
+					<Label Content="Mercury" HorizontalAlignment="Center" Foreground="Green"/>
+				</StackPanel>
+			</ComboBoxItem>
+			<ComboBoxItem Background="Black">
+				<StackPanel HorizontalAlignment="Stretch" Width="100">
+					<Image Source="Venus.jpg" Height="50" Width="Auto" HorizontalAlignment="Center"/>
+					<Label Content="Venus" HorizontalAlignment="Center" Foreground="Green"/>
+				</StackPanel>
+			</ComboBoxItem>
+			<ComboBoxItem Background="Black">
+				<StackPanel HorizontalAlignment="Stretch" Width="100">
+					<Image Source="Earth.jpg" Height="50" Width="Auto" HorizontalAlignment="Center"/>
+					<Label Content="Earth" HorizontalAlignment="Center" Foreground="Green"/>
+				</StackPanel>
+			</ComboBoxItem>
+			<ComboBoxItem Background="Black">
+				<StackPanel HorizontalAlignment="Stretch" Width="100">
+					<Image Source="Mars.jpg" Height="50" Width="Auto" HorizontalAlignment="Center"/>
+					<Label Content="Mars" HorizontalAlignment="Center" Foreground="Green"/>
+				</StackPanel>
+			</ComboBoxItem>
+			<ComboBoxItem Background="Black">
+				<StackPanel HorizontalAlignment="Stretch" Width="100">
+					<Image Source="Jupiter.jpg" Height="50" Width="Auto" HorizontalAlignment="Center"/>
+					<Label Content="Jupiter" HorizontalAlignment="Center" Foreground="Green"/>
+				</StackPanel>
+			</ComboBoxItem>
+			<ComboBoxItem Background="Black">
+				<StackPanel HorizontalAlignment="Stretch" Width="100">
+					<Image Source="Saturn.jpg" Height="50" Width="Auto" HorizontalAlignment="Center"/>
+					<Label Content="Saturn" HorizontalAlignment="Center" Foreground="Green"/>
+				</StackPanel>
+			</ComboBoxItem>
+			<ComboBoxItem Background="Black">
+				<StackPanel HorizontalAlignment="Stretch" Width="100">
+					<Image Source="Uranus.jpg" Height="50" Width="Auto" HorizontalAlignment="Center"/>
+					<Label Content="Uranus" HorizontalAlignment="Center" Foreground="Green"/>
+				</StackPanel>
+			</ComboBoxItem>
+			<ComboBoxItem Background="Black">
+				<StackPanel HorizontalAlignment="Stretch" Width="100">
+					<Image Source="Neptune.jpg" Height="50" Width="Auto" HorizontalAlignment="Center"/>
+					<Label Content="Neptune" HorizontalAlignment="Center" Foreground="Green"/>
+				</StackPanel>
+			</ComboBoxItem>
+			<ComboBoxItem Background="Black">
+				<StackPanel HorizontalAlignment="Stretch" Width="100">
+					<Image Source="Pluto.jpg" Height="50" Width="Auto" HorizontalAlignment="Center"/>
+					<Label Content="(Pluto)" HorizontalAlignment="Center" Foreground="Green"/>
+				</StackPanel>
+			</ComboBoxItem>
+		</ComboBox>
+	</Grid>
+</Window>

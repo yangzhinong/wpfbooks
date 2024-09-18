@@ -1,0 +1,35 @@
+﻿<Page
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="FrameApp.pagInvoices"
+	x:Name="Page"
+	WindowTitle="Invoices"
+	Title="Invoices"
+	FlowDirection="LeftToRight"
+	Width="600" Height="400"
+	WindowWidth="640" WindowHeight="480">
+	<Border Style="{StaticResource styBorder}">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="100"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Image Source="Invoice.png"
+			 HorizontalAlignment="Left" VerticalAlignment="Top"/>
+			<Label Grid.Row="0" Grid.Column="0" FontSize="60" FontWeight="Bold"
+			 HorizontalAlignment="Center" VerticalAlignment="Center"
+			 Content="Invoices" Foreground="Blue">
+				<Label.BitmapEffect>
+					<DropShadowBitmapEffect/>
+				</Label.BitmapEffect>
+			</Label>
+			<Label Grid.Row="1" Grid.Column="0" FontSize="30" FontWeight="Bold"
+			 Content="Build the Invoices page here."
+			 HorizontalAlignment="Center" VerticalAlignment="Center">
+				<Label.BitmapEffect>
+					<OuterGlowBitmapEffect GlowColor="LightBlue" GlowSize="10"/>
+				</Label.BitmapEffect>
+			</Label>
+		</Grid>
+	</Border>
+</Page>

@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisabledLabelTemplate", "DisabledLabelTemplate\DisabledLabelTemplate.csproj", "{00FDEE2E-B1DB-4DAA-99C2-368EFDB4D631}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00FDEE2E-B1DB-4DAA-99C2-368EFDB4D631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FDEE2E-B1DB-4DAA-99C2-368EFDB4D631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FDEE2E-B1DB-4DAA-99C2-368EFDB4D631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FDEE2E-B1DB-4DAA-99C2-368EFDB4D631}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

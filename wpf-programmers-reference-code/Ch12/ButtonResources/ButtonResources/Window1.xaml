@@ -1,0 +1,231 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ButtonResources.Window1"
+	x:Name="Window"
+	Title="ButtonResources"
+	Width="540" Height="320"
+	FontSize="16" FontWeight="Bold"
+	Background="LightBlue">
+	<Window.Resources>
+		<!-- Comment the following for Figure 12-2. -->
+		<LinearGradientBrush x:Key="brButton" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="Red" Offset="0"/>
+			<GradientStop Color="White" Offset="0.5"/>
+			<GradientStop Color="Blue" Offset="1"/>
+		</LinearGradientBrush>
+		<BitmapEffectGroup x:Key="bmeButton">
+			<DropShadowBitmapEffect/>
+		</BitmapEffectGroup>
+		<!-- Uncomment the following for Figure 12-2. -->
+		<!--
+		<RadialGradientBrush x:Key="brButton">
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="Red" Offset="1"/>
+		</RadialGradientBrush>
+		<BitmapEffectGroup x:Key="bmeButton">
+			<BevelBitmapEffect/>
+		</BitmapEffectGroup>
+		-->
+	</Window.Resources>
+	<StackPanel Margin="5">
+		<StackPanel Orientation="Horizontal">
+			<!-- A Button without resources
+			<Button Margin="4" Width="120">
+				<Button.Background>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="Red" Offset="0"/>
+						<GradientStop Color="White" Offset="0.5"/>
+						<GradientStop Color="Blue" Offset="1"/>
+					</LinearGradientBrush>
+				</Button.Background>
+				<Button.BitmapEffect>
+					<DropShadowBitmapEffect/>
+				</Button.BitmapEffect>
+				<TextBlock TextAlignment="Center" Margin="4">
+					Traveling<LineBreak/>Salesperson<LineBreak/>Problem
+				</TextBlock>
+			</Button>
+			-->
+			<Button Margin="4" Width="120"
+			 Background="{StaticResource brButton}"
+			 BitmapEffect="{StaticResource bmeButton}">
+				<TextBlock TextAlignment="Center" Margin="4">
+					Traveling<LineBreak/>Salesperson<LineBreak/>Problem
+				</TextBlock>
+			</Button>
+			<Button Margin="4" Width="120"
+			 Background="{StaticResource brButton}"
+			 BitmapEffect="{StaticResource bmeButton}">
+				<TextBlock TextAlignment="Center" Margin="4">
+					Hamiltonian<LineBreak/>Path
+				</TextBlock>
+			</Button>
+			<Button Margin="4" Width="120"
+			 Background="{StaticResource brButton}"
+			 BitmapEffect="{StaticResource bmeButton}">
+				<TextBlock TextAlignment="Center" Margin="4">
+					Max<LineBreak/>Flow
+				</TextBlock>
+			</Button>
+			<Button Margin="4" Width="120"
+			 Background="{StaticResource brButton}"
+			 BitmapEffect="{StaticResource bmeButton}">
+				<TextBlock TextAlignment="Center" Margin="4">
+					Traveling<LineBreak/>Salesperson<LineBreak/>Problem
+				</TextBlock>
+			</Button>
+		</StackPanel>
+		<Canvas Height="200" Width="235" Margin="10">
+			<Canvas.Resources>
+				<Style TargetType="Grid">
+					<Setter Property="Width" Value="20"/>
+					<Setter Property="Height" Value="20"/>
+				</Style>
+				<Style TargetType="Grid" x:Key="styLabelGrid">
+					<Setter Property="Width" Value="30"/>
+					<Setter Property="Height" Value="30"/>
+				</Style>
+				<Style TargetType="Label">
+					<Setter Property="FontSize" Value="16"/>
+					<Setter Property="Margin" Value="-1,-7"/>
+				</Style>
+				<Style x:Key="stySmallLabel" TargetType="Label">
+					<Setter Property="FontSize" Value="10"/>
+					<Setter Property="Margin" Value="-1,-7"/>
+					<Setter Property="HorizontalAlignment" Value="Center"/>
+					<Setter Property="VerticalAlignment" Value="Center"/>
+					<Setter Property="Foreground" Value="Blue"/>
+				</Style>
+				<Style x:Key="styLabelCircle" TargetType="Ellipse">
+					<Setter Property="Width" Value="20"/>
+					<Setter Property="Height" Value="20"/>
+					<Setter Property="Fill" Value="LightBlue"/>
+				</Style>
+				<Style x:Key="styCircle" TargetType="Ellipse">
+					<Setter Property="Width" Value="20"/>
+					<Setter Property="Height" Value="20"/>
+					<Setter Property="Stroke" Value="Black"/>
+					<Setter Property="Fill" Value="White"/>
+				</Style>
+				<Style x:Key="styStart" TargetType="Ellipse" BasedOn="{StaticResource styCircle}">
+					<Setter Property="Stroke" Value="Red"/>
+					<Setter Property="Fill" Value="LightGreen"/>
+				</Style>
+				<Style x:Key="styStop" TargetType="Ellipse" BasedOn="{StaticResource styCircle}">
+					<Setter Property="Stroke" Value="Red"/>
+					<Setter Property="Fill" Value="Pink"/>
+				</Style>
+			</Canvas.Resources>
+
+			<Line X1="10" Y1="85" X2="85" Y2="10" Stroke="Blue" StrokeThickness="3"/>
+			<Line X1="10" Y1="85" X2="85" Y2="60" Stroke="Gray" StrokeThickness="1"/>
+			<Line X1="10" Y1="85" X2="85" Y2="110" Stroke="Blue" StrokeThickness="3"/>
+			<Line X1="10" Y1="85" X2="85" Y2="160" Stroke="Blue" StrokeThickness="3"/>
+
+			<Line X1="85" Y1="10" X2="160" Y2="10" Stroke="Blue" StrokeThickness="3"/>
+			<Line X1="85" Y1="60" X2="160" Y2="10" Stroke="Gray" StrokeThickness="1"/>
+			<Line X1="85" Y1="110" X2="160" Y2="60" Stroke="Blue" StrokeThickness="3"/>
+			<Line X1="85" Y1="110" X2="160" Y2="160" Stroke="Gray" StrokeThickness="1"/>
+			<Line X1="85" Y1="160" X2="160" Y2="110" Stroke="Blue" StrokeThickness="3"/>
+			<Line X1="85" Y1="160" X2="160" Y2="60" Stroke="Gray" StrokeThickness="1"/>
+
+			<Line X1="160" Y1="10" X2="235" Y2="85" Stroke="Blue" StrokeThickness="3"/>
+			<Line X1="160" Y1="60" X2="235" Y2="85" Stroke="Blue" StrokeThickness="3"/>
+			<Line X1="160" Y1="110" X2="235" Y2="85" Stroke="Blue" StrokeThickness="3"/>
+			<Line X1="160" Y1="160" X2="235" Y2="85" Stroke="Gray" StrokeThickness="1"/>
+
+			<Ellipse Canvas.Left="0" Canvas.Top="75" Style="{StaticResource styStart}"/>
+			<Ellipse Canvas.Left="225" Canvas.Top="75" Style="{StaticResource styStop}"/>
+
+			<Grid Canvas.Left="75" Canvas.Top="0">
+				<Ellipse Style="{StaticResource styCircle}"/>
+				<Label Content="A"/>
+			</Grid>
+			<Grid Canvas.Left="75" Canvas.Top="50">
+				<Ellipse Style="{StaticResource styCircle}"/>
+				<Label Content="B"/>
+			</Grid>
+			<Grid Canvas.Left="75" Canvas.Top="100">
+				<Ellipse Style="{StaticResource styCircle}"/>
+				<Label Content="C"/>
+			</Grid>
+			<Grid Canvas.Left="75" Canvas.Top="150">
+				<Ellipse Style="{StaticResource styCircle}"/>
+				<Label Content="D"/>
+			</Grid>
+
+			<Grid Canvas.Left="150" Canvas.Top="0">
+				<Ellipse Style="{StaticResource styCircle}"/>
+				<Label Content="1"/>
+			</Grid>
+			<Grid Canvas.Left="150" Canvas.Top="50">
+				<Ellipse Style="{StaticResource styCircle}"/>
+				<Label Content="2"/>
+			</Grid>
+			<Grid Canvas.Left="150" Canvas.Top="100">
+				<Ellipse Style="{StaticResource styCircle}"/>
+				<Label Content="3"/>
+			</Grid>
+			<Grid Canvas.Left="150" Canvas.Top="150">
+				<Ellipse Style="{StaticResource styCircle}"/>
+				<Label Content="4"/>
+			</Grid>
+
+			<Grid Canvas.Left="30" Canvas.Top="30" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="1/1" Style="{StaticResource stySmallLabel}"/>
+			</Grid>
+			<Grid Canvas.Left="30" Canvas.Top="57" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="0/1" Style="{StaticResource stySmallLabel}" Foreground="Gray"/>
+			</Grid>
+			<Grid Canvas.Left="30" Canvas.Top="80" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="1/1" Style="{StaticResource stySmallLabel}"/>
+			</Grid>
+			<Grid Canvas.Left="30" Canvas.Top="107" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="1/1" Style="{StaticResource stySmallLabel}"/>
+			</Grid>
+
+			<Grid Canvas.Left="105" Canvas.Top="-5" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="1/1" Style="{StaticResource stySmallLabel}"/>
+			</Grid>
+			<Grid Canvas.Left="105" Canvas.Top="20" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="0/1" Style="{StaticResource stySmallLabel}" Foreground="Gray"/>
+			</Grid>
+			<Grid Canvas.Left="105" Canvas.Top="70" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="1/2" Style="{StaticResource stySmallLabel}"/>
+			</Grid>
+			<Grid Canvas.Left="105" Canvas.Top="95" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="0/1" Style="{StaticResource stySmallLabel}" Foreground="Gray"/>
+			</Grid>
+			<Grid Canvas.Left="105" Canvas.Top="120" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="1/1" Style="{StaticResource stySmallLabel}"/>
+			</Grid>
+
+			<Grid Canvas.Left="180" Canvas.Top="30" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="1/1" Style="{StaticResource stySmallLabel}"/>
+			</Grid>
+			<Grid Canvas.Left="180" Canvas.Top="57" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="1/1" Style="{StaticResource stySmallLabel}"/>
+			</Grid>
+			<Grid Canvas.Left="180" Canvas.Top="80" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="1/1" Style="{StaticResource stySmallLabel}"/>
+			</Grid>
+			<Grid Canvas.Left="180" Canvas.Top="107" Style="{StaticResource styLabelGrid}">
+				<Ellipse Style="{StaticResource styLabelCircle}"/>
+				<Label Content="0/1" Style="{StaticResource stySmallLabel}" Foreground="Gray"/>
+			</Grid>
+		</Canvas>
+	</StackPanel>
+</Window>

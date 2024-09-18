@@ -1,0 +1,25 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="FrameApp.Window1"
+	x:Name="Window"
+	Title="FrameApp"
+	Width="640" Height="580"
+    Background="PaleGreen">
+    <StackPanel>
+        <Label FontSize="30" FontWeight="Bold" Content="FrameApp"
+         HorizontalAlignment="Center">
+            <Label.BitmapEffect>
+                <DropShadowBitmapEffect/>
+            </Label.BitmapEffect>
+        </Label>
+        <Frame Name="fraMain" Source="pagMain.xaml" Height="420" Margin="10"/>
+        <Label BorderBrush="Black" BorderThickness="1" FontSize="16"
+         HorizontalAlignment="Center" Margin="10"
+         Content="Use the buttons inside the pages to navigate within the frame.">
+            <Label.BitmapEffect>
+                <DropShadowBitmapEffect/>
+            </Label.BitmapEffect>
+        </Label>
+    </StackPanel>
+</Window>

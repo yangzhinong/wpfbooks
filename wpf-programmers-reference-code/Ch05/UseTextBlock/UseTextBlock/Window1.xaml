@@ -1,0 +1,42 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseTextBlock.Window1"
+	x:Name="Window"
+	Title="UseTextBlock"
+	Width="475" Height="256">
+	<StackPanel>
+		<StackPanel.Background>
+			<RadialGradientBrush>
+				<GradientStop Color="#FFFFFFFF" Offset="0"/>
+				<GradientStop Color="#FF00FFCE" Offset="1"/>
+			</RadialGradientBrush>
+		</StackPanel.Background>
+		<TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+		 FontSize="16" LineHeight="30" Margin="0,0,0,0"
+		 TextWrapping="Wrap" TextTrimming="WordEllipsis"
+		 LineStackingStrategy="BlockLineHeight">
+			The text in a TextBlock can include <Italic>inlines</Italic>
+			that make the text <Bold>bold</Bold>, <Italic>italic</Italic>,
+			or <Underline>underline</Underline>.
+			They can also provide
+			<Hyperlink>hyperlinks</Hyperlink>
+			and can include
+			<LineBreak/>
+			line breaks and even controls such as <Button Content="Buttons"/>.
+			They can include both <Run BaselineAlignment="Superscript" FontSize="12">superscripts</Run>
+			and <Run BaselineAlignment="Subscript" FontSize="12">subscripts</Run>.
+			<LineBreak/>
+			<Run Foreground="Red" FontWeight="Bold">
+				<Run.Background>
+					<LinearGradientBrush>
+						<GradientStop Offset="0" Color="White"/>
+						<GradientStop Offset="1" Color="Orange"/>
+					</LinearGradientBrush>
+				</Run.Background>
+				You can use a Run to give text different properties such as
+				Foreground and Background colors.
+			</Run>
+		</TextBlock>
+	</StackPanel>
+</Window>

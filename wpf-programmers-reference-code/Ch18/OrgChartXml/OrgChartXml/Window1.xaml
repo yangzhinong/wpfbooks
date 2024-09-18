@@ -1,0 +1,310 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="OrgChartXml.Window1"
+	x:Name="Window"
+	Title="OrgChartXaml"
+	Width="640" Height="480"
+    FontSize="14" FontWeight="Bold">
+    <Window.Resources>
+        <!--
+        This version only selects the second Region:
+        <XmlDataProvider x:Key="Regions" XPath="Regions/Region[2]">
+        -->
+        <XmlDataProvider x:Key="Regions" XPath="Regions">
+            <x:XData>
+                <Regions xmlns="">
+                    <Region RegionName="East">
+                        <Department Name="Research &amp; Development Department">
+                            <Manager FirstName="Mindy" LastName="Most" Extension="0001" Title="Manager of OR">
+                                <Employee FirstName="Alice" LastName="Able" Extension="1111"/>
+                                <Employee FirstName="Ben" LastName="Better" Extension="2222"/>
+                            </Manager>
+                            <Manager FirstName="Mark" LastName="Malb" Extension="0002" Title="Manager of XOR">
+                                <Employee FirstName="Cindy" LastName="Cable" Extension="3333"/>
+                                <Employee FirstName="Dudley" LastName="Denver" Extension="4444"/>
+                            </Manager>
+                            <Project Name="ACROBAT" Description="Categorization of company acronyms">
+                                <TeamLead>
+                                    <Employee FirstName="Alice" LastName="Able" Extension="1111"/>
+                                </TeamLead>
+                                <Employee FirstName="Alice" LastName="Able" Extension="1111"/>
+                                <Employee FirstName="Cindy" LastName="Cable" Extension="3333"/>
+                                <Employee FirstName="Dudley" LastName="Denver" Extension="4444"/>
+                            </Project>
+                        </Department>
+                    </Region>
+                    <Region RegionName="Central">
+                        <Department Name="Acronyms &amp; Abbrevs Department">
+                            <Manager FirstName="Macey" LastName="Malin" Extension="0003" Title="Ops Manager">
+                                <Employee FirstName="Erin" LastName="Evener" Extension="5555"/>
+                            </Manager>
+                            <Project Name="ABEND" Description="Research into ending abstruse acronyms">
+                                <TeamLead>
+                                    <Employee FirstName="Erin" LastName="Evener" Extension="5555"/>
+                                </TeamLead>
+                                <Employee FirstName="Erin" LastName="Evener" Extension="5555"/>
+                                <Employee FirstName="Ben" LastName="Better" Extension="2222"/>
+                                <Employee FirstName="Frank" LastName="Fright" Extension="6666"/>
+                            </Project>
+                            <Project Name="ADD" Description="Acronym Design and Development">
+                                <TeamLead>
+                                    <Employee FirstName="Ben" LastName="Better" Extension="2222"/>
+                                </TeamLead>
+                                <Employee FirstName="Ben" LastName="Better" Extension="2222"/>
+                                <Employee FirstName="Cindy" LastName="Cable" Extension="3333"/>
+                                <Employee FirstName="Erin" LastName="Evener" Extension="5555"/>
+                            </Project>
+                        </Department>
+                        <Department Name="Other Stuff Department">
+                            <Manager FirstName="Mike" LastName="Milner" Extension="0004" Title="Director of Direction">
+                                <Employee FirstName="Frank" LastName="Fright" Extension="6666"/>
+                                <Employee FirstName="Alice" LastName="Able" Extension="1111"/>
+                            </Manager>
+                            <Project Name="UNFUG" Description="Unpredictably Functional GUIDs">
+                                <TeamLead>
+                                    <Employee FirstName="Dudley" LastName="Denver" Extension="4444"/>
+                                </TeamLead>
+                                <Employee FirstName="Dudley" LastName="Denver" Extension="4444"/>
+                            </Project>
+                        </Department>
+                    </Region>
+                </Regions>
+            </x:XData>
+        </XmlDataProvider>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="Green" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ********** -->
+        <!-- By Manager -->
+        <!-- ********** -->
+        <Label Grid.Row="0" Grid.Column="0" Content="By Manager"
+         HorizontalAlignment="Center" VerticalAlignment="Center"
+         FontSize="20" Foreground="Green">
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect/>
+            </Label.BitmapEffect>
+        </Label>
+        <TreeView Name="trvByManager" Background="Transparent"
+         Grid.Row="1" Grid.Column="0"
+         ItemsSource="{Binding Source={StaticResource Regions}, XPath=*}">
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="True"/>
+                </Style>
+
+                <!-- Region -->
+                <!-- This also works:
+                    ItemsSource={Binding XPath=Department} -->
+                <HierarchicalDataTemplate
+                 DataType="Region"
+                 ItemsSource="{Binding XPath=*}">
+                    <TextBlock Text="{Binding XPath=@RegionName}" Foreground="Red">
+                        <TextBlock.BitmapEffect>
+                            <OuterGlowBitmapEffect/>
+                        </TextBlock.BitmapEffect>
+                    </TextBlock>
+                </HierarchicalDataTemplate>
+
+                <!-- Department -->
+                <HierarchicalDataTemplate
+                 DataType="Department"
+                 ItemsSource="{Binding XPath=Manager}">
+                    <!-- Only follow Managers, not Projects. -->
+                    <TextBlock Text="{Binding XPath=@Name}" Foreground="Blue"/>
+                </HierarchicalDataTemplate>
+
+                <!-- Manager -->
+                <HierarchicalDataTemplate
+                 DataType="Manager"
+                 ItemsSource="{Binding XPath=*}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.RowSpan="2" Grid.ColumnSpan="2"
+                         RadiusX="5" RadiusY="5"
+                         Stroke="Blue" Fill="LightBlue"/>
+                        <StackPanel Margin="5,0,5,0" Grid.Row="0" Orientation="Horizontal">
+                            <TextBlock Text="{Binding XPath=@Title}"/>
+                        </StackPanel>
+                        <StackPanel Margin="5,0,5,0" Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Text="{Binding XPath=@FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding XPath=@LastName}"/>
+                            <TextBlock Text=" (x"/>
+                            <TextBlock Text="{Binding XPath=@Extension}"/>
+                            <TextBlock Text=")"/>
+                        </StackPanel>
+                    </Grid>
+                </HierarchicalDataTemplate>
+
+                <!-- Project -->
+                <HierarchicalDataTemplate
+                 DataType="Project"
+                 ItemsSource="{Binding XPath=Employee}">
+                    <!-- Don't go to the TeamLead child. -->
+                    <Grid Width="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.RowSpan="3" RadiusX="5" RadiusY="5"
+                         Stroke="Blue" Fill="Goldenrod"/>
+                        <StackPanel Grid.Row="0" Margin="5,0,5,0"
+                         Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="Project "/>
+                            <TextBlock Text="{Binding XPath=@Name}"/>
+                        </StackPanel>
+                        <TextBlock Grid.Row="1" Margin="5,0,5,0" Text="{Binding XPath=@Description}" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Grid.Row="2" Margin="5,0,5,0" Orientation="Horizontal">
+                            <TextBlock Text="Lead: "/>
+                            <TextBlock Text="{Binding XPath=./TeamLead/Employee/@FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding XPath=./TeamLead/Employee/@LastName}"/>
+                        </StackPanel>
+                    </Grid>
+                </HierarchicalDataTemplate>
+
+                <!-- Employee -->
+                <HierarchicalDataTemplate
+                 DataType="Employee"
+                 >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding XPath=@FirstName}"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock Text="{Binding XPath=@LastName}"/>
+                        <TextBlock Text=" (x"/>
+                        <TextBlock Text="{Binding XPath=@Extension}"/>
+                        <TextBlock Text=")"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+
+        <!-- ********** -->
+        <!-- By Project -->
+        <!-- ********** -->
+        <Label Grid.Row="0" Grid.Column="1" Content="By Project"
+         HorizontalAlignment="Center" VerticalAlignment="Center"
+         FontSize="20" Foreground="Green">
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect/>
+            </Label.BitmapEffect>
+        </Label>
+        <TreeView Name="trvByProject" Background="Transparent"
+         Grid.Row="1" Grid.Column="1"
+         ItemsSource="{Binding Source={StaticResource Regions}, XPath=*}">
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="True"/>
+                </Style>
+
+                <!-- Region -->
+                <!-- This also works:
+                    ItemsSource={Binding XPath=Department} -->
+                <HierarchicalDataTemplate
+                 DataType="Region"
+                 ItemsSource="{Binding XPath=*}">
+                    <TextBlock Text="{Binding XPath=@RegionName}" Foreground="Red">
+                        <TextBlock.BitmapEffect>
+                            <OuterGlowBitmapEffect/>
+                        </TextBlock.BitmapEffect>
+                    </TextBlock>
+                </HierarchicalDataTemplate>
+
+                <!-- Department -->
+                <HierarchicalDataTemplate
+                 DataType="Department"
+                 ItemsSource="{Binding XPath=Project}">
+                    <!-- Only follow Projects, not Managers. -->
+                    <TextBlock Text="{Binding XPath=@Name}" Foreground="Blue"/>
+                </HierarchicalDataTemplate>
+
+                <!-- Manager -->
+                <HierarchicalDataTemplate
+                 DataType="Manager"
+                 ItemsSource="{Binding XPath=*}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.RowSpan="2" Grid.ColumnSpan="2"
+                         RadiusX="5" RadiusY="5"
+                         Stroke="Blue" Fill="LightBlue"/>
+                        <StackPanel Margin="5,0,5,0" Grid.Row="0" Orientation="Horizontal">
+                            <TextBlock Text="{Binding XPath=@Title}"/>
+                        </StackPanel>
+                        <StackPanel Margin="5,0,5,0" Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Text="{Binding XPath=@FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding XPath=@LastName}"/>
+                            <TextBlock Text=" (x"/>
+                            <TextBlock Text="{Binding XPath=@Extension}"/>
+                            <TextBlock Text=")"/>
+                        </StackPanel>
+                    </Grid>
+                </HierarchicalDataTemplate>
+
+                <!-- Project -->
+                <HierarchicalDataTemplate
+                 DataType="Project"
+                 ItemsSource="{Binding XPath=Employee}">
+                    <!-- Don't go to the TeamLead child. -->
+                    <Grid Width="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.RowSpan="3" RadiusX="5" RadiusY="5"
+                         Stroke="Blue" Fill="Goldenrod"/>
+                        <StackPanel Grid.Row="0" Margin="5,0,5,0"
+                         Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="Project "/>
+                            <TextBlock Text="{Binding XPath=@Name}"/>
+                        </StackPanel>
+                        <TextBlock Grid.Row="1" Margin="5,0,5,0" Text="{Binding XPath=@Description}" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Grid.Row="2" Margin="5,0,5,0" Orientation="Horizontal">
+                            <TextBlock Text="Lead: "/>
+                            <TextBlock Text="{Binding XPath=./TeamLead/Employee/@FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding XPath=./TeamLead/Employee/@LastName}"/>
+                        </StackPanel>
+                    </Grid>
+                </HierarchicalDataTemplate>
+
+                <!-- Employee -->
+                <HierarchicalDataTemplate
+                 DataType="Employee"
+                 >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding XPath=@FirstName}"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock Text="{Binding XPath=@LastName}"/>
+                        <TextBlock Text=" (x"/>
+                        <TextBlock Text="{Binding XPath=@Extension}"/>
+                        <TextBlock Text=")"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </Grid>
+</Window>

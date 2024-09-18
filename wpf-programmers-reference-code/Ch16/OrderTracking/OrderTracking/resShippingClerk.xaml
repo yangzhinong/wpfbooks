@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib">
+	
+	<!-- Main window -->
+	<LinearGradientBrush x:Key="brWindow" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="Yellow" Offset="0"/>
+		<GradientStop Color="DarkOrange" Offset="1"/>		
+	</LinearGradientBrush>
+	<sys:String x:Key="txtTitle">OrderTracking - Shipping</sys:String>
+
+    <!-- Button visibilities -->
+    <Visibility x:Key="visUnshippedOrders">Visible</Visibility>
+</ResourceDictionary>

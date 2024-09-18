@@ -1,0 +1,41 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="FontWeights.Window1"
+	x:Name="Window"
+	Title="FontWeights"
+	Width="400" Height="400"
+	FontSize="20">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			<GradientStop Color="#FFFFFF00" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<StackPanel Orientation="Horizontal">
+		<StackPanel Margin="10">
+			<Label Height="35" FontFamily="Segoe" Content="Segoe Thin" FontWeight="Thin"/>
+			<Label Height="35" FontFamily="Segoe" Content="Segoe ExtraLight" FontWeight="ExtraLight"/>
+			<Label Height="35" FontFamily="Segoe" Content="Segoe Light" FontWeight="Light"/>
+			<Label Height="35" FontFamily="Segoe" Content="Segoe Normal" FontWeight="Normal"/>
+			<Label Height="35" FontFamily="Segoe" Content="Segoe Medium" FontWeight="Medium"/>
+			<Label Height="35" FontFamily="Segoe" Content="Segoe SemiBold" FontWeight="SemiBold"/>
+			<Label Height="35" FontFamily="Segoe" Content="Segoe Bold" FontWeight="Bold"/>
+			<Label Height="35" FontFamily="Segoe" Content="Segoe ExtraBold" FontWeight="ExtraBold"/>
+			<Label Height="35" FontFamily="Segoe" Content="Segoe Black" FontWeight="Black"/>
+			<Label Height="35" FontFamily="Segoe" Content="Segoe ExtraBlack" FontWeight="ExtraBlack"/>
+		</StackPanel>
+		<StackPanel Margin="10">
+			<Label Height="35" FontFamily="Arial" Content="Arial Thin" FontWeight="Thin"/>
+			<Label Height="35" FontFamily="Arial" Content="Arial ExtraLight" FontWeight="ExtraLight"/>
+			<Label Height="35" FontFamily="Arial" Content="Arial Light" FontWeight="Light"/>
+			<Label Height="35" FontFamily="Arial" Content="Arial Normal" FontWeight="Normal"/>
+			<Label Height="35" FontFamily="Arial" Content="Arial Medium" FontWeight="Medium"/>
+			<Label Height="35" FontFamily="Arial" Content="Arial SemiBold" FontWeight="SemiBold"/>
+			<Label Height="35" FontFamily="Arial" Content="Arial Bold" FontWeight="Bold"/>
+			<Label Height="35" FontFamily="Arial" Content="Arial ExtraBold" FontWeight="ExtraBold"/>
+			<Label Height="35" FontFamily="Arial" Content="Arial Black" FontWeight="Black"/>
+			<Label Height="35" FontFamily="Arial" Content="Arial ExtraBlack" FontWeight="ExtraBlack"/>
+		</StackPanel>
+	</StackPanel>
+</Window>

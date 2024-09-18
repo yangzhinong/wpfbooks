@@ -1,0 +1,30 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="MagnifiedLines.Window1"
+	x:Name="Window"
+	Title="MagnifiedLines"
+	Width="340" Height="200" Background="PaleGreen">
+	<StackPanel>
+		<Viewbox Stretch="Uniform" Height="20" Width="300" Margin="10,10,10,0">
+			<Line X1="0" Y1="0" X2="300" Y2="0" Stroke="Blue"
+			 StrokeDashArray="3" StrokeDashCap="Triangle"/>
+		</Viewbox>
+		<Viewbox Stretch="Uniform" Height="20" Width="300" Margin="10,10,10,0">
+			<Line X1="0" Y1="0" X2="150" Y2="0" Stroke="Blue"
+			 StrokeDashArray="3" StrokeDashCap="Triangle"/>
+		</Viewbox>
+		<Viewbox Stretch="Uniform" Height="20" Width="300" Margin="10,10,10,0">
+			<Line X1="0" Y1="0" X2="75" Y2="0" Stroke="Blue"
+			 StrokeDashArray="3" StrokeDashCap="Triangle"/>
+		</Viewbox>
+		<Viewbox Stretch="Uniform" Height="20" Width="300" Margin="10,10,10,0">
+			<Line X1="0" Y1="0" X2="37.5" Y2="0" Stroke="Blue"
+			 StrokeDashArray="3" StrokeDashCap="Triangle"/>
+		</Viewbox>
+		<Viewbox Stretch="Uniform" Height="20" Width="300" Margin="10,10,10,0">
+			<Line X1="0" Y1="0" X2="18.75" Y2="0" Stroke="Blue"
+			 StrokeDashArray="3" StrokeDashCap="Triangle"/>
+		</Viewbox>
+	</StackPanel>
+</Window>

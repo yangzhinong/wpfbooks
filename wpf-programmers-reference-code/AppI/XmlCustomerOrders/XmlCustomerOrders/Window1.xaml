@@ -1,0 +1,343 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="XmlCustomerOrders.Window1"
+	x:Name="Window"
+	Title="XmlCustomerOrders"
+	Width="450" Height="300"
+	Background="LightGray">
+    <Window.Resources>
+		<!-- Customers/Customer/Order/Item data -->
+        <XmlDataProvider x:Key="customers" XPath="Customers">
+            <x:XData>
+				<Customers xmlns="">
+					<Customer CustName="Bob Farkle">
+						<Order OrderDate="4/1/2010">
+							<Item Quantity="12" UnitPrice="0.10">Pencils</Item>
+							<Item Quantity="3" UnitPrice="0.95">Notepad</Item>
+							<Item Quantity="1" UnitPrice="3.99">Cookies, Dozen</Item>
+						</Order>
+					</Customer>
+					<Customer CustName="Edwin Cumberbund">
+						<Order OrderDate="4/13/2010">
+							<Item Quantity="6" UnitPrice="0.10">Pencils</Item>
+							<Item Quantity="6" UnitPrice="1.40">Green Tea</Item>
+							<Item Quantity="1" UnitPrice="39.95">Book</Item>
+							<Item Quantity="1" UnitPrice="8.95">Book Light</Item>
+						</Order>
+						<Order OrderDate="5/1/2010">
+							<Item Quantity="1" UnitPrice="6.99">Napkins</Item>
+							<Item Quantity="1" UnitPrice="13.95">Rechargeable Batteries</Item>
+						</Order>
+					</Customer>
+					<Customer CustName="Emily Pickle">
+						<Order OrderDate="4/1/2010">
+							<Item Quantity="1" UnitPrice="13.95">Rechargeable Batteries</Item>
+							<Item Quantity="2" UnitPrice="2.99">Duct Tape</Item>
+						</Order>
+                        <Order OrderDate="4/26/2010">
+                            <Item Quantity="3" UnitPrice="1.90">Highlighter</Item>
+                            <Item Quantity="1" UnitPrice="499.90">1 PB Flash Drive</Item>
+                            <Item Quantity="2" UnitPrice="0.10">Pencils</Item>
+                        </Order>
+                        <Order OrderDate="4/27/2010">
+                            <Item Quantity="1" UnitPrice="1.25">Soda</Item>
+                        </Order>
+                    </Customer>
+				</Customers>
+            </x:XData>
+		</XmlDataProvider>
+    </Window.Resources>
+
+	<ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+	    <StackPanel>
+			<StackPanel.Resources>
+				<Style TargetType="Expander">
+					<Setter Property="FontWeight" Value="Bold"/>
+				</Style>
+			</StackPanel.Resources>
+
+			<Expander Header="All Orders">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Order"/>
+<!--
+Alternative version:
+						<Binding Source="{StaticResource customers}"
+						 XPath="/Customers/Customer/Order"/>
+-->
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="Ordered on "/>
+					        	<TextBlock Text="{Binding XPath=@OrderDate}" FontWeight="Bold"/>
+								<TextBlock Text=" by "/>
+					        	<TextBlock Text="{Binding XPath=../@CustName}" FontWeight="Bold"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="Orders placed on 4/1/2010">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Order[@OrderDate='4/1/2010']"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="Ordered on "/>
+					        	<TextBlock Text="{Binding XPath=@OrderDate}" FontWeight="Bold"/>
+								<TextBlock Text=" by "/>
+					        	<TextBlock Text="{Binding XPath=../@CustName}" FontWeight="Bold"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="Items ordered on 4/1/2010">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Order[@OrderDate='4/1/2010']//Item"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@Quantity}"/>
+								<TextBlock Text=" "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=.}"/>
+								<TextBlock Text=" ordered on "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=../@OrderDate}"/>
+								<TextBlock Text=" by "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=../../@CustName}"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="Orders by Bob Farkle and Emily Pickle">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Customer[@CustName='Bob Farkle']/Order |
+						 	    //Customer[@CustName='Emily Pickle']/Order"/>
+<!--
+Alternative version:
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Order[../@CustName='Bob Farkle'] |
+						 	    //Order[../@CustName='Emily Pickle'] "/>
+-->
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="Ordered on "/>
+					        	<TextBlock Text="{Binding XPath=@OrderDate}" FontWeight="Bold"/>
+								<TextBlock Text=" by "/>
+					        	<TextBlock Text="{Binding XPath=../@CustName}" FontWeight="Bold"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="All Items">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Item"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@Quantity}"/>
+								<TextBlock Text=" "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=.}"/>
+								<TextBlock Text=" ordered on "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=../@OrderDate}"/>
+								<TextBlock Text=" by "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=../../@CustName}"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="Pencil items">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Item[.='Pencils']"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@Quantity}"/>
+								<TextBlock Text=" "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=.}"/>
+								<TextBlock Text=" ordered on "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=../@OrderDate}"/>
+								<TextBlock Text=" by "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=../../@CustName}"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="Orders containing pencils">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Order[Item='Pencils']"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@OrderDate}"/>
+								<TextBlock Text=" ordered by "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=../@CustName}"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="Items costing more than $5.00">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Item[@UnitPrice>5.00]"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=.}"/>
+								<TextBlock Text=" ordered by "/>
+					        	<TextBlock Text="{Binding XPath=../../@CustName}" FontWeight="Bold"/>
+								<TextBlock Text=" for $"/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@UnitPrice}"/>
+								<TextBlock Text=" each"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="Total costs over $5.00">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Item[@Quantity * @UnitPrice > 5]"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=.}"/>
+								<TextBlock Text=": "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@Quantity}"/>
+								<TextBlock Text=" * $"/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@UnitPrice}"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="floor(Total costs) > $8.00">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Item[floor(@Quantity * @UnitPrice) > 8]"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=.}"/>
+								<TextBlock Text=": "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@Quantity}"/>
+								<TextBlock Text=" * $"/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@UnitPrice}"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="Item contains 'p' or 'P'">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Item[contains(translate(.,'P','p'),'p')]"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=@Quantity}"/>
+								<TextBlock Text=" "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=.}"/>
+								<TextBlock Text=" ordered on "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=../@OrderDate}"/>
+								<TextBlock Text=" by "/>
+					        	<TextBlock FontWeight="Bold"
+								 Text="{Binding XPath=../../@CustName}"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+			<Expander Header="Orders with more than 2 items">
+				<ListBox>
+					<ListBox.ItemsSource>
+						<Binding Source="{StaticResource customers}"
+						 XPath="//Order[count(Item)>2]"/>
+					</ListBox.ItemsSource>
+					<ListBox.ItemTemplate>
+				    	<DataTemplate>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="Ordered on "/>
+					        	<TextBlock Text="{Binding XPath=@OrderDate}" FontWeight="Bold"/>
+								<TextBlock Text=" by "/>
+					        	<TextBlock Text="{Binding XPath=../@CustName}" FontWeight="Bold"/>
+							</StackPanel>
+				    	</DataTemplate>
+				    </ListBox.ItemTemplate>
+				</ListBox>
+			</Expander>
+
+	    </StackPanel>
+	</ScrollViewer>
+</Window>

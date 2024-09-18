@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrokeMiterLimits", "StrokeMiterLimits\StrokeMiterLimits.csproj", "{B7DA1D6E-F3C2-45D8-B8EA-22B70E4528ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7DA1D6E-F3C2-45D8-B8EA-22B70E4528ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7DA1D6E-F3C2-45D8-B8EA-22B70E4528ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7DA1D6E-F3C2-45D8-B8EA-22B70E4528ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7DA1D6E-F3C2-45D8-B8EA-22B70E4528ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

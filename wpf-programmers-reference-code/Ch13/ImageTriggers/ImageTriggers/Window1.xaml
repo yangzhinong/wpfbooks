@@ -1,0 +1,112 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ImageTriggers.Window1"
+	x:Name="Window"
+	Title="ImageTriggers"
+	Width="770" Height="290">
+	<Window.Background>
+		<RadialGradientBrush>
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="Blue" Offset="1"/>
+		</RadialGradientBrush>
+	</Window.Background>
+	<Window.Resources>
+		<Style TargetType="StackPanel">
+			<Setter Property="Margin" Value="10"/>
+		</Style>
+		<Style x:Key="BannerStyle" TargetType="FrameworkElement">
+			<Setter Property="Width" Value="300"/>
+			<Setter Property="Height" Value="50"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+		</Style>
+		<Style x:Key="BannerRectStyle" TargetType="Rectangle" BasedOn="{StaticResource BannerStyle}">
+			<Setter Property="RadiusX" Value="10"/>
+			<Setter Property="RadiusY" Value="10"/>
+			<Setter Property="StrokeThickness" Value="5"/>
+			<Setter Property="Fill">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="White" Offset="0"/>
+						<GradientStop Color="Blue" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Stroke">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="#FF8080FF" Offset="0"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="BannerLabelStyle" TargetType="Label" BasedOn="{StaticResource BannerStyle}">
+			<Setter Property="FontSize" Value="30"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		</Style>
+		<Style TargetType="Image">
+			<Setter Property="Width" Value="120"/>
+			<Setter Property="Height" Value="100"/>
+			<Setter Property="Stretch" Value="Uniform"/>
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<DropShadowBitmapEffect/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style x:Key="ImageLabelStyle" TargetType="Label">
+			<Setter Property="FontSize" Value="20"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<OuterGlowBitmapEffect GlowColor="White"/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<ScaleTransform x:Key="BigScale" ScaleX="1.1" ScaleY="1.1"/>
+		<Style x:Key="DepartmentStackPanel" TargetType="StackPanel">
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="Opacity" Value="0.5"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Style.Triggers>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Opacity" Value="1"/>
+					<Setter Property="LayoutTransform" Value="{StaticResource BigScale}"/>
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+	</Window.Resources>
+	<StackPanel>
+		<Grid HorizontalAlignment="Center">
+			<Rectangle Style="{StaticResource BannerRectStyle}"/>
+			<Label Style="{StaticResource BannerLabelStyle}" Content="Departments"/>
+		</Grid>
+		<StackPanel Orientation="Horizontal">
+			<StackPanel Style="{StaticResource DepartmentStackPanel}">
+				<Image Source="Biology.jpg" />
+				<Label Style="{StaticResource ImageLabelStyle}" Content="Biology"/>
+			</StackPanel>
+			<StackPanel Style="{StaticResource DepartmentStackPanel}">
+				<Image Source="Chemistry.jpg" />
+				<Label Style="{StaticResource ImageLabelStyle}" Content="Chemistry"/>
+			</StackPanel>
+			<StackPanel Style="{StaticResource DepartmentStackPanel}">
+				<Image Source="Mathematics.jpg" />
+				<Label Style="{StaticResource ImageLabelStyle}" Content="Mathematics"/>
+			</StackPanel>
+			<StackPanel Style="{StaticResource DepartmentStackPanel}">
+				<Image Source="Physics.jpg" />
+				<Label Style="{StaticResource ImageLabelStyle}" Content="Physics"/>
+			</StackPanel>
+			<StackPanel Style="{StaticResource DepartmentStackPanel}">
+				<Image Source="Engineering.jpg" />
+				<Label Style="{StaticResource ImageLabelStyle}" Content="Engineering"/>
+			</StackPanel>
+		</StackPanel>
+	</StackPanel>
+</Window>

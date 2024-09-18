@@ -1,0 +1,28 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="RadialCenter.Window1"
+	x:Name="Window"
+	Title="RadialCenter"
+	Height="260" Width="340">
+	<Canvas>
+		<Canvas Margin="10">
+			<Ellipse Width="300" Height="200">
+				<Ellipse.Fill>
+					<RadialGradientBrush MappingMode="Absolute"
+					 GradientOrigin="75,50" Center="200,100"
+					 RadiusX="100" RadiusY="50">
+						<GradientStop Offset="0" Color="White"/>
+						<GradientStop Offset="1" Color="Black"/>
+					</RadialGradientBrush>
+				</Ellipse.Fill>
+			</Ellipse>
+			<Ellipse Canvas.Left="75" Canvas.Top="50" Margin="-5"
+			 Width="10" Height="10" Stroke="Black" Fill="White"/>
+			<Ellipse Canvas.Left="200" Canvas.Top="100" Margin="-5"
+			 Width="10" Height="10" Stroke="Black" Fill="White"/>
+			<Ellipse Canvas.Left="150" Canvas.Top="100" Margin="-50,-50,0,0"
+			 Width="200" Height="100" Stroke="White" StrokeDashArray="6" />
+		</Canvas>
+	</Canvas>
+</Window>

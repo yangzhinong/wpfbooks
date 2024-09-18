@@ -1,0 +1,81 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="BitmapEffects.Window1"
+	x:Name="Window"
+	Title="BitmapEffects"
+	Width="400" Height="320"
+	FontSize="16" FontWeight="Bold" Background="Silver">
+	<Window.Resources>
+		<Style TargetType="Label">
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		</Style>
+	</Window.Resources>
+	<UniformGrid Rows="2" Columns="3" Margin="5">
+		<StackPanel>
+			<Image Source="Volleyball.png" Stretch="Uniform" Height="90"/>
+			<Label Content="Original" Background="Silver"/>
+		</StackPanel>
+		<StackPanel>
+			<Image Source="Volleyball.png" Stretch="Uniform" Height="90">
+				<Image.BitmapEffect>
+					<BevelBitmapEffect/>
+				</Image.BitmapEffect>
+			</Image>
+			<Label Content="Bevel" Width="60" Height="35" Background="Silver">
+				<Label.BitmapEffect>
+					<BevelBitmapEffect/>
+				</Label.BitmapEffect>
+			</Label>
+		</StackPanel>
+		<StackPanel>
+			<Image Source="Volleyball.png" Stretch="Uniform" Height="90">
+				<Image.BitmapEffect>
+					<BlurBitmapEffect/>
+				</Image.BitmapEffect>
+			</Image>
+			<Label Content="Blur">
+				<Label.BitmapEffect>
+					<BlurBitmapEffect/>
+				</Label.BitmapEffect>
+			</Label>
+		</StackPanel>
+		<StackPanel>
+			<Image Source="Volleyball.png" Stretch="Uniform" Height="90">
+				<Image.BitmapEffect>
+					<DropShadowBitmapEffect/>
+				</Image.BitmapEffect>
+			</Image>
+			<Label Content="Drop Shadow">
+				<Label.BitmapEffect>
+					<DropShadowBitmapEffect/>
+				</Label.BitmapEffect>
+			</Label>
+		</StackPanel>
+		<StackPanel>
+			<Image Source="Volleyball.png" Stretch="Uniform" Height="90">
+				<Image.BitmapEffect>
+					<EmbossBitmapEffect/>
+				</Image.BitmapEffect>
+			</Image>
+			<Label Content="Emboss" Background="Silver">
+				<Label.BitmapEffect>
+					<EmbossBitmapEffect Relief="1"/>
+				</Label.BitmapEffect>
+			</Label>
+		</StackPanel>
+		<StackPanel>
+			<Image Source="Volleyball.png" Stretch="Uniform" Height="90">
+				<Image.BitmapEffect>
+					<OuterGlowBitmapEffect GlowSize="10" GlowColor="White"/>
+				</Image.BitmapEffect>
+			</Image>
+			<Label Content="Outer Glow">
+				<Label.BitmapEffect>
+					<OuterGlowBitmapEffect GlowSize="10" GlowColor="White"/>
+				</Label.BitmapEffect>
+			</Label>
+		</StackPanel>
+	</UniformGrid>
+</Window>

@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InheritedStyles", "InheritedStyles\InheritedStyles.csproj", "{97166800-DC8B-4D90-9BD5-2F9BDB22493C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97166800-DC8B-4D90-9BD5-2F9BDB22493C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97166800-DC8B-4D90-9BD5-2F9BDB22493C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97166800-DC8B-4D90-9BD5-2F9BDB22493C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97166800-DC8B-4D90-9BD5-2F9BDB22493C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

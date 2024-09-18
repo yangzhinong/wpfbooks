@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysDataTypes", "SysDataTypes\SysDataTypes.csproj", "{DC95A4CB-09DB-4F0B-8709-F15125C7C51F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC95A4CB-09DB-4F0B-8709-F15125C7C51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC95A4CB-09DB-4F0B-8709-F15125C7C51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC95A4CB-09DB-4F0B-8709-F15125C7C51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC95A4CB-09DB-4F0B-8709-F15125C7C51F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

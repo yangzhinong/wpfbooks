@@ -1,0 +1,65 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ContextMenuResource.Window1"
+	x:Name="Window"
+	Title="ContextMenuResource"
+	Width="570" Height="200"
+	FontSize="16" FontWeight="Bold"
+    Background="LightBlue">
+
+	<Window.Resources>
+		<ContextMenu x:Key="ctxPerson">
+			<MenuItem Header="Details" Click="mnuDetails_Click"/>
+			<MenuItem Header="Email" Click="mnuEmail_Click"/>
+			<MenuItem Header="Phone" Click="mnuPhone_Click"/>
+			<Separator/>
+			<MenuItem Header="Delete" Click="mnuDelete_Click"/>
+		</ContextMenu>
+		<BitmapEffectGroup x:Key="bmePerson">
+			<DropShadowBitmapEffect/>
+		</BitmapEffectGroup>
+	</Window.Resources>
+	<WrapPanel Margin="0,10">
+        <StackPanel Margin="5">
+            <Image Name="imgClaude" Width="100" Height="100" Stretch="Uniform"
+             MouseDown="img_MouseDown"
+             Source="Claude.jpg" Tag="Claude"
+			 BitmapEffect="{StaticResource bmePerson}"
+			 ContextMenu="{StaticResource ctxPerson}"/>
+            <Label HorizontalAlignment="Center" Content="Claude"/>
+        </StackPanel>
+        <StackPanel Margin="5">
+            <Image Name="imgErin" Width="100" Height="100" Stretch="Uniform"
+             MouseDown="img_MouseDown"
+             Source="Erin.jpg" Tag="Erin"
+			 BitmapEffect="{StaticResource bmePerson}"
+			 ContextMenu="{StaticResource ctxPerson}"/>
+            <Label HorizontalAlignment="Center" Content="Erin"/>
+        </StackPanel>
+        <StackPanel Margin="5">
+            <Image Name="imgKarl" Width="100" Height="100" Stretch="Uniform"
+             MouseDown="img_MouseDown"
+             Source="Karl.jpg" Tag="Karl"
+			 BitmapEffect="{StaticResource bmePerson}"
+			 ContextMenu="{StaticResource ctxPerson}"/>
+            <Label HorizontalAlignment="Center" Content="Karl"/>
+        </StackPanel>
+        <StackPanel Margin="5">
+            <Image Name="imgKeith" Width="100" Height="100" Stretch="Uniform"
+             MouseDown="img_MouseDown"
+             Source="Keith.jpg" Tag="Keith"
+			 BitmapEffect="{StaticResource bmePerson}"
+			 ContextMenu="{StaticResource ctxPerson}"/>
+            <Label HorizontalAlignment="Center" Content="Keith"/>
+        </StackPanel>
+        <StackPanel Margin="5">
+            <Image Name="imgMatt" Width="100" Height="100" Stretch="Uniform"
+             MouseDown="img_MouseDown"
+             Source="Matt.jpg" Tag="Matt"
+			 BitmapEffect="{StaticResource bmePerson}"
+			 ContextMenu="{StaticResource ctxPerson}"/>
+            <Label HorizontalAlignment="Center" Content="Matt"/>
+        </StackPanel>
+    </WrapPanel>
+</Window>

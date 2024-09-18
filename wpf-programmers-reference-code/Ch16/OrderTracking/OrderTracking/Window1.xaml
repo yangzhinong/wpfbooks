@@ -1,0 +1,58 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="OrderTracking.Window1"
+	x:Name="Window"
+	SizeToContent="WidthAndHeight"
+	Width="275" Height="360"
+	ResizeMode="NoResize">
+	<!-- Load skin resources -->
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="resBasics.xaml"/>
+                <!--
+				<ResourceDictionary Source="resBillingClerk.xaml"/>
+				<ResourceDictionary Source="resOrderEntry.xaml"/>
+				<ResourceDictionary Source="resShippingClerk.xaml"/>
+                <ResourceDictionary Source="resManager.xaml"/>
+                -->
+                <ResourceDictionary Source="resManager.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+
+	<!-- Set window properties from resources -->
+	<Window.Background>
+		<StaticResource ResourceKey="brWindow"/>
+	</Window.Background>
+	<Window.FontFamily>
+		<StaticResource ResourceKey="ffWindow"/>
+	</Window.FontFamily>
+	<Window.FontSize>
+		<StaticResource ResourceKey="fsWindow"/>
+	</Window.FontSize>
+	<Window.FontWeight>
+		<StaticResource ResourceKey="fwWindow"/>
+	</Window.FontWeight>
+	<Window.Title>
+		<StaticResource ResourceKey="txtTitle"/>
+	</Window.Title>
+
+	<StackPanel Margin="10">
+		<Button Content="Unshipped Orders" Click="btnUnshippedOrders_Click"
+		 Visibility="{StaticResource visUnshippedOrders}"/>
+		<Button Content="Find Customer" Click="btnFindCustomer_Click"
+		 Visibility="{StaticResource visFindCustomer}"/>
+		<Button Content="Create Order" Click="btnCreateOrder_Click"
+		 Visibility="{StaticResource visCreateOrder}"/>
+		<Button Content="Track Order" Click="btnTrackOrder_Click"
+		 Visibility="{StaticResource visTrackOrder}"/>
+
+		<Label Height="20"
+		 Visibility="{StaticResource visSystemMaintenance}"/>
+		<Button Content="System Maintenance" Click="btnSystemMaintenance_Click"
+		 Foreground="Red" Height="40"
+		 Visibility="{StaticResource visSystemMaintenance}"/>
+	</StackPanel>
+</Window>

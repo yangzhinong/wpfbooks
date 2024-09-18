@@ -1,0 +1,93 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ControlMedia.Window1"
+	x:Name="Window"
+	Title="ControlMedia"
+	Width="500" Height="400"
+	FontSize="16" FontWeight="Bold"
+    Loaded="Window1_Loaded">
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top" Background="LightBlue">
+            <ToolBar Height="70" Background="LightBlue">
+                <Button Template="{StaticResource temEllipseButton}" Margin="5" IsEnabled="True"
+                 Name="btnRewind" Click="btnRewind_Click" ToolTip="-5 seconds">
+                    <Canvas Width="100" Height="100">
+                        <Polyline Points="75,20 45,50 75,80" Stroke="Blue" StrokeThickness="15"
+						 StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+						 StrokeLineJoin="Round"/>
+                        <Polyline Points="40,20 10,50 40,80" Stroke="Blue" StrokeThickness="15"
+						 StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+						 StrokeLineJoin="Round"/>
+                    </Canvas>
+                </Button>
+                <Separator/>
+                <Button Template="{StaticResource temEllipseButton}" Margin="5" IsEnabled="True"
+                 Name="btnPlay" Click="btnPlay_Click" ToolTip="Play">
+                    <Canvas Width="100" Height="100">
+                        <Polyline Points="30,20 80,50 30,80" Stroke="Blue" StrokeThickness="15"
+						 StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+						 StrokeLineJoin="Round"/>
+                    </Canvas>
+                </Button>
+                <Button Template="{StaticResource temEllipseButton}" Margin="5" IsEnabled="True"
+                 Name="btnPause" Click="btnPause_Click" ToolTip="Pause">
+                    <Canvas Width="100" Height="100">
+                        <Line X1="35" Y1="20" X2="35" Y2="80" Stroke="Blue" StrokeThickness="15"
+						 StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                        <Line X1="65" Y1="20" X2="65" Y2="80" Stroke="Blue" StrokeThickness="15"
+						 StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                    </Canvas>
+                </Button>
+                <Button Template="{StaticResource temEllipseButton}" Margin="5" IsEnabled="True"
+                 Name="btnStop" Click="btnStop_Click" ToolTip="Stop">
+                    <Canvas Width="100" Height="100">
+                        <Rectangle Margin="20" Width="60" Height="60" Fill="Blue" StrokeThickness="15"
+						 RadiusX="7.5" RadiusY="7.5"/>
+                    </Canvas>
+                </Button>
+                <Separator/>
+                <Button Template="{StaticResource temEllipseButton}" Margin="5" IsEnabled="True"
+                 Name="btnForward" Click="btnForward_Click" ToolTip="+5 seconds">
+                    <Canvas Width="100" Height="100">
+                        <Polyline Points="25,20 55,50 25,80" Stroke="Blue" StrokeThickness="15"
+						 StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+						 StrokeLineJoin="Round"/>
+                        <Polyline Points="60,20 90,50 60,80" Stroke="Blue" StrokeThickness="15"
+						 StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+						 StrokeLineJoin="Round"/>
+                    </Canvas>
+                </Button>
+                <Button Template="{StaticResource temEllipseButton}" Margin="5" IsEnabled="True"
+                 Name="btnBookmark" Click="btnBookmark_Click" ToolTip="Bookmark">
+                    <Canvas Width="100" Height="100">
+                        <Line X1="50" Y1="20" X2="50" Y2="80" Stroke="Blue" StrokeThickness="15"
+						 StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                        <Line X1="20" Y1="50" X2="80" Y2="50" Stroke="Blue" StrokeThickness="15"
+						 StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                    </Canvas>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
+        <DockPanel>
+            <DockPanel.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="LightBlue" Offset="0"/>
+                    <GradientStop Color="Blue" Offset="1"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <StackPanel DockPanel.Dock="Left">
+                <MediaElement Name="mmBear" Width="320" Height="240" Margin="10"
+			     Source="Bear.wmv" Stretch="Uniform" LoadedBehavior="Manual"
+                 ScrubbingEnabled="True"
+                 MediaOpened="mmBear_MediaOpened"/>
+                <ScrollBar Name="scrProgress" Margin="10,2,10,2" Orientation="Horizontal"
+                 Scroll="scrPosition_Scroll"/>
+            </StackPanel>
+            <ListBox Name="lstBookmarks" Margin="0,10,10,10"
+             Background="Transparent" BorderBrush="Black"
+             SelectionChanged="lstBookmarks_SelectionChanged"/>
+        </DockPanel>
+    </DockPanel>
+</Window>

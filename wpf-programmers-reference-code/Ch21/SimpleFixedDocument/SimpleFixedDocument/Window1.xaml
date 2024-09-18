@@ -1,0 +1,56 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="SimpleFixedDocument.Window1"
+	x:Name="Window"
+	Title="SimpleFixedDocument"
+	Width="300" Height="400">
+    <Window.Resources>
+        <Style x:Key="styLabel" TargetType="Label">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="60"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+	<DocumentViewer Background="Pink">
+		<FixedDocument>
+			<PageContent Width="850" Height="1100">
+				<FixedPage>
+					<Grid Margin="100" Width="650" Height="900" Background="LightBlue">
+						<Ellipse Stroke="Green" Fill="Orange" StrokeThickness="10" />
+						<Label Content="Ellipse" Style="{StaticResource styLabel}"/>
+					</Grid>
+				</FixedPage>
+			</PageContent>
+			<PageContent Width="850" Height="1100">
+				<FixedPage>
+					<Grid Margin="100" Width="650" Height="900" Background="LightBlue">
+						<Rectangle Stroke="Blue" Fill="Yellow" StrokeThickness="10" />
+						<Label Content="Rectangle" Style="{StaticResource styLabel}"/>
+					</Grid>
+				</FixedPage>
+			</PageContent>
+			<PageContent Width="850" Height="1100">
+				<FixedPage>
+					<Grid Margin="100" Width="650" Height="900" Background="Yellow">
+						<Polygon Stroke="Red" Fill="LightBlue" StrokeThickness="10"
+						 Points="325,0 650,900 0,900" />
+						<Label Content="Triangle" Style="{StaticResource styLabel}"/>
+					</Grid>
+				</FixedPage>
+			</PageContent>
+			<PageContent Width="850" Height="1100">
+				<FixedPage>
+					<Grid Margin="100" Width="650" Height="900" Background="Orange">
+						<Polygon Stroke="Red" Fill="Pink" StrokeThickness="10"
+						 Points="325,0 650,450 325,900 0,450" />
+						<Label Content="Diamond" Style="{StaticResource styLabel}"/>
+					</Grid>
+				</FixedPage>
+			</PageContent>
+		</FixedDocument>
+	</DocumentViewer>
+</Window>

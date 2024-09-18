@@ -1,0 +1,199 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Zoom.Window1"
+	x:Name="Window"
+	Title="Zoom"
+	Width="456" Height="260">
+	<Window.Resources>
+	    <Style x:Key="OuterCanvasStyle" TargetType="{x:Type Canvas}">
+	        <Setter Property="Background">
+				<Setter.Value>
+			        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			        	<GradientStop Color="#FF80FF80" Offset="0"/>
+			        	<GradientStop Color="#FF00A000" Offset="1"/>
+			        </LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Width" Value="100" />
+			<Setter Property="Height" Value="100" />
+			<Setter Property="Margin" Value="5" />
+			<Setter Property="ClipToBounds" Value="True" />
+		</Style>
+	</Window.Resources>
+
+	<StackPanel>
+		<StackPanel.Background>
+			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+				<GradientStop Color="#FFFFFFFF" Offset="0"/>
+				<GradientStop Color="#FFFF0000" Offset="1"/>
+			</LinearGradientBrush>
+		</StackPanel.Background>
+
+		<!-- Vector drawn smiley face. -->
+		<WrapPanel>
+			<Canvas>
+		    	<Canvas.Style>
+		    		<StaticResource ResourceKey="OuterCanvasStyle"/>
+		    	</Canvas.Style>
+				<Canvas>
+					<Canvas.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="0" Y="0" />
+							<ScaleTransform ScaleX="1" ScaleY="1" />
+						</TransformGroup>
+					</Canvas.RenderTransform>
+					<Ellipse Width="99" Height="99" Stroke="Red" Fill="Yellow" />
+					<Ellipse Width="20" Height="30" Stroke="Blue" Fill="LightBlue" Canvas.Left="40" Canvas.Top="40" />
+					<Path Canvas.Left="20" Canvas.Top="60"
+	      			 Data="M 0,0 A 30,25 0 0 0 60,0 "
+	            	 Stroke="Black" />
+					<Ellipse Width="20" Height="30" Stroke="Black" Fill="White" Canvas.Left="20" Canvas.Top="15" />
+					<Ellipse Width="10" Height="15" Stroke="Black" Fill="Black" Canvas.Left="30" Canvas.Top="25" />
+					<Ellipse Width="20" Height="30" Stroke="Black" Fill="White" Canvas.Left="60" Canvas.Top="15" />
+					<Ellipse Width="10" Height="15" Stroke="Black" Fill="Black" Canvas.Left="70" Canvas.Top="25" />
+				</Canvas>
+				<Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" />
+			</Canvas>
+			<Canvas>
+		    	<Canvas.Style>
+		    		<StaticResource ResourceKey="OuterCanvasStyle"/>
+		    	</Canvas.Style>
+				<Canvas>
+					<Canvas.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="-40" Y="-40" />
+							<ScaleTransform ScaleX="2" ScaleY="2" />
+							<TranslateTransform X="40" Y="40" />
+						</TransformGroup>
+					</Canvas.RenderTransform>
+					<Ellipse Width="99" Height="99" Stroke="Red" Fill="Yellow" />
+					<Ellipse Width="20" Height="30" Stroke="Blue" Fill="LightBlue" Canvas.Left="40" Canvas.Top="40" />
+					<Path Canvas.Left="20" Canvas.Top="60"
+	      			 Data="M 0,0 A 30,25 0 0 0 60,0 "
+	            	 Stroke="Black" />
+					<Ellipse Width="20" Height="30" Stroke="Black" Fill="White" Canvas.Left="20" Canvas.Top="15" />
+					<Ellipse Width="10" Height="15" Stroke="Black" Fill="Black" Canvas.Left="30" Canvas.Top="25" />
+					<Ellipse Width="20" Height="30" Stroke="Black" Fill="White" Canvas.Left="60" Canvas.Top="15" />
+					<Ellipse Width="10" Height="15" Stroke="Black" Fill="Black" Canvas.Left="70" Canvas.Top="25" />
+				</Canvas>
+				<Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" />
+			</Canvas>
+			<Canvas>
+		    	<Canvas.Style>
+		    		<StaticResource ResourceKey="OuterCanvasStyle"/>
+		    	</Canvas.Style>
+				<Canvas>
+					<Canvas.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="-40" Y="-40" />
+							<ScaleTransform ScaleX="4" ScaleY="4" />
+							<TranslateTransform X="40" Y="40" />
+						</TransformGroup>
+					</Canvas.RenderTransform>
+					<Ellipse Width="99" Height="99" Stroke="Red" Fill="Yellow" />
+					<Ellipse Width="20" Height="30" Stroke="Blue" Fill="LightBlue" Canvas.Left="40" Canvas.Top="40" />
+					<Path Canvas.Left="20" Canvas.Top="60"
+	      			 Data="M 0,0 A 30,25 0 0 0 60,0 "
+	            	 Stroke="Black" />
+					<Ellipse Width="20" Height="30" Stroke="Black" Fill="White" Canvas.Left="20" Canvas.Top="15" />
+					<Ellipse Width="10" Height="15" Stroke="Black" Fill="Black" Canvas.Left="30" Canvas.Top="25" />
+					<Ellipse Width="20" Height="30" Stroke="Black" Fill="White" Canvas.Left="60" Canvas.Top="15" />
+					<Ellipse Width="10" Height="15" Stroke="Black" Fill="Black" Canvas.Left="70" Canvas.Top="25" />
+				</Canvas>
+				<Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" />
+			</Canvas>
+			<Canvas>
+		    	<Canvas.Style>
+		    		<StaticResource ResourceKey="OuterCanvasStyle"/>
+		    	</Canvas.Style>
+				<Canvas>
+					<Canvas.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="-40" Y="-40" />
+							<ScaleTransform ScaleX="8" ScaleY="8" />
+							<TranslateTransform X="40" Y="40" />
+						</TransformGroup>
+					</Canvas.RenderTransform>
+					<Ellipse Width="99" Height="99" Stroke="Red" Fill="Yellow" />
+					<Ellipse Width="20" Height="30" Stroke="Blue" Fill="LightBlue" Canvas.Left="40" Canvas.Top="40" />
+					<Path Canvas.Left="20" Canvas.Top="60"
+	      			 Data="M 0,0 A 30,25 0 0 0 60,0 "
+	            	 Stroke="Black" />
+					<Ellipse Width="20" Height="30" Stroke="Black" Fill="White" Canvas.Left="20" Canvas.Top="15" />
+					<Ellipse Width="10" Height="15" Stroke="Black" Fill="Black" Canvas.Left="30" Canvas.Top="25" />
+					<Ellipse Width="20" Height="30" Stroke="Black" Fill="White" Canvas.Left="60" Canvas.Top="15" />
+					<Ellipse Width="10" Height="15" Stroke="Black" Fill="Black" Canvas.Left="70" Canvas.Top="25" />
+				</Canvas>
+				<Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" />
+			</Canvas>
+		</WrapPanel>
+
+		<!-- Image smiley face. -->
+		<WrapPanel>
+			<Canvas>
+		    	<Canvas.Style>
+		    		<StaticResource ResourceKey="OuterCanvasStyle"/>
+		    	</Canvas.Style>
+				<Canvas>
+					<Canvas.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="0" Y="0" />
+							<ScaleTransform ScaleX="1" ScaleY="1" />
+						</TransformGroup>
+					</Canvas.RenderTransform>
+					<Image Source="Smiley.bmp" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+				</Canvas>
+				<Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" />
+			</Canvas>
+			<Canvas>
+		    	<Canvas.Style>
+		    		<StaticResource ResourceKey="OuterCanvasStyle"/>
+		    	</Canvas.Style>
+				<Canvas>
+					<Canvas.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="-40" Y="-40" />
+							<ScaleTransform ScaleX="2" ScaleY="2" />
+							<TranslateTransform X="40" Y="40" />
+						</TransformGroup>
+					</Canvas.RenderTransform>
+					<Image Source="Smiley.bmp" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+				</Canvas>
+				<Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" />
+			</Canvas>
+			<Canvas>
+		    	<Canvas.Style>
+		    		<StaticResource ResourceKey="OuterCanvasStyle"/>
+		    	</Canvas.Style>
+				<Canvas>
+					<Canvas.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="-40" Y="-40" />
+							<ScaleTransform ScaleX="4" ScaleY="4" />
+							<TranslateTransform X="40" Y="40" />
+						</TransformGroup>
+					</Canvas.RenderTransform>
+					<Image Source="Smiley.bmp" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+				</Canvas>
+				<Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" />
+			</Canvas>
+			<Canvas>
+		    	<Canvas.Style>
+		    		<StaticResource ResourceKey="OuterCanvasStyle"/>
+		    	</Canvas.Style>
+				<Canvas>
+					<Canvas.RenderTransform>
+						<TransformGroup>
+							<TranslateTransform X="-40" Y="-40" />
+							<ScaleTransform ScaleX="8" ScaleY="8" />
+							<TranslateTransform X="40" Y="40" />
+						</TransformGroup>
+					</Canvas.RenderTransform>
+					<Image Source="Smiley.bmp" RenderOptions.BitmapScalingMode="NearestNeighbor" />
+				</Canvas>
+				<Border Width="100" Height="100" BorderBrush="Black" BorderThickness="1" />
+			</Canvas>
+		</WrapPanel>
+	</StackPanel>	
+</Window>

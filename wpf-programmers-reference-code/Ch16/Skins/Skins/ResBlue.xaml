@@ -1,0 +1,82 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Window resources -->
+    <LinearGradientBrush x:Key="brBackground" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="White" Offset="0.25"/>
+        <GradientStop Color="Blue" Offset="1"/>
+    </LinearGradientBrush >
+    <FontFamily x:Key="fntName">Segoe</FontFamily>
+    <sys:Double x:Key="fntSize">20</sys:Double>
+    <FontWeight x:Key="fntWeight">Bold</FontWeight>
+    <SolidColorBrush x:Key="brForeground" Color="Black"/>
+
+    <!-- Rectangle resources -->
+    <sys:Double x:Key="dblRadX">5</sys:Double>
+    <sys:Double x:Key="dblRadY">20</sys:Double>
+    <LinearGradientBrush x:Key="brRectFill" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="Lime" Offset="0"/>
+        <GradientStop Color="Green" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="brRectStroke" StartPoint="0,1" EndPoint="0,0">
+        <GradientStop Color="Lime" Offset="0"/>
+        <GradientStop Color="Green" Offset="1"/>
+    </LinearGradientBrush>
+    <sys:Double x:Key="dblRectStrokeThickness">5</sys:Double>
+    <Thickness x:Key="thkMargin" Left="5" Top="5" Right="5" Bottom="5"/>
+
+    <!-- Label resources -->
+    <HorizontalAlignment x:Key="haliLabel">Center</HorizontalAlignment>
+    <VerticalAlignment x:Key="valiLabel">Center</VerticalAlignment>
+    <Thickness x:Key="thkLabelMargin" Left="5"/>
+    <SolidColorBrush x:Key="brLabelBackground" Opacity="0" />
+    <sys:String x:Key="strLabel0">Breakfast</sys:String>
+    <sys:String x:Key="strLabel1">Dinner</sys:String>
+    <sys:String x:Key="strLabel2">Tea</sys:String>
+    <Color x:Key="clrGlowColor">White</Color>
+    <sys:Double x:Key="dblGlowSize">10</sys:Double>
+
+    <!-- Options resources -->
+    <Visibility x:Key="visRed">Hidden</Visibility>
+    <Visibility x:Key="visBlue">Visible</Visibility>
+
+    <!-- ListBox properties -->
+    <DataTemplate x:Key="temList">
+        <TextBlock FontSize="18" Foreground="Blue" FontStyle="Italic">
+        	<TextBlock.Text>
+            	<Binding XPath="."/>
+        	</TextBlock.Text>
+        </TextBlock>
+    </DataTemplate>
+
+    <!-- ListBox data -->
+    <XmlDataProvider x:Key="datBreakfast">
+        <x:XData>
+            <Foods xmlns="">
+                <Value>Cuppa</Value>
+                <Value>Soldiers &amp; Eggs</Value>
+                <Value>Rashers</Value>
+            </Foods>
+        </x:XData>
+    </XmlDataProvider>
+    <XmlDataProvider x:Key="datLunch">
+        <x:XData>
+            <Foods xmlns="">
+                <Value>Pop</Value>
+                <Value>Fish &amp; chips</Value>
+                <Value>Bickie</Value>
+            </Foods>
+        </x:XData>
+    </XmlDataProvider>
+    <XmlDataProvider x:Key="datDinner">
+        <x:XData>
+            <Foods xmlns="">
+                <Value>Plonk</Value>
+                <Value>Bubble &amp; Squeak</Value>
+                <Value>Apple Crumble</Value>
+            </Foods>
+        </x:XData>
+    </XmlDataProvider>
+</ResourceDictionary>

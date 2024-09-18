@@ -1,0 +1,268 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:OrgChartTreeView"
+	x:Class="OrgChartXaml.Window1"
+	x:Name="Window"
+	Title="OrgChartXaml"
+	Width="640" Height="480"
+    FontSize="14" FontWeight="Bold">
+    <Window.Resources>
+        <x:Array x:Key="regions" Type="local:Region">
+            <local:Region RegionName="East">
+                <local:Region.Departments>
+                    <local:Department Name="Research &amp; Development Department">
+                        <local:Department.Managers>
+                            <local:Manager FirstName="Mindy" LastName="Most" Extension="0001" Title="Manager of OR">
+                                <local:Manager.Reports>
+                                    <local:Employee FirstName="Alice" LastName="Able" Extension="1111"/>
+                                    <local:Employee FirstName="Ben" LastName="Better" Extension="2222"/>
+                                </local:Manager.Reports>
+                            </local:Manager>
+                            <local:Manager FirstName="Mark" LastName="Malb" Extension="0002" Title="Manager of XOR">
+                                <local:Manager.Reports>
+                                    <local:Employee FirstName="Cindy" LastName="Cable" Extension="3333"/>
+                                    <local:Employee FirstName="Dudley" LastName="Denver" Extension="4444"/>
+                                </local:Manager.Reports>
+                            </local:Manager>
+                        </local:Department.Managers>
+                        <local:Department.Projects>
+                            <local:Project Name="ACROBAT" Description="Categorization of company acronyms">
+                                <local:Project.TeamLead>
+                                    <local:Employee FirstName="Alice" LastName="Able" Extension="1111"/>
+                                </local:Project.TeamLead>
+                                <local:Project.TeamMembers>
+                                    <local:Employee FirstName="Alice" LastName="Able" Extension="1111"/>
+                                    <local:Employee FirstName="Cindy" LastName="Cable" Extension="3333"/>
+                                    <local:Employee FirstName="Dudley" LastName="Denver" Extension="4444"/>
+                                </local:Project.TeamMembers>
+                            </local:Project>
+                        </local:Department.Projects>
+                    </local:Department>
+                </local:Region.Departments>
+            </local:Region>
+
+            <local:Region RegionName="Central">
+                <local:Region.Departments>
+                    <local:Department Name="Acronyms &amp; Abbrevs Department">
+                        <local:Department.Managers>
+                            <local:Manager FirstName="Macey" LastName="Malin" Extension="0003" Title="Ops Manager">
+                                <local:Manager.Reports>
+                                    <local:Employee FirstName="Erin" LastName="Evener" Extension="5555"/>
+                                </local:Manager.Reports>
+                            </local:Manager>
+                        </local:Department.Managers>
+                        <local:Department.Projects>
+                            <local:Project Name="ABEND" Description="Research into ending abstruse acronyms">
+                                <local:Project.TeamLead>
+                                    <local:Employee FirstName="Erin" LastName="Evener" Extension="5555"/>
+                                </local:Project.TeamLead>
+                                <local:Project.TeamMembers>
+                                    <local:Employee FirstName="Erin" LastName="Evener" Extension="5555"/>
+                                    <local:Employee FirstName="Ben" LastName="Better" Extension="2222"/>
+                                    <local:Employee FirstName="Frank" LastName="Fright" Extension="6666"/>
+                                </local:Project.TeamMembers>
+                            </local:Project>
+                            <local:Project Name="ADD" Description="Acronym Design and Development">
+                                <local:Project.TeamLead>
+                                    <local:Employee FirstName="Ben" LastName="Better" Extension="2222"/>
+                                </local:Project.TeamLead>
+                                <local:Project.TeamMembers>
+                                    <local:Employee FirstName="Ben" LastName="Better" Extension="2222"/>
+                                    <local:Employee FirstName="Cindy" LastName="Cable" Extension="3333"/>
+                                    <local:Employee FirstName="Erin" LastName="Evener" Extension="5555"/>
+                                </local:Project.TeamMembers>
+                            </local:Project>
+                        </local:Department.Projects>
+                    </local:Department>
+                    <local:Department Name="Other Stuff Department">
+                        <local:Department.Managers>
+                            <local:Manager FirstName="Mike" LastName="Milner" Extension="0004" Title="Director of Direction">
+                                <local:Manager.Reports>
+                                    <local:Employee FirstName="Frank" LastName="Fright" Extension="6666"/>
+                                    <local:Employee FirstName="Alice" LastName="Able" Extension="1111"/>
+                                </local:Manager.Reports>
+                            </local:Manager>
+                        </local:Department.Managers>
+                        <local:Department.Projects>
+                            <local:Project Name="UNFUG" Description="Unpredictably Functional GUIDs">
+                                <local:Project.TeamLead>
+                                    <local:Employee FirstName="Dudley" LastName="Denver" Extension="4444"/>
+                                </local:Project.TeamLead>
+                                <local:Project.TeamMembers>
+                                    <local:Employee FirstName="Dudley" LastName="Denver" Extension="4444"/>
+                                </local:Project.TeamMembers>
+                            </local:Project>
+                        </local:Department.Projects>
+                    </local:Department>
+                </local:Region.Departments>
+            </local:Region>
+        </x:Array>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="Green" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ********** -->
+        <!-- By Manager -->
+        <!-- ********** -->
+        <Label Grid.Row="0" Grid.Column="0" Content="By Manager"
+         HorizontalAlignment="Center" VerticalAlignment="Center"
+         FontSize="20" Foreground="Green">
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect/>
+            </Label.BitmapEffect>
+        </Label>
+        <TreeView Name="trvByManager" Background="Transparent"
+         Grid.Row="1" Grid.Column="0" ItemsSource="{StaticResource regions}">
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="True"/>
+                </Style>
+
+                <!-- Region -->
+                <HierarchicalDataTemplate
+                 DataType="{x:Type local:Region}"
+                 ItemsSource="{Binding Path=Departments}">
+                    <TextBlock Text="{Binding Path=RegionName}" Foreground="Red">
+                        <TextBlock.BitmapEffect>
+                            <OuterGlowBitmapEffect/>
+                        </TextBlock.BitmapEffect>
+                    </TextBlock>
+                </HierarchicalDataTemplate>
+
+                <!-- Department -->
+                <HierarchicalDataTemplate
+                 DataType="{x:Type local:Department}"
+                 ItemsSource="{Binding Path=Managers}">
+                    <TextBlock Text="{Binding Path=Name}" Foreground="Blue"/>
+                </HierarchicalDataTemplate>
+
+                <!-- Manager -->
+                <HierarchicalDataTemplate
+                 DataType="{x:Type local:Manager}"
+                 ItemsSource="{Binding Path=Reports}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.RowSpan="2" Grid.ColumnSpan="2"
+                         RadiusX="5" RadiusY="5"
+                         Stroke="Blue" Fill="LightBlue"/>
+                        <StackPanel Margin="5,0,5,0" Grid.Row="0" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Title}"/>
+                        </StackPanel>
+                        <StackPanel Margin="5,0,5,0" Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding Path=LastName}"/>
+                            <TextBlock Text=" (x"/>
+                            <TextBlock Text="{Binding Path=Extension}"/>
+                            <TextBlock Text=")"/>
+                        </StackPanel>
+                    </Grid>
+                </HierarchicalDataTemplate>
+
+                <HierarchicalDataTemplate
+                 DataType="{x:Type local:Employee}"
+                 >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=FirstName}"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock Text="{Binding Path=LastName}"/>
+                        <TextBlock Text=" (x"/>
+                        <TextBlock Text="{Binding Path=Extension}"/>
+                        <TextBlock Text=")"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+
+        <!-- ********** -->
+        <!-- By Project -->
+        <!-- ********** -->
+        <Label Grid.Row="0" Grid.Column="1" Content="By Project"
+         HorizontalAlignment="Center" VerticalAlignment="Center"
+         FontSize="20" Foreground="Green">
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect/>
+            </Label.BitmapEffect>
+        </Label>
+        <TreeView Name="trvByProject" Background="Transparent"
+         Grid.Row="1" Grid.Column="1" ItemsSource="{StaticResource regions}">
+            <TreeView.Resources>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="True"/>
+                </Style>
+
+                <!-- Region -->
+                <HierarchicalDataTemplate
+                 DataType="{x:Type local:Region}"
+                 ItemsSource="{Binding Path=Departments}">
+                    <TextBlock Text="{Binding Path=RegionName}" Foreground="Red">
+                        <TextBlock.BitmapEffect>
+                            <OuterGlowBitmapEffect/>
+                        </TextBlock.BitmapEffect>
+                    </TextBlock>
+                </HierarchicalDataTemplate>
+
+                <!-- Department -->
+                <HierarchicalDataTemplate
+                 DataType="{x:Type local:Department}"
+                 ItemsSource="{Binding Path=Projects}">
+                    <TextBlock Text="{Binding Path=Name}" Foreground="Blue"/>
+                </HierarchicalDataTemplate>
+
+                <!-- Project -->
+                <HierarchicalDataTemplate
+                 DataType="{x:Type local:Project}"
+                 ItemsSource="{Binding Path=TeamMembers}">
+                    <Grid Width="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.RowSpan="3" RadiusX="5" RadiusY="5"
+                         Stroke="Blue" Fill="Goldenrod"/>
+                        <StackPanel Grid.Row="0" Margin="5,0,5,0"
+                         Orientation="Horizontal" HorizontalAlignment="Center">
+                            <TextBlock Text="Project "/>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </StackPanel>
+                        <TextBlock Grid.Row="1" Margin="5,0,5,0" Text="{Binding Path=Description}" TextTrimming="CharacterEllipsis"/>
+                        <StackPanel Grid.Row="2" Margin="5,0,5,0" Orientation="Horizontal">
+                            <TextBlock Text="Lead: "/>
+                            <TextBlock Text="{Binding Path=TeamLead.FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding Path=TeamLead.LastName}"/>
+                        </StackPanel>
+                    </Grid>
+                </HierarchicalDataTemplate>
+
+                <HierarchicalDataTemplate
+                 DataType="{x:Type local:Employee}"
+                 >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=FirstName}"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock Text="{Binding Path=LastName}"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </Grid>
+</Window>

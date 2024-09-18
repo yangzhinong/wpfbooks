@@ -1,0 +1,19 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="GradientOpacityMask.Window1"
+	x:Name="Window"
+	Title="GradientOpacityMask"
+	Width="660" Height="230">
+	<StackPanel Background="LightGreen">
+		<Image Margin="5" Source="Flowers.jpg" Stretch="None">
+			<Image.OpacityMask>
+				<RadialGradientBrush>
+					<GradientStop Color="#FF833C3C" Offset="0"/>
+					<GradientStop Color="#FFE4D6D6" Offset="0.8"/>
+					<GradientStop Color="#00FFFFFF" Offset="1"/>
+				</RadialGradientBrush>
+			</Image.OpacityMask>
+		</Image>
+	</StackPanel>
+</Window>

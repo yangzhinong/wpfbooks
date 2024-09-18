@@ -1,0 +1,192 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="TransparentEffects.Window1"
+	x:Name="Window"
+	Title="TransparentEffects"
+	Width="602" Height="320"
+	FontSize="16" FontWeight="Bold"
+	Background="LightBlue">
+	<Window.Resources>
+		<Style TargetType="Label">
+			<Setter Property="Foreground" Value="Blue"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+		</Style>
+		<Style TargetType="StackPanel">
+			<Setter Property="Margin" Value="4"/>
+		</Style>
+	</Window.Resources>
+	<UniformGrid Rows="2" Columns="4">
+		<StackPanel>
+			<Canvas Width="100" Height="100">
+				<Ellipse Stroke="Blue" Canvas.Left="5" Canvas.Top="5" Width="90" Height="90"/>
+				<Path Data="M 20,50 A 30,30 180,1,0 80,50"
+				 Stroke="Blue" StrokeThickness="2"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="25" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="35" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="55" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="65" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="LightGreen"
+				 Canvas.Left="40" Canvas.Top="45" Width="20" Height="20"/>
+			</Canvas>
+			<Label Content="Original"/>
+		</StackPanel>
+		<StackPanel>
+			<Canvas Width="100" Height="100">
+				<Canvas.BitmapEffect>
+					<BevelBitmapEffect/>
+				</Canvas.BitmapEffect>
+				<Ellipse Stroke="Blue" Canvas.Left="5" Canvas.Top="5" Width="90" Height="90"/>
+				<Path Data="M 20,50 A 30,30 180,1,0 80,50"
+				 Stroke="Blue" StrokeThickness="2"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="25" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="35" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="55" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="65" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="LightGreen"
+				 Canvas.Left="40" Canvas.Top="45" Width="20" Height="20"/>
+			</Canvas>
+			<Label Content="Bevel"/>
+		</StackPanel>
+		<StackPanel>
+			<Canvas Width="100" Height="100">
+				<Canvas.BitmapEffect>
+					<BlurBitmapEffect/>
+				</Canvas.BitmapEffect>
+				<Ellipse Stroke="Blue" Canvas.Left="5" Canvas.Top="5" Width="90" Height="90"/>
+				<Path Data="M 20,50 A 30,30 180,1,0 80,50"
+				 Stroke="Blue" StrokeThickness="2"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="25" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="35" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="55" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="65" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="LightGreen"
+				 Canvas.Left="40" Canvas.Top="45" Width="20" Height="20"/>
+			</Canvas>
+			<Label Content="Blur"/>
+		</StackPanel>
+		<StackPanel>
+			<Canvas Width="100" Height="100">
+				<Canvas.BitmapEffect>
+					<DropShadowBitmapEffect/>
+				</Canvas.BitmapEffect>
+				<Ellipse Stroke="Blue" Canvas.Left="5" Canvas.Top="5" Width="90" Height="90"/>
+				<Path Data="M 20,50 A 30,30 180,1,0 80,50"
+				 Stroke="Blue" StrokeThickness="2"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="25" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="35" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="55" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="65" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="LightGreen"
+				 Canvas.Left="40" Canvas.Top="45" Width="20" Height="20"/>
+			</Canvas>
+			<Label Content="DropShadow"/>
+		</StackPanel>
+		<StackPanel>
+			<Canvas Width="100" Height="100">
+				<Canvas.BitmapEffect>
+					<EmbossBitmapEffect/>
+				</Canvas.BitmapEffect>
+				<Ellipse Stroke="Blue" Canvas.Left="5" Canvas.Top="5" Width="90" Height="90"/>
+				<Path Data="M 20,50 A 30,30 180,1,0 80,50"
+				 Stroke="Blue" StrokeThickness="2"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="25" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="35" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="55" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="65" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="LightGreen"
+				 Canvas.Left="40" Canvas.Top="45" Width="20" Height="20"/>
+			</Canvas>
+			<Label Content="Emboss"/>
+		</StackPanel>
+		<StackPanel>
+			<Canvas Width="100" Height="100">
+				<Canvas.BitmapEffect>
+					<OuterGlowBitmapEffect GlowColor="Red"/>
+				</Canvas.BitmapEffect>
+				<Ellipse Stroke="Blue" Canvas.Left="5" Canvas.Top="5" Width="90" Height="90"/>
+				<Path Data="M 20,50 A 30,30 180,1,0 80,50"
+				 Stroke="Blue" StrokeThickness="2"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="25" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="35" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="55" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="65" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="LightGreen"
+				 Canvas.Left="40" Canvas.Top="45" Width="20" Height="20"/>
+			</Canvas>
+			<Label Content="OuterGlow"/>
+		</StackPanel>
+		<StackPanel>
+			<Canvas Width="100" Height="100">
+				<Canvas.BitmapEffect>
+					<BitmapEffectGroup>
+						<EmbossBitmapEffect/>
+						<BevelBitmapEffect BevelWidth="10"/>
+					</BitmapEffectGroup>
+				</Canvas.BitmapEffect>
+				<Ellipse Stroke="Blue" Canvas.Left="5" Canvas.Top="5" Width="90" Height="90"/>
+				<Path Data="M 20,50 A 30,30 180,1,0 80,50"
+				 Stroke="Blue" StrokeThickness="2"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="25" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="35" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="55" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="65" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="LightGreen"
+				 Canvas.Left="40" Canvas.Top="45" Width="20" Height="20"/>
+			</Canvas>
+			<Label Content="Emboss/Bevel"/>
+		</StackPanel>
+		<StackPanel>
+			<Canvas Width="100" Height="100">
+				<Canvas.BitmapEffect>
+					<BitmapEffectGroup>
+						<BlurBitmapEffect/>
+						<EmbossBitmapEffect/>
+					</BitmapEffectGroup>
+				</Canvas.BitmapEffect>
+				<Ellipse Stroke="Blue" Canvas.Left="5" Canvas.Top="5" Width="90" Height="90"/>
+				<Path Data="M 20,50 A 30,30 180,1,0 80,50"
+				 Stroke="Blue" StrokeThickness="2"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="25" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="35" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="White"
+				 Canvas.Left="55" Canvas.Top="15" Width="20" Height="30"/>
+				<Ellipse Stroke="Black" Fill="Brown"
+				 Canvas.Left="65" Canvas.Top="20" Width="10" Height="20"/>
+				<Ellipse Stroke="Blue" Fill="LightGreen"
+				 Canvas.Left="40" Canvas.Top="45" Width="20" Height="20"/>
+			</Canvas>
+			<Label Content="Blur/Emboss"/>
+		</StackPanel>
+	</UniformGrid>
+</Window>

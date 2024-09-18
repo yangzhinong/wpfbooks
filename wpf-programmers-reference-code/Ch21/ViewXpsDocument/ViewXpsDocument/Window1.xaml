@@ -1,0 +1,10 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ViewXpsDocument.Window1"
+	x:Name="Window"
+	Title="ViewXpsDocument"
+	Width="640" Height="480"
+    Loaded="Window_Loaded">
+	<DocumentViewer Name="docViewer" />
+</Window>

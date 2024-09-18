@@ -1,0 +1,101 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UnnamedStyles.Window1"
+	x:Name="Window"
+	Title="UnnamedStyles"
+	Width="600" Height="450">
+	<Window.Background>
+		<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="Blue" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Window.Resources>
+		<Style TargetType="Image">
+		    <Setter Property="Width" Value="100" />
+		    <Setter Property="Height" Value="100" />
+		    <Setter Property="Stretch" Value="Uniform" />
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<DropShadowBitmapEffect/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="Label">
+		    <Setter Property="FontFamily" Value="Comic Sans MS" />
+		    <Setter Property="FontSize" Value="18" />
+		    <Setter Property="FontWeight" Value="Bold" />
+		    <Setter Property="HorizontalAlignment" Value="Center" />
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<OuterGlowBitmapEffect GlowColor="LightBlue"/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="Button">
+		    <Setter Property="FontFamily" Value="Arial" />
+		    <Setter Property="FontSize" Value="12" />
+		    <Setter Property="Height" Value="20" />
+		    <Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush>
+						<GradientStop Color="Blue" Offset="0" />
+						<GradientStop Color="White" Offset="0.5" />
+						<GradientStop Color="Blue" Offset="1" />
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="StackPanel">
+		    <Setter Property="Margin" Value="5" />
+		</Style>
+	</Window.Resources>
+	<StackPanel>
+	    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+		 	<StackPanel>
+				<Image Source="Mammal.jpg"/>
+				<Label Content="Mammal"/>
+				<Button Content="More Info"/>
+			</StackPanel>
+		 	<StackPanel>
+				<Image Source="Bird.jpg"/>
+				<Label Content="Bird"/>
+				<Button Content="More Info"/>
+			</StackPanel>
+		 	<StackPanel>
+				<Image Source="Reptile.jpg"/>
+				<Label Content="Reptile"/>
+				<Button Content="More Info"/>
+			</StackPanel>
+		 	<StackPanel>
+				<Image Source="Amphibian.jpg"/>
+				<Label Content="Amphibian"/>
+				<Button Content="More Info"/>
+			</StackPanel>
+	    </StackPanel>
+	    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+		 Margin="0,50">
+		 	<StackPanel>
+				<Image Source="Fish.jpg"/>
+				<Label Content="Fish"/>
+				<Button Content="More Info"/>
+			</StackPanel>
+		 	<StackPanel>
+				<Image Source="Insect.jpg"/>
+				<Label Content="Insect"/>
+				<Button Content="More Info"/>
+			</StackPanel>
+		 	<StackPanel>
+				<Image Source="Arachnid.jpg"/>
+				<Label Content="Arachnid"/>
+				<Button Content="More Info"/>
+			</StackPanel>
+		 	<StackPanel>
+				<Image Source="Programmer.jpg"/>
+				<Label Content="Programmer"/>
+				<Button Content="More Info"/>
+			</StackPanel>
+	    </StackPanel>
+    </StackPanel>
+</Window>

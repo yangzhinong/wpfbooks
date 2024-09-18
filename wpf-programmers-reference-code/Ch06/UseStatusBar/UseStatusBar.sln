@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseStatusBar", "UseStatusBar\UseStatusBar.csproj", "{9672DEC4-FBAB-428D-8796-B6E776A4899C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9672DEC4-FBAB-428D-8796-B6E776A4899C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9672DEC4-FBAB-428D-8796-B6E776A4899C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9672DEC4-FBAB-428D-8796-B6E776A4899C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9672DEC4-FBAB-428D-8796-B6E776A4899C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

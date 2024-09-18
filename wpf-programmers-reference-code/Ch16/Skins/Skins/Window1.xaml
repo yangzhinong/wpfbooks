@@ -1,0 +1,143 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Skins.Window1"
+	x:Name="Window"
+	Title="Skins"
+	Width="600" Height="250"
+	FontFamily="{DynamicResource fntName}"
+	FontSize="{DynamicResource fntSize}"
+	FontWeight="{DynamicResource fntWeight}"
+	Background="{DynamicResource brBackground}"
+	Foreground="{DynamicResource brForeground}"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.Column="0"
+			RadiusX="{DynamicResource dblRadX}"
+			RadiusY="{DynamicResource dblRadY}"
+			Fill="{DynamicResource brRectFill}"
+			Stroke="{DynamicResource brRectStroke}"
+			StrokeThickness="{DynamicResource dblRectStrokeThickness}"
+			Margin="{DynamicResource thkMargin}"
+		 />
+        <Label Grid.Row="0" Grid.Column="0"
+			Content="{DynamicResource strLabel0}"
+			Margin="{DynamicResource thkLabelMargin}"
+			HorizontalAlignment="{DynamicResource haliLabel}"
+			VerticalAlignment="{DynamicResource valiLabel}"
+			Foreground="{DynamicResource brForeground}"
+			Background="{DynamicResource brLabelBackground}"
+		>
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect
+                 GlowColor="{DynamicResource clrGlowColor}"
+                 GlowSize="{DynamicResource dblGlowSize}"
+                />
+            </Label.BitmapEffect>
+        </Label>
+
+        <ListBox Grid.Row="1" Grid.Column="0" Margin="5" Background="Transparent"
+		 ItemsSource="{Binding Source={StaticResource datBreakfast}, XPath=Foods/Value}"
+		 ItemTemplate="{DynamicResource temList}"/>
+
+        <Rectangle Grid.Row="0" Grid.Column="1"
+			RadiusX="{DynamicResource dblRadX}"
+			RadiusY="{DynamicResource dblRadY}"
+			Fill="{DynamicResource brRectFill}"
+			Stroke="{DynamicResource brRectStroke}"
+			StrokeThickness="{DynamicResource dblRectStrokeThickness}"
+			Margin="{DynamicResource thkMargin}"
+		/>
+        <Label Grid.Row="0" Grid.Column="1"
+			Content="{DynamicResource strLabel1}"
+			Margin="6,18.125,0,18.125"
+			HorizontalAlignment="{DynamicResource haliLabel}"
+			Foreground="{DynamicResource brForeground}"
+			Background="{DynamicResource brLabelBackground}"
+		d:LayoutOverrides="Height"
+		>
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect
+                 GlowColor="{DynamicResource clrGlowColor}"
+                 GlowSize="{DynamicResource dblGlowSize}"
+                />
+            </Label.BitmapEffect>
+        </Label>
+
+        <ListBox Grid.Row="1" Grid.Column="1" Margin="5" Background="Transparent"
+		 ItemsSource="{Binding Source={StaticResource datLunch}, XPath=Foods/Value}"
+		 ItemTemplate="{DynamicResource temList}"/>
+
+        <Rectangle Grid.Row="0" Grid.Column="2"
+			RadiusX="{DynamicResource dblRadX}"
+			RadiusY="{DynamicResource dblRadY}"
+			Fill="{DynamicResource brRectFill}"
+			Stroke="{DynamicResource brRectStroke}"
+			StrokeThickness="{DynamicResource dblRectStrokeThickness}"
+			Margin="{DynamicResource thkMargin}"
+		/>
+        <Label Grid.Row="0" Grid.Column="2"
+			Content="{DynamicResource strLabel2}"
+			Margin="{DynamicResource thkLabelMargin}"
+			HorizontalAlignment="{DynamicResource haliLabel}"
+			VerticalAlignment="{DynamicResource valiLabel}"
+			Foreground="{DynamicResource brForeground}"
+			Background="{DynamicResource brLabelBackground}"
+		>
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect
+                 GlowColor="{DynamicResource clrGlowColor}"
+                 GlowSize="{DynamicResource dblGlowSize}"
+                />
+            </Label.BitmapEffect>
+        </Label>
+
+        <ListBox Grid.Row="1" Grid.Column="2" Margin="5" Background="Transparent"
+		 ItemsSource="{Binding Source={StaticResource datDinner}, XPath=Foods/Value}"
+		 ItemTemplate="{DynamicResource temList}"/>
+
+        <!-- For red -->
+        <Image MouseDown="Options_MouseDown"
+         Grid.Row="0" Grid.Column="2" Margin="2"
+	     HorizontalAlignment="Right" VerticalAlignment="Top"
+         Source="bmpOptions.bmp" Stretch="None"
+         Visibility="{DynamicResource visRed}"
+        />
+
+        <!-- For blue -->
+        <Label MouseDown="Options_MouseDown"
+         Grid.Row="0" Grid.Column="2" Margin="2"
+	     Content="Options" FontSize="10"
+	     HorizontalAlignment="Right" VerticalAlignment="Top"
+	     Foreground="Black" BorderBrush="Black"
+         BorderThickness="1"
+         Visibility="{DynamicResource visBlue}"
+        >
+            <Label.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Lime" Offset="0"/>
+                    <GradientStop Color="Green" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+            <Label.ContextMenu>
+                <ContextMenu Name="ctxOptions">
+                    <MenuItem Header="Red" Background="Pink" Foreground="Red"
+                     Click="ctxSkin_Click" Tag="ResRed.xaml"/>
+                    <MenuItem Header="Blue" Background="LightBlue" Foreground="Blue"
+                     Click="ctxSkin_Click" Tag="ResBlue.xaml"/>
+                </ContextMenu>
+            </Label.ContextMenu>
+        </Label>
+    </Grid>
+</Window>

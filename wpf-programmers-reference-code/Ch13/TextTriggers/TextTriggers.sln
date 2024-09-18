@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextTriggers", "TextTriggers\TextTriggers.csproj", "{BAA5A673-DE28-4BAD-B889-1717FDD33C7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAA5A673-DE28-4BAD-B889-1717FDD33C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAA5A673-DE28-4BAD-B889-1717FDD33C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAA5A673-DE28-4BAD-B889-1717FDD33C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAA5A673-DE28-4BAD-B889-1717FDD33C7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

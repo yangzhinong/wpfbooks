@@ -1,0 +1,20 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="StrokeMiterLimit.Window1"
+	x:Name="Window"
+	Title="StrokeMiterLimit"
+	Height="270" Width="300">
+	<Grid>
+		<Polygon Points="100,30 250,200 30,70 200,50 75,170" StrokeThickness="20"
+		 StrokeLineJoin="Miter" StrokeMiterLimit="3">
+		 	<Polygon.Stroke>
+				<RadialGradientBrush>
+					<GradientStop Offset="0" Color="Gray"/>
+					<GradientStop Offset="0.5" Color="Gray"/>
+					<GradientStop Offset="1" Color="Black"/>
+				</RadialGradientBrush>
+			</Polygon.Stroke>
+		</Polygon>
+	</Grid>
+</Window>

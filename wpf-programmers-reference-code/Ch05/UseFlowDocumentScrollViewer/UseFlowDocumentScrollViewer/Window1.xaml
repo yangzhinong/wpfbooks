@@ -1,0 +1,301 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseFlowDocumentScrollViewer.Window1"
+	x:Name="Window"
+    Title="UseFlowDocumentScrollViewer"
+	Height="400" Width="500">
+    <Window.Resources>
+        <Style x:Key="styHeader" TargetType="Paragraph">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+		<Storyboard x:Key="SpinText">
+			<Rotation3DAnimationUsingKeyFrames BeginTime="00:00:00" RepeatBehavior="Forever"
+             Storyboard.TargetName="TextModel"
+             Storyboard.TargetProperty="(Model3D.Transform).(Transform3DGroup.Children)[0].(RotateTransform3D.Rotation)">
+				<SplineRotation3DKeyFrame KeyTime="00:00:01">
+					<SplineRotation3DKeyFrame.Value>
+						<AxisAngleRotation3D Angle="180" Axis="0,1,0"/>
+					</SplineRotation3DKeyFrame.Value>
+				</SplineRotation3DKeyFrame>
+				<SplineRotation3DKeyFrame KeyTime="00:00:02">
+					<SplineRotation3DKeyFrame.Value>
+						<AxisAngleRotation3D Angle="359" Axis="0,1,0"/>
+					</SplineRotation3DKeyFrame.Value>
+				</SplineRotation3DKeyFrame>
+			</Rotation3DAnimationUsingKeyFrames>
+		</Storyboard>
+    </Window.Resources>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource SpinText}"/>
+		</EventTrigger>
+	</Window.Triggers>
+    <DockPanel>
+		<FlowDocumentScrollViewer>
+            <FlowDocument FontFamily="Arial" FontSize="12">
+				<FlowDocument.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="White" Offset="0" />
+                        <GradientStop Color="Blue" Offset="1" />
+                    </LinearGradientBrush>
+				</FlowDocument.Background>
+                <FlowDocument.Foreground>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Red" Offset="0" />
+                        <GradientStop Color="Blue" Offset="1" />
+                    </LinearGradientBrush>
+                </FlowDocument.Foreground>
+
+                <Paragraph Style="{StaticResource styHeader}">FlowDocument Elements</Paragraph>
+
+                <Paragraph>A FlowDocument can contain the following items:</Paragraph>
+
+                <Table BorderBrush="Black" BorderThickness="1" FontSize="12">
+                    <Table.Columns>
+                        <TableColumn Width="25*" />
+                        <TableColumn Width="75*" />
+                    </Table.Columns>
+                    <TableRowGroup>
+                        <TableRow Background="LightGray" FontSize="15">
+                            <TableCell>
+                                <Paragraph>Item</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Purpose</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>List</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Display items in a list</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Paragraph</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Group contents into a paragraph.</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Section</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Group elements into a section.</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell>
+                                <Paragraph>Table</Paragraph>
+                            </TableCell>
+                            <TableCell>
+                                <Paragraph>Display items in a table such as this one.</Paragraph>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+
+                <Paragraph>
+                    As you can probably guess, a Paragraph can contain text.
+    It can also contain other elements such as buttons, grids, and polygons.
+    The following paragraph contains a Button, TextBox, Ellipse, and a Grid containing a Polygon.
+                </Paragraph>
+                <BlockUIContainer>
+                    <Button Name="btnBlockUI" Width="100" Height="50" Content="Block UI Button" />
+                </BlockUIContainer>
+                <Paragraph>
+                    <Button Name="btnAButton">A Button</Button>
+                    <TextBox>A Text Box</TextBox>
+                    <Ellipse Width="30" Height="60" 
+      Fill="Yellow" Stroke="Red" StrokeThickness="5" />
+                    <Grid Width="100" Height="100">
+                        <Grid.Background>
+                            <RadialGradientBrush 
+          Center="0.5,0.5"
+          RadiusX="0.5"
+          RadiusY="0.5">
+                                <GradientStop Color="Lime" Offset="0.5" />
+                                <GradientStop Color="Green" Offset="1.0" />
+                            </RadialGradientBrush>
+                        </Grid.Background>
+                        <Polygon 
+        Grid.Column="0" Grid.Row="0"
+        Points="50,10 60,40 90,50 60,60 50,90 40,60 10,50 40,40"
+        Stroke="Blue" StrokeThickness="2">
+                            <Polygon.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Color="Blue" Offset="0.0" />
+                                    <GradientStop Color="White" Offset="1.0" />
+                                </RadialGradientBrush>
+                            </Polygon.Fill>
+                        </Polygon>
+                    </Grid>
+                </Paragraph>
+
+                <Paragraph Style="{StaticResource styHeader}">Floaters</Paragraph>
+                <Paragraph>
+                    <Floater HorizontalAlignment="Right">
+                        <Paragraph BorderBrush="Black" BorderThickness="1">
+                            <StackPanel Margin="2,2,2,2">
+                                <Polygon HorizontalAlignment="Center" 
+            Points="50,10 60,40 90,50 60,60 50,90 40,60 10,50 40,40"
+            Stroke="Blue" StrokeThickness="2">
+                                    <Polygon.Fill>
+                                        <RadialGradientBrush>
+                                            <GradientStop Color="Red" Offset="0.0" />
+                                            <GradientStop Color="White" Offset="1.0" />
+                                        </RadialGradientBrush>
+                                    </Polygon.Fill>
+                                </Polygon>
+ 
+			<!-- 3D stuff start -->
+		    <Viewport3D Width="150" Height="150" Margin="-20" HorizontalAlignment="Center" VerticalAlignment="Top">
+				<Viewport3D.Camera>
+					<PerspectiveCamera
+						Position = "0, 0, 3"
+						LookDirection = "0, 0, -1"
+						UpDirection = "0, 1, 0"
+						FieldOfView = "60" x:Name="perspectiveCamera">
+					</PerspectiveCamera>
+				</Viewport3D.Camera>
+				<ModelVisual3D>
+					<ModelVisual3D.Content>
+						<Model3DGroup x:Name="TextModel">
+		                    <Model3DGroup.Transform>
+		                    	<Transform3DGroup>
+		                    		<RotateTransform3D />
+		                    	</Transform3DGroup>
+		                    </Model3DGroup.Transform>
+							
+							<!-- Lights -->
+							<AmbientLight Color="White" />
+							<DirectionalLight Color="White" Direction="1,-2,-3" />
+							<DirectionalLight Color="White" Direction="-1,2,3" />
+
+							<!-- Geometry -->
+							<GeometryModel3D>
+								<GeometryModel3D.Geometry>
+									<MeshGeometry3D>
+										<MeshGeometry3D.Positions>
+											<Point3D X="-1" Y="-0.75" Z="0"/>
+											<Point3D X="1" Y="-0.75" Z="0"/>
+											<Point3D X="1" Y="0.75" Z="0"/>
+											<Point3D X="-1" Y="0.75" Z="0"/>
+										</MeshGeometry3D.Positions>
+										<MeshGeometry3D.TextureCoordinates>
+											<Point X="0" Y="1"/>
+											<Point X="1" Y="1"/>
+											<Point X="1" Y="0"/>
+											<Point X="0" Y="0"/>
+										</MeshGeometry3D.TextureCoordinates>
+										<MeshGeometry3D.TriangleIndices>
+											<Int32Collection>
+												0,1,2 0,2,3 	<!-- Front -->
+												0,3,2 0,2,1		<!-- Back -->
+											</Int32Collection>
+										</MeshGeometry3D.TriangleIndices>
+									</MeshGeometry3D>
+								</GeometryModel3D.Geometry>
+
+								<GeometryModel3D.Material>
+									<MaterialGroup>
+										<DiffuseMaterial>
+											<DiffuseMaterial.Brush>
+												<VisualBrush>
+													<VisualBrush.Visual>
+														<Label Content="VB Helper"
+															Foreground="Blue"
+															FontFamily="Comic Sans MS"
+															FontWeight="Bold"
+															FontStyle="Normal"
+															>
+															<Label.Background>
+																<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+																	<GradientStop Color="White" Offset="0"/>
+																	<GradientStop Color="Blue" Offset="1"/>
+																</LinearGradientBrush>
+															</Label.Background>
+														</Label>
+													</VisualBrush.Visual>
+												</VisualBrush>
+											</DiffuseMaterial.Brush>
+										</DiffuseMaterial>
+									</MaterialGroup>
+								</GeometryModel3D.Material>
+							</GeometryModel3D>
+
+						</Model3DGroup>
+					</ModelVisual3D.Content>
+				</ModelVisual3D>
+			</Viewport3D>
+			<!-- 3D stuff end -->
+ 
+                                <TextBlock FontStyle="Italic">Figure 1. A floating Polygon.</TextBlock>
+                            </StackPanel>
+                        </Paragraph>
+                    </Floater>
+                </Paragraph>
+                <Paragraph>
+                    A Floater holds content that can float to other locations.
+    For example, it might be an image with its caption as shown in Figure 1.
+                </Paragraph>
+
+                <Paragraph Style="{StaticResource styHeader}">A List</Paragraph>
+                <Paragraph>Here's a simple list.</Paragraph>
+
+                <List>
+                    <ListItem>
+                        <Paragraph>Apple</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Banana</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>Cherry</Paragraph>
+                    </ListItem>
+                    <ListItem>
+                        <Paragraph>
+                            Triangle
+                            <Polygon
+          Stroke="Black" StrokeThickness="1"
+          Points="0,0 20,0 10,20" />
+                        </Paragraph>
+                    </ListItem>
+                </List>
+
+                <Paragraph Style="{StaticResource styHeader}">Documents</Paragraph>
+                <Paragraph>
+                    WPF includes three different kinds of documents: flow documents, fixed documents, and XPS documents. These different kinds of documents provide support for high-end text and printing capabilities.
+                </Paragraph>
+                <Paragraph>
+                    For example, fixed documents allow you to generate a document that keeps the same layout whether it is viewed on a monitor, printed at low-resolution, or printed at a very high-resolution. On each device, the document uses the features available on that device to give the best result possible.
+                </Paragraph>
+                <Paragraph>
+                    Each of these three kinds of documents is quite complex so there isn’t room to do them justice here. However, the following three sections provide an overview of these kinds of documents and give brief examples.
+                </Paragraph>
+
+                <Paragraph Style="{StaticResource styHeader}">Flow Documents</Paragraph>
+
+                <Paragraph>
+                    Flow documents are designed to display as much data as possible in the best method possible depending on runtime constraints such as the size of the control displaying the document. If the control grows, the document rearranges its contents to take advantage of the new available space. If the control shrinks, again rearranges its contents to fit the available space. The effect sort of mimics the way a Web browser behaves, rearranging the objects it displays as it is resized.
+                </Paragraph>
+                <Paragraph>
+                    The XAML FlowDocument element represents a flow document. The FlowDocument can contain four basic content elements: List, Section, Paragraph, and Table. These have rather obvious purposes: to display data in a list, group data in a section, group data in a paragraph, or display data in a table.
+                </Paragraph>
+                <Paragraph>
+                    While the main emphasis of these elements is on text, they can contain other objects. For example, a Paragraph can contain controls such as Buttons, Labels, TextBoxes, and Grids. It can also contain shapes such as Polygons, Ellipses, and Paths.
+                </Paragraph>
+                <Paragraph>
+                    WMF provides three types of objects for displaying FlowDocuments: FlowDocumentReader, FlowDocumentPageViewer, and FlowDocumentScrollViewer.
+                </Paragraph>
+            </FlowDocument>
+		</FlowDocumentScrollViewer>
+    </DockPanel>
+</Window>

@@ -1,0 +1,91 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Games.Window1"
+	x:Name="Window"
+	Title="Games"
+	Width="500" Height="300"
+	FontSize="20" FontWeight="Bold">
+	<Window.Background>
+		<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="LightGreen" Offset="0"/>
+			<GradientStop Color="Green" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Window.Resources>
+		<Style TargetType="Grid">
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<BevelBitmapEffect/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="StackPanel">
+			<Setter Property="Orientation" Value="Horizontal"/>
+			<Setter Property="Background" Value="LightBlue"/>
+		</Style>
+		<Style TargetType="Label">
+			<Setter Property="Foreground" Value="Blue"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+			<Setter Property="LayoutTransform">
+				<Setter.Value>
+					<RotateTransform Angle="-90"/>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<DropShadowBitmapEffect Color="DarkBlue" Direction="-135"/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="Image">
+			<Setter Property="Height" Value="80"/>
+			<Setter Property="Stretch" Value="Uniform"/>
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<DropShadowBitmapEffect Color="DarkBlue"/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<UniformGrid Rows="2" Columns="3">
+		<Grid>
+			<StackPanel>
+				<Label Content="Volleyball"/>
+				<Image Source="Volleyball.png"/>
+			</StackPanel>
+		</Grid>
+		<Grid>
+			<StackPanel>
+				<Label Content="Football"/>
+				<Image Source="Football.png"/>
+			</StackPanel>
+		</Grid>
+		<Grid>
+			<StackPanel>
+				<Label Content="Soccer"/>
+				<Image Source="Soccer.png"/>
+			</StackPanel>
+		</Grid>
+		<Grid>
+			<StackPanel>
+				<Label Content="Hockey"/>
+				<Image Source="Hockey.png"/>
+			</StackPanel>
+		</Grid>
+		<Grid>
+			<StackPanel>
+				<Label Content="Darts"/>
+				<Image Source="Darts.png"/>
+			</StackPanel>
+		</Grid>
+		<Grid>
+			<StackPanel>
+				<Label Content="Dice"/>
+				<Image Source="Dice.png"/>
+			</StackPanel>
+		</Grid>
+	</UniformGrid>
+</Window>

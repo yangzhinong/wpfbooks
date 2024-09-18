@@ -1,0 +1,26 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="FontProperties.Window1"
+	x:Name="Window"
+	Title="FontProperties"
+	Width="400" Height="240" Foreground="Black">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="LightGreen" Offset="0"/>
+			<GradientStop Color="Lime" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<StackPanel Margin="10">
+		<Label Foreground="Black" FontFamily="Segoe" FontSize="20pt" FontWeight="Normal" FontStyle="Normal"
+		 Content="Segoe 20pt Normal Normal"/>
+		<Label Foreground="Black" FontFamily="Times New Roman" FontSize="20px" FontWeight="Bold" FontStyle="Normal"
+		 Content="Times New Roman 20px Bold Normal"/>
+		<Label Foreground="Black" FontFamily="Arial" FontSize="30px" FontWeight="Normal" FontStyle="Italic"
+		 Content="Arial 30px Normal Italic"/>
+		<Label Foreground="Black" FontFamily="Courier New" FontSize="20px" FontWeight="Bold" FontStyle="Italic"
+		 Content="Courier New 20px Bold Italic"/>
+		<Label Foreground="Black" FontFamily="Comic Sans MS" FontSize="16px" FontWeight="Bold" FontStyle="Normal"
+		 Content="Comic Sans MS 16px Bold Normal"/>
+	</StackPanel>
+</Window>

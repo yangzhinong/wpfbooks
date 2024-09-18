@@ -1,0 +1,29 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UsePathPolygonPolyline.Window1"
+	x:Name="Window"
+	Title="UsePathPolygonPolyline"
+	Width="352" Height="180" Background="#FF80FF80"
+    FontSize="16" FontWeight="Bold">
+	<StackPanel Orientation="Horizontal">
+        <StackPanel>
+            <Path Margin="15" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Height="Auto"
+		     Fill="#FFFF0000" Stroke="#FF000000" StrokeThickness="5" 
+		     Data="M41,3 L2,70 78,32 3,19 59,69 41,3"/>
+            <Label HorizontalAlignment="Center" Content="Path"/>
+        </StackPanel>
+        <StackPanel>
+            <Polygon Margin="15" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Height="Auto"
+		     Fill="#FFFF8000" Stroke="#FF000000" StrokeThickness="5" 
+		     Points="41,3 2,70 78,32 3,19 59,69"/>
+            <Label HorizontalAlignment="Center" Content="Polygon"/>
+        </StackPanel>
+        <StackPanel>
+            <Polyline Margin="15" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Height="Auto"
+		     Fill="#FFFFFF00" Stroke="#FF000000" StrokeThickness="5" 
+		     Points="41,3 2,70 78,32 3,19 59,69"/>
+            <Label HorizontalAlignment="Center" Content="Polyline"/>
+        </StackPanel>
+	</StackPanel>
+</Window>

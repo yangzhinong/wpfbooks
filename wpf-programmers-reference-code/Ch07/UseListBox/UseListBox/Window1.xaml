@@ -1,0 +1,55 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseListBox.Window1"
+	x:Name="Window"
+	Title="UseListBox"
+	Width="300" Height="250"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d">
+	<Window.Background>
+		<RadialGradientBrush>
+			<RadialGradientBrush.RelativeTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="-0.388"/>
+				</TransformGroup>
+			</RadialGradientBrush.RelativeTransform>
+			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			<GradientStop Color="#FFFF0000" Offset="1"/>
+		</RadialGradientBrush>
+	</Window.Background>
+	<Grid Margin="10">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="40"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Label Grid.Row="0" Content="Favorite Sports" HorizontalAlignment="Center"
+		 FontSize="20" FontWeight="Bold"/>
+		<ListBox Grid.Row="1"
+		 HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto"
+		 IsSynchronizedWithCurrentItem="True"
+		 FontSize="16" FontWeight="Bold"
+		 Foreground="Blue" Background="Pink"
+		 HorizontalContentAlignment="Left" VerticalContentAlignment="Top"
+		 SelectionMode="Extended">
+			<!-- http://www.mentalfloss.com/blogs/archives/15922 -->
+			<ListBoxItem Content="Bossaball"/>
+			<ListBoxItem Content="Ga-Ga"/>
+			<ListBoxItem>
+				<StackPanel Orientation="Horizontal">
+					<TextBlock Text="Mountain Unicycling" VerticalAlignment="Center"/>
+					<Image Source="Unicycle.jpg" Stretch="Uniform" Height="50" Margin="30,0,0,0"/>
+				</StackPanel>
+			</ListBoxItem>
+			<ListBoxItem Content="Pesapallo"/>
+			<!-- http://en.wikipedia.org/wiki/Hornussen -->
+			<ListBoxItem Content="Hornussen"/>
+			<!-- http://en.wikipedia.org/wiki/Trugo -->
+			<ListBoxItem Content="Trugo"/>
+		</ListBox>
+	</Grid>
+</Window>

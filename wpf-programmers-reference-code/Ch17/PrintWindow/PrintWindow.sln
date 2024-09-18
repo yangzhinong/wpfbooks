@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintWindow", "PrintWindow\PrintWindow.csproj", "{A083C223-1B44-4622-894F-88F22293B266}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A083C223-1B44-4622-894F-88F22293B266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A083C223-1B44-4622-894F-88F22293B266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A083C223-1B44-4622-894F-88F22293B266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A083C223-1B44-4622-894F-88F22293B266}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,82 @@
+﻿<Grid
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Tag="Blue"
+    >
+    <Grid.Resources>
+        <RadialGradientBrush x:Key="brFill">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="Blue" Offset="1"/>
+        </RadialGradientBrush>
+        <LinearGradientBrush x:Key="brStroke" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="LightBlue" Offset="0"/>
+            <GradientStop Color="DarkBlue" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="brRedStroke" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="HotPink" Offset="0"/>
+            <GradientStop Color="Red" Offset="1"/>
+        </LinearGradientBrush>
+    </Grid.Resources>
+    <Ellipse Width="220" Height="180" StrokeThickness="5"
+     Fill="{StaticResource brFill}"
+     Stroke="{StaticResource brStroke}"/>
+    <Canvas>
+        <Ellipse Name="ellSkin" Width="10" Height="10"
+         Canvas.Left="70" Canvas.Top="13"
+         Cursor="Cross" ToolTip="Change Skin"
+         Fill="HotPink" Stroke="{StaticResource brRedStroke}"
+         StrokeThickness="2" Tag="Red.xaml"
+        />
+
+        <Ellipse Name="ellMove" Width="50" Height="10"
+         Fill="{StaticResource brFill}"
+         Canvas.Left="85" Canvas.Top="10"
+         Cursor="Cross" ToolTip="Move"/>
+
+        <Grid Name="grdExit" Canvas.Left="140" Canvas.Top="13" Width="10" Height="10"
+         Cursor="Cross" ToolTip="Exit">
+            <Ellipse Stroke="{StaticResource brRedStroke}" StrokeThickness="2" Fill="HotPink"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+             FontFamily="Comic Sans MS" FontSize="8" FontWeight="Bold">X</TextBlock>
+        </Grid>
+
+        <Grid Name="grdRepairDisk" Width="85" Height="60"
+         Canvas.Left="20" Canvas.Top="40"
+         Cursor="Hand">
+            <Ellipse StrokeThickness="3"
+             Fill="{StaticResource brFill}"
+             Stroke="{StaticResource brStroke}"/>
+            <TextBlock FontSize="16" FontFamily="Comic Sans MS" FontWeight="Bold"
+              HorizontalAlignment="Center" VerticalAlignment="Center" 
+              TextAlignment="Center">
+                Repair<LineBreak/>Disk
+            </TextBlock>
+        </Grid>
+
+        <Grid Name="grdVirusCheck" Width="85" Height="60"
+         Canvas.Right="20" Canvas.Top="40"
+         Cursor="Hand">
+            <Ellipse StrokeThickness="3"
+             Fill="{StaticResource brFill}"
+             Stroke="{StaticResource brStroke}"/>
+            <TextBlock FontSize="16" FontFamily="Comic Sans MS" FontWeight="Bold"
+              HorizontalAlignment="Center" VerticalAlignment="Center" 
+              TextAlignment="Center">
+                Virus<LineBreak/>Check
+            </TextBlock>
+        </Grid>
+
+        <Grid Name="grdFormatDisk" Width="85" Height="60"
+         Canvas.Right="67.5" Canvas.Top="100"
+         Cursor="Hand">
+            <Ellipse StrokeThickness="3"
+             Fill="{StaticResource brFill}"
+             Stroke="{StaticResource brStroke}"/>
+            <TextBlock FontSize="16" FontFamily="Comic Sans MS" FontWeight="Bold"
+              HorizontalAlignment="Center" VerticalAlignment="Center" 
+              TextAlignment="Center">
+                Format<LineBreak/>Disk
+            </TextBlock>
+        </Grid>
+    </Canvas>
+</Grid>

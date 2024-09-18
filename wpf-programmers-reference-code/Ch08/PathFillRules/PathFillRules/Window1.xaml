@@ -1,0 +1,22 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="PathFillRules.Window1"
+	x:Name="Window"
+	Title="PathFillRules"
+	Width="248" Height="180" Background="#FFA0A0FF">
+	<StackPanel Orientation="Horizontal">
+		<StackPanel>
+			<Path Margin="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Height="Auto"
+			 Fill="#FFFF0000" Stroke="#FF000000" StrokeThickness="5" 
+			 Data="F0 M41,3 L2,70 78,32 3,19 59,69 41,3"/>
+			<Label Content="Odd/Even" HorizontalAlignment="Center" FontWeight="Bold"/>
+		</StackPanel>
+		<StackPanel>
+			<Path Margin="15" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" Height="Auto"
+			 Fill="#FFFF0000" Stroke="#FF000000" StrokeThickness="5" 
+			 Data="F1 M41,3 L2,70 78,32 3,19 59,69 41,3"/>
+			<Label Content="Nonzero" HorizontalAlignment="Center" FontWeight="Bold"/>
+		</StackPanel>
+	</StackPanel>
+</Window>

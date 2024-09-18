@@ -1,0 +1,106 @@
+﻿<Window x:Class="ImageColors.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:ImageColors"
+    Title="ImageColors" Height="300" Width="668">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="75"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="{x:Static local:Window1.CommandImageInvert}"
+            CanExecute="CanExecuteChecked"
+            Executed="ExecuteImageInvert"/>
+        <CommandBinding
+            Command="{x:Static local:Window1.CommandImageRed}"
+            CanExecute="CanExecuteChecked"
+            Executed="ExecuteImageRed"/>
+        <CommandBinding
+            Command="{x:Static local:Window1.CommandImageGreen}"
+            CanExecute="CanExecuteChecked"
+            Executed="ExecuteImageGreen"/>
+        <CommandBinding
+            Command="{x:Static local:Window1.CommandImageBlue}"
+            CanExecute="CanExecuteChecked"
+            Executed="ExecuteImageBlue"/>
+        <CommandBinding
+            Command="{x:Static local:Window1.CommandImageGrayscale}"
+            CanExecute="CanExecuteChecked"
+            Executed="ExecuteImageGrayscale"/>
+        <CommandBinding
+            Command="{x:Static local:Window1.CommandImageAverage}"
+            CanExecute="CanExecuteChecked"
+            Executed="ExecuteImageAverage"/>
+    </Window.CommandBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Command="{x:Static local:Window1.CommandImageInvert}"/>
+                <MenuItem Command="{x:Static local:Window1.CommandImageRed}"/>
+                <MenuItem Command="{x:Static local:Window1.CommandImageGreen}"/>
+                <MenuItem Command="{x:Static local:Window1.CommandImageBlue}"/>
+                <MenuItem Command="{x:Static local:Window1.CommandImageGrayscale}"/>
+                <MenuItem Command="{x:Static local:Window1.CommandImageAverage}"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
+            <Button Content="New" Click="NewWindow_Click"
+             Style="{StaticResource ButtonStyle}"/>
+            <CheckBox Name="chkEnable" Content="Enable" IsChecked="True"
+             VerticalAlignment="Center"/>
+            <Separator/>
+
+            <Button Name="btnInvert"
+                Command="{x:Static local:Window1.CommandImageInvert}"
+                Style="{StaticResource ButtonStyle}"
+                Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"/>
+            <Button Name="btnRed"
+                Command="{x:Static local:Window1.CommandImageRed}"
+                Style="{StaticResource ButtonStyle}"
+                Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"/>
+            <Button Name="btnGreen"
+                Command="{x:Static local:Window1.CommandImageGreen}"
+                Style="{StaticResource ButtonStyle}"
+                Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"/>
+            <Button Name="btnBlue"
+                Command="{x:Static local:Window1.CommandImageBlue}"
+                Style="{StaticResource ButtonStyle}"
+                Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"/>
+            <Button Name="btnGrayscale"
+                Command="{x:Static local:Window1.CommandImageGrayscale}"
+                Style="{StaticResource ButtonStyle}"
+                Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"/>
+            <Button Name="btnAverage"
+                Command="{x:Static local:Window1.CommandImageAverage}"
+                Style="{StaticResource ButtonStyle}"
+                Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"/>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <GridSplitter Grid.Column="1" Grid.Row="0"
+            Height="Auto" Width="Auto" HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" />
+            <ScrollViewer Grid.Column="0"
+            HorizontalScrollBarVisibility="Visible"
+            VerticalScrollBarVisibility="Visible">
+                <Image Source="/ImageColors;component/JackOLanterns.jpg" 
+                Stretch="None" Name="imgOld"
+                HorizontalAlignment="Left" VerticalAlignment="Top" />
+            </ScrollViewer>
+            <ScrollViewer Grid.Column="2"
+            HorizontalScrollBarVisibility="Visible"
+            VerticalScrollBarVisibility="Visible">
+                <Image Stretch="None" Name="imgNew"
+                HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </ScrollViewer>
+        </Grid>
+    </DockPanel>
+</Window>

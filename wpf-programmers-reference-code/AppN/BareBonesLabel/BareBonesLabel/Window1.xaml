@@ -1,0 +1,59 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="BareBonesLabel.Window1"
+	x:Name="Window"
+	Title="BareBonesLabel"
+	Width="500" Height="160"
+	FontSize="16"
+	Background="Silver">
+	<Window.Resources>
+		<ControlTemplate x:Key="temWrappedLabel" TargetType="Label">
+		    <Grid>
+		        <Border Name="brdMain"
+		         Background="{TemplateBinding Background}"
+		         BorderBrush="{TemplateBinding BorderBrush}"
+		         BorderThickness="{TemplateBinding BorderThickness}">
+		            <TextBlock Name="txtbContent" Margin="4" TextWrapping="Wrap"
+		             Text="{TemplateBinding ContentPresenter.Content}"/>
+		        </Border>
+		        <Canvas Name="canDisabled" Opacity="0">
+		            <Canvas.Background>
+		                <LinearGradientBrush StartPoint="0,0" EndPoint="3,3"
+		                 MappingMode="Absolute"
+		                 SpreadMethod="Repeat">
+		                    <GradientStop Color="LightGray" Offset="0"/>
+		                    <GradientStop Color="Black" Offset="1"/>
+		                </LinearGradientBrush>
+		            </Canvas.Background>
+		        </Canvas>
+		    </Grid>
+		    <ControlTemplate.Triggers>
+		        <Trigger Property="IsEnabled" Value="False">
+		            <Setter TargetName="canDisabled"
+		             Property="Opacity" Value="0.5"/>
+		            <Setter TargetName="txtbContent"
+		             Property="Foreground" Value="Gray"/>
+		        </Trigger>
+		    </ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Window.Resources>
+
+	<StackPanel Orientation="Horizontal">
+		<StackPanel.Resources>
+			<Style TargetType="Label">
+				<Setter Property="Margin" Value="5"/>
+				<Setter Property="Height" Value="100"/>
+				<Setter Property="Width" Value="150"/>
+				<Setter Property="Foreground" Value="Green"/>
+				<Setter Property="Background" Value="LightGray"/>
+				<Setter Property="BorderBrush" Value="Red"/>
+				<Setter Property="BorderThickness" Value="3"/>
+				<Setter Property="Content" Value="When in worry or in doubt, run in circles scream and shout."/>
+			</Style>
+		</StackPanel.Resources>
+		<Label />
+		<Label Template="{StaticResource temWrappedLabel}"/>
+		<Label Template="{StaticResource temWrappedLabel}" IsEnabled="False"/>
+	</StackPanel>
+</Window>

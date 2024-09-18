@@ -1,0 +1,68 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="StackPanelButton.Window1"
+	x:Name="Window"
+	Title="StackPanelButton"
+	Width="568" Height="156"
+ 	FontSize="18" FontWeight="Bold">
+	<Window.Background>
+		<RadialGradientBrush>
+			<GradientStop Color="White" Offset="0" />
+			<GradientStop Color="Green" Offset="1" />
+		</RadialGradientBrush>
+	</Window.Background>
+	<Window.Resources>
+		<Style x:Key="ButtonStyle" TargetType="Button">
+			<Setter Property="Width" Value="150" />
+			<Setter Property="Height" Value="75" />
+			<Setter Property="Margin" Value="10" />
+			<Setter Property="VerticalAlignment" Value="Top" />
+		</Style>
+		<Style x:Key="ImageStyle" TargetType="Image">
+			<Setter Property="Height" Value="50" />
+			<Setter Property="Margin" Value="5" />
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<DropShadowBitmapEffect />
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Window.Triggers>
+		<!-- Note: To get the audio files to work in C#, I had to
+		     edit the file in Visual Studio, select the .wav files,
+			 and set their Build Action properties to Resource.
+			 It seemed to work without this step in Visual Basic.
+		-->			 
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCat">
+	        <SoundPlayerAction Source="Meow.wav"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnDog">
+	        <SoundPlayerAction Source="Bark.wav"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnSpider">
+	        <SoundPlayerAction Source="Elephant.wav"/>
+		</EventTrigger>
+	</Window.Triggers>
+	<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+		<Button Style="{StaticResource ButtonStyle}" Name="btnCat">
+			<StackPanel Orientation="Horizontal">
+				<Image Source="Cat.jpg" Style="{StaticResource ImageStyle}" />
+				<Label Content="Cat" Margin="5" VerticalAlignment="Center" />
+			</StackPanel>
+		</Button>
+		<Button Style="{StaticResource ButtonStyle}" Name="btnDog">
+			<StackPanel Orientation="Horizontal">
+				<Image Source="Dog.jpg" Style="{StaticResource ImageStyle}" />
+				<Label Content="Dog" Margin="5" VerticalAlignment="Center" />
+			</StackPanel>
+		</Button>
+		<Button Style="{StaticResource ButtonStyle}" Name="btnSpider">
+			<StackPanel Orientation="Horizontal">
+				<Image Source="Spider.jpg" Style="{StaticResource ImageStyle}" />
+				<Label Content="Spider" Margin="5" VerticalAlignment="Center" />
+			</StackPanel>
+		</Button>
+	</StackPanel>
+</Window>

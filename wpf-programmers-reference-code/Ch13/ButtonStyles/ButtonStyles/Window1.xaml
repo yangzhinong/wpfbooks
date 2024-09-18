@@ -1,0 +1,134 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	x:Class="ButtonStyles.Window1"
+	x:Name="Window"
+	Title="ButtonStyles"
+	Width="445" Height="150">
+
+	<Window.Background>
+		<RadialGradientBrush>
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="Blue" Offset="1"/>
+		</RadialGradientBrush>
+	</Window.Background>
+
+	<Window.Resources>
+		<LinearGradientBrush x:Key="btnFill" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="Blue" Offset="0"/>
+			<GradientStop Color="White" Offset="0.5"/>
+			<GradientStop Color="Blue" Offset="1"/>
+		</LinearGradientBrush>
+		<LinearGradientBrush x:Key="btnStroke" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="Blue" Offset="0.5"/>
+			<GradientStop Color="White" Offset="1"/>
+		</LinearGradientBrush>
+		<sys:Double x:Key="btnStrokeThickness">5</sys:Double>
+		<sys:Double x:Key="btnWidth">75</sys:Double>
+		<sys:Double x:Key="btnHeight">40</sys:Double>
+		<sys:Double x:Key="btnRadiusX">10</sys:Double>
+		<sys:Double x:Key="btnRadiusY">10</sys:Double>
+		<Thickness x:Key="btnMargin">5</Thickness>
+		<FontFamily x:Key="btnFontFamily">Segoe</FontFamily>
+		<FontWeight x:Key="btnFontWeight">Bold</FontWeight>
+		<sys:Double x:Key="btnFontSize">16</sys:Double>
+		<BitmapEffectGroup x:Key="btnTextBitmapEffect">
+			<OuterGlowBitmapEffect GlowColor="White" GlowSize="10"/>
+		</BitmapEffectGroup>
+		<sys:String x:Key="btnText0">File</sys:String>
+		<sys:String x:Key="btnText1">Edit</sys:String>
+		<sys:String x:Key="btnText2">View</sys:String>
+		<sys:String x:Key="btnText3">Data</sys:String>
+		<sys:String x:Key="btnText4">Help</sys:String>
+<!--
+		<Style x:Key="btnGridStyle" TargetType="Grid">
+			<Setter Property="Width" Value="75"/>
+			<Setter Property="Height" Value="40"/>
+			<Setter Property="Margin" Value="5"/>
+		</Style>
+-->
+        <Style x:Key="btnGridStyle" TargetType="Grid">
+            <Setter Property="Width"
+             Value="{StaticResource btnWidth}"/>
+            <Setter Property="Height"
+             Value="{StaticResource btnHeight}"/>
+            <Setter Property="Margin"
+             Value="{StaticResource btnMargin}"/>
+        </Style>
+
+        <Style x:Key="btnRectStyle" TargetType="Rectangle">
+            <Setter Property="Fill"
+             Value="{StaticResource btnFill}"/>
+            <Setter Property="Stroke"
+             Value="{StaticResource btnStroke}"/>
+            <Setter Property="StrokeThickness"
+             Value="{StaticResource btnStrokeThickness}"/>
+            <Setter Property="RadiusX"
+             Value="{StaticResource btnRadiusX}"/>
+            <Setter Property="RadiusY"
+             Value="{StaticResource btnRadiusY}"/>
+        </Style>
+
+        <Style x:Key="btnTextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily"
+             Value="{StaticResource btnFontFamily}"/>
+            <Setter Property="FontSize"
+             Value="{StaticResource btnFontSize}"/>
+            <Setter Property="FontWeight"
+             Value="{StaticResource btnFontWeight}"/>
+            <Setter Property="HorizontalAlignment"
+             Value="Center"/>
+            <Setter Property="VerticalAlignment"
+             Value="Center"/>
+            <Setter Property="BitmapEffect"
+             Value="{StaticResource btnTextBitmapEffect}"/>
+        </Style>
+    </Window.Resources>
+
+	<!-- Menu area -->
+	<StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+		<!-- File -->
+		<Grid Style="{StaticResource btnGridStyle}">
+			<Rectangle Style="{StaticResource btnRectStyle}"/>
+			<TextBlock Style="{StaticResource btnTextBlockStyle}"
+			 Text="{StaticResource btnText0}"
+			/>
+		</Grid>
+
+		<!-- Edit -->
+		<Grid Style="{StaticResource btnGridStyle}">
+			<Rectangle Style="{StaticResource btnRectStyle}"/>
+			<TextBlock Style="{StaticResource btnTextBlockStyle}"
+			 Text="{StaticResource btnText1}"
+			/>
+		</Grid>
+
+		<!-- View -->
+		<Grid Style="{StaticResource btnGridStyle}">
+			<Rectangle Style="{StaticResource btnRectStyle}"/>
+			<TextBlock Style="{StaticResource btnTextBlockStyle}"
+			 Text="{StaticResource btnText2}"
+			/>
+		</Grid>
+
+		<!-- Data -->
+		<Grid Style="{StaticResource btnGridStyle}">
+			<Rectangle Style="{StaticResource btnRectStyle}"/>
+			<TextBlock
+			 Style="{StaticResource btnTextBlockStyle}"
+			 Text="{StaticResource btnText3}"
+			/>
+		</Grid>
+
+		<!-- Help -->
+		<Grid Style="{StaticResource btnGridStyle}">
+			<Rectangle Style="{StaticResource btnRectStyle}"/>
+			<TextBlock
+			 Style="{StaticResource btnTextBlockStyle}"
+			 Text="{StaticResource btnText4}"
+			/>
+		</Grid>
+	</StackPanel>
+</Window>

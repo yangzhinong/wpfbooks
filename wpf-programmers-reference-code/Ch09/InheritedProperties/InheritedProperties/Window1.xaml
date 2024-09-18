@@ -1,0 +1,91 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="InheritedProperties.Window1"
+	x:Name="Window"
+	Title="InheritedProperties"
+	Width="500" Height="270"
+    FontFamily="Comic Sans MS" FontSize="18" FontWeight="Bold"
+    Foreground="Yellow"
+    >
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FF00FF00" Offset="0"/>
+			<GradientStop Color="#FF004000" Offset="0.991"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<StackPanel Margin="10">
+		<StackPanel Orientation="Horizontal">
+            <Label Content="Label"/>
+			<Button Content="Click Me" Width="100" Margin="10,0,0,0"/>
+            <ComboBox Margin="80,0,0,0" Width="200" HorizontalAlignment="Left">
+                <ComboBoxItem IsSelected="True">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Apple" Width="110"/>
+                        <Image Source="ApplePie.ico" Height="30" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Pumpkin" Width="110"/>
+                        <Image Source="PumpkinPie.ico" Height="30" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Berry" Width="110"/>
+                        <Image Source="BerryPie.ico" Height="30" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </ComboBoxItem>
+                <ComboBoxItem Background="Yellow" Foreground="Red">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Mathematics" Width="110"/>
+                        <TextBlock Text="&#960;" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <ComboBox Margin="0,10,0,0" Width="200" HorizontalAlignment="Left">
+            <ComboBoxItem IsSelected="True">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Apple" Width="110"/>
+                    <Image Source="ApplePie.ico" Height="30" Margin="10,0,0,0"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Pumpkin" Width="110"/>
+                    <Image Source="PumpkinPie.ico" Height="30" Margin="10,0,0,0"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Berry" Width="110"/>
+                    <Image Source="BerryPie.ico" Height="30" Margin="10,0,0,0"/>
+                </StackPanel>
+            </ComboBoxItem>
+            <ComboBoxItem Background="Yellow" Foreground="Red">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Mathematics" Width="110"/>
+                    <TextBlock Text="&#960;" Margin="10,0,0,0"/>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
+        <GroupBox Header="Cookies" Width="240" HorizontalAlignment="Left">
+			<ListBox Width="200" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Chocolate Chip" Width="150"/>
+                    <Image Source="ChocolateChip.ico" Height="30" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Gingerbread" Width="150"/>
+                    <Image Source="GingerbreadCookie.ico" Height="30" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Background="Yellow">
+                    <TextBlock Text="Fortune" Width="150" Foreground="Red"/>
+                    <Image Source="FortuneCookie.ico" Height="30" Margin="10,0,0,0"/>
+                </StackPanel>
+            </ListBox>
+		</GroupBox>
+	</StackPanel>
+</Window>

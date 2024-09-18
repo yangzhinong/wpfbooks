@@ -1,0 +1,158 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="PrintFixedDocument.Window1"
+	x:Name="Window"
+	Title="PrintFixedDocument"
+	Height="500" Width="800">
+    <Window.Resources>
+        <Style x:Key="styHeader1" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="FontFamily" Value="Times New Roman" />
+            <Setter Property="Margin" Value="0,10,0,10" />
+            <Setter Property="Foreground" Value="DarkBlue" />
+        </Style>
+        <Style x:Key="styHeader2" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="Margin" Value="10,5,0,5" />
+            <Setter Property="Foreground" Value="Blue" />
+        </Style>
+        <Style x:Key="styPara" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Normal" />
+            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="FontFamily" Value="Segoe" />
+            <Setter Property="Margin" Value="0,10,0,0" />
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Print" Click="mnuFilePrint_Click"/>
+            </MenuItem>
+        </Menu>
+        <DocumentViewer>
+			<FixedDocument Name="fdContents">
+                <PageContent Width="800" Height="1000">
+                    <FixedPage Width="800" Height="1000" Margin="100">
+                        <StackPanel Margin="10" Width="600" >
+                            <TextBlock Style="{StaticResource styHeader1}">Chapter 1. Lorem Ipsum</TextBlock>
+                            <TextBlock Style="{StaticResource styHeader2}">Dolor Sit Amet</TextBlock>
+                            <TextBlock Style="{StaticResource styPara}">
+                                Consectetur adipiscing elit. Ut vitae mauris. Suspendisse feugiat nunc ut tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id felis ornare urna molestie ultrices. Phasellus vel ligula. Suspendisse sit amet turpis vitae erat luctus suscipit. Aenean et massa. Suspendisse scelerisque dui a eros. Nam sodales interdum dolor. Nunc viverra nunc eu elit. Donec rhoncus convallis tellus. Etiam et ligula.
+                            </TextBlock>
+                            <Border Margin="100,20,100,20" BorderBrush="Red" BorderThickness="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Background="LightGray">Suspendisse</TextBlock>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Background="LightGray">Vel Augue</TextBlock>
+                                    <TextBlock Grid.Row="0" Grid.Column="2" Background="LightGray">Aenean lacinia</TextBlock>
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0">Vel lacus</TextBlock>
+                                    <TextBlock Grid.Row="1" Grid.Column="1">Pulvinar</TextBlock>
+                                    <TextBlock Grid.Row="1" Grid.Column="2">Aenean</TextBlock>
+
+                                    <TextBlock Grid.Row="2" Grid.Column="0">Tincidunt</TextBlock>
+                                    <TextBlock Grid.Row="2" Grid.Column="1">Nulla facilisi</TextBlock>
+                                    <TextBlock Grid.Row="2" Grid.Column="2">Sit amet</TextBlock>
+
+                                    <TextBlock Grid.Row="3" Grid.Column="0">In hac habitasse</TextBlock>
+                                    <TextBlock Grid.Row="3" Grid.Column="1">Platea dictumst</TextBlock>
+                                    <TextBlock Grid.Row="3" Grid.Column="2">Ipsum</TextBlock>
+                                </Grid>
+                            </Border>
+                            <TextBlock Style="{StaticResource styPara}">
+                                Nullam dapibus dapibus erat. Praesent lorem ipsum, rhoncus vel, consequat ac, consequat in, ligula. Nunc sed enim sit amet nisl adipiscing tincidunt. Integer urna turpis, rhoncus non, posuere semper, placerat a, dolor. Curabitur suscipit nunc ac diam. Proin sollicitudin est at nisl viverra tincidunt.
+                            </TextBlock>
+
+                            <TextBlock Style="{StaticResource styHeader2}">Morbi A Felis</TextBlock>
+                            <TextBlock Style="{StaticResource styPara}">Adipiscing urna fringilla imperdiet. Nullam commodo mauris eu lectus. Cras imperdiet risus et urna. Praesent volutpat risus at neque. Integer sed sapien eget magna iaculis feugiat. Ut dignissim, mi ac suscipit vehicula, velit odio mollis diam, id dictum lorem sapien euismod odio. Praesent dignissim, urna vitae accumsan volutpat, felis mi laoreet nisi, eu feugiat leo tellus tristique elit. Donec eu eros nec elit suscipit sollicitudin. Aenean neque odio, feugiat a, blandit et, hendrerit vitae, elit. Vivamus lacus mauris, feugiat at, tempus vitae, tempus id, augue. In a quam non turpis facilisis dapibus. Duis diam. Nullam lorem tortor, aliquam sit amet, volutpat non, semper non, velit.</TextBlock>
+                            <TextBlock Style="{StaticResource styPara}">
+                                Donec nisl erat, elementum et, placerat at, fermentum ac, ante. Donec suscipit tellus in magna. Fusce consectetur. Sed in lacus sed lacus suscipit euismod. Cras condimentum dui. Quisque et tortor sit amet ante venenatis volutpat. Sed facilisis ante vel velit. Etiam in erat. Aliquam laoreet. Praesent dapibus iaculis urna. Aenean erat metus, congue et, malesuada quis, mattis porta, justo. Maecenas varius diam in arcu. Vestibulum rhoncus, erat scelerisque faucibus placerat, ligula purus bibendum neque, in bibendum libero nulla in mauris.
+                            </TextBlock>
+
+                            <TextBlock Style="{StaticResource styHeader2}">Tincidunt</TextBlock>
+
+                            <StackPanel Orientation="Horizontal" Width="600">
+                                <TextBlock Style="{StaticResource styPara}" Width="410">
+                                    Augue eu condimentum vulputate, ante velit sodales eros, id interdum augue nibh ultrices metus. Pellentesque fermentum. Praesent congue nisl et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl. Integer venenatis tellus eu nisl. Nulla ut enim id lorem pulvinar semper. Integer ultrices lacus ac justo. Donec id dui. Maecenas ante nisl, viverra vitae, eleifend eu, lacinia eget, nisl. Aliquam facilisis metus in magna. In eu purus vitae velit ornare malesuada. Nullam vitae nulla nec justo posuere aliquet.
+                                </TextBlock>
+                                <Border BorderBrush="Blue" BorderThickness="1" Width="170">
+                                    <StackPanel>
+                                        <Image HorizontalAlignment="Center" Width="75" Height="75" Stretch="Uniform" Source="Dishes.jpg"/>
+                                        <TextBlock HorizontalAlignment="Center" Margin="5">Figure 1. Vivamus at tellus.</TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+
+                            <TextBlock Style="{StaticResource styHeader2}">Praesent Faucibus</TextBlock>
+                            <TextBlock Style="{StaticResource styPara}">
+                                Ut eleifend auctor magna. Quisque ac massa fermentum elit ornare consequat. Pellentesque semper mi vel magna. Ut accumsan dui. Etiam consectetur nibh vel nunc. Suspendisse hendrerit varius lorem. Etiam viverra luctus purus. Aenean ultricies volutpat augue. Aliquam dapibus dapibus nunc. Nulla sem. Duis metus sapien, egestas id, tincidunt vitae, pulvinar a, urna. Nullam sed mauris et augue sollicitudin ornare. Quisque vel nisi. Maecenas fringilla. Morbi dolor.
+                            </TextBlock>
+                        </StackPanel>
+                    </FixedPage>
+                </PageContent>
+                
+                <PageContent Width="800" Height="1000">
+                    <FixedPage Width="800" Height="1000" Margin="100">
+                        <StackPanel Margin="10" Width="600" >
+                            <TextBlock Style="{StaticResource styHeader2}">Erat Eu Velit</TextBlock>
+                            <TextBlock Style="{StaticResource styPara}">
+                                Maecenas sed purus. Suspendisse odio ipsum, accumsan sed, tristique sit amet, fermentum nec, dolor. Donec quis massa. Praesent eget mi ac neque viverra dignissim. Maecenas a diam id quam pretium dapibus. Aenean odio. In eget massa. Donec nisl augue, luctus vel, mattis ut, porttitor non, quam.
+                            </TextBlock>
+                            
+                            <TextBlock Style="{StaticResource styHeader1}">Chapter 2. Nam Facilisis</TextBlock>
+
+                            <TextBlock Style="{StaticResource styPara}">
+                                Mauris porta scelerisque felis. Mauris imperdiet iaculis nisi. Suspendisse gravida. Phasellus in mi gravida velit bibendum scelerisque. Praesent viverra, ante quis condimentum volutpat, augue nisl vestibulum metus, eget blandit diam dolor ut odio. Donec sit amet tortor sodales metus gravida volutpat. Sed nec erat eget purus lacinia egestas. This is a secret message. First person to email me gets a free book. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas consectetur massa. Suspendisse potenti. Etiam lacus diam, fringilla eget, sodales sit amet, dictum nec, erat. Nunc id est vitae nibh rutrum porta. Donec hendrerit urna id leo. Maecenas purus urna, pulvinar eget, pellentesque id, auctor vitae, libero. Nam mi odio, pretium vel, sagittis id, luctus quis, velit. Nullam arcu neque, interdum eget, sodales et, malesuada sed, eros. Quisque lectus. Nulla sodales egestas augue.
+                            </TextBlock>
+
+                            <TextBlock Style="{StaticResource styHeader2}">Morbi A Felis</TextBlock>
+                            <TextBlock Style="{StaticResource styPara}">
+                                Praesent vel arcu sit amet quam molestie faucibus. Proin eget nunc. Cras vitae tellus at diam rhoncus tincidunt. Phasellus purus libero, feugiat id, pulvinar quis, dictum at, enim. Vestibulum hendrerit, massa id convallis posuere, purus velit volutpat urna, sit amet egestas urna erat porta arcu. Aenean in risus ut nisi pretium vulputate. Pellentesque ut nisi non risus adipiscing congue. Maecenas nec eros. Integer tempus est adipiscing dui. Quisque placerat mi in leo. Aliquam eu quam. Ut magna sem, gravida ac, fermentum pretium, fermentum non, ligula. Ut ultrices. Phasellus quis felis at orci ornare eleifend. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ut lectus. Proin congue tellus vitae velit. Nunc volutpat sem at massa. Aliquam a nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            </TextBlock>
+                            <TextBlock Style="{StaticResource styPara}">
+                                Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras egestas nulla sit amet risus condimentum pretium. Suspendisse ac ipsum. Fusce dui. Donec pretium leo et felis. Aenean vel eros. Fusce libero dui, eleifend eget, mattis vel, lobortis vitae, turpis. Praesent ultrices. Aenean diam sapien, imperdiet nec, laoreet sit amet, pretium id, tortor. Nulla quis odio. Suspendisse at arcu. Nullam ultricies. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed placerat consectetur arcu. Aenean tortor diam, placerat in, congue aliquet, aliquam eu, nisl. Proin ullamcorper mollis lorem.
+                            </TextBlock>
+                            
+                            <TextBlock Style="{StaticResource styHeader2}">Nulla Ante Velit</TextBlock>
+                            <TextBlock Style="{StaticResource styPara}">
+                                Iaculis at, egestas vel, lobortis convallis, enim. Aliquam erat volutpat. Suspendisse arcu risus, interdum sit amet, vestibulum eu, tristique ut, est. Maecenas molestie justo sit amet sapien. Phasellus laoreet mauris a magna. Mauris mattis euismod ipsum. Aliquam sodales hendrerit lorem. Proin semper. Sed convallis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sodales diam in justo.
+                            </TextBlock>
+
+                            <TextBlock Style="{StaticResource styHeader2}">Maecenas Imperdiet</TextBlock>
+
+                            <StackPanel Orientation="Horizontal" Width="600">
+                                <Border BorderBrush="Blue" BorderThickness="1" Width="170" Height="100">
+                                    <StackPanel>
+                                        <Image HorizontalAlignment="Center" Width="75" Height="75" Stretch="Uniform" Source="Flowers.jpg"/>
+                                        <TextBlock HorizontalAlignment="Center" Margin="5">Figure 2. Vivamus et turpis.</TextBlock>
+                                    </StackPanel>
+                                </Border>
+                                <TextBlock Style="{StaticResource styPara}" Width="410" Margin="10,0,0,0">
+                                    Curabitur ante mauris, pellentesque quis, tempus ac, pulvinar gravida, dolor. Curabitur luctus, risus sed aliquet vehicula, ipsum turpis tincidunt nulla, nec dapibus eros urna sit amet purus. Donec eget sem. Sed eu urna nec nunc sollicitudin fermentum. Aliquam erat diam, sodales sit amet, fringilla a, fermentum nec, diam. Aenean cursus justo id arcu. Donec nibh leo, molestie convallis, aliquet vel, cursus sed, quam. Mauris at lorem. Quisque lacinia, est et egestas vulputate, metus nisi porttitor metus, ultrices bibendum est arcu a augue. Nullam sed metus at orci iaculis pellentesque. Phasellus porttitor. Pellentesque pellentesque dapibus nisi. Aenean sit amet tortor auctor diam consectetur lobortis. Proin blandit ante eu lectus convallis placerat. Pellentesque nisl orci, accumsan at, faucibus eu, egestas sed, tortor. Fusce congue condimentum massa.
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </FixedPage>
+                </PageContent>
+            </FixedDocument>
+		</DocumentViewer>
+    </DockPanel>
+</Window>

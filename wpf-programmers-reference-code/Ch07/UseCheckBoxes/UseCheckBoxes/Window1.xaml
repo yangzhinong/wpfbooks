@@ -1,0 +1,26 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseCheckBoxes.Window1"
+	x:Name="Window"
+	Title="UseCheckBoxes"
+	Width="330" Height="220"
+	FontWeight="Bold" FontSize="16" FontFamily="Comic Sans MS">
+	<Window.Background>
+		<RadialGradientBrush>
+			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			<GradientStop Color="#FFEDFF00" Offset="1"/>
+		</RadialGradientBrush>
+	</Window.Background>
+	<Grid x:Name="LayoutRoot">
+		<GroupBox Header="Event Registrations" Margin="8"
+		 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			<StackPanel Margin="5">
+				<CheckBox Margin="5" Content="Street Luge" IsChecked="True" Name="chkStreetLuge" Click="CheckBox_Click" IsThreeState="True" />
+				<CheckBox Margin="5" Content="Skysurfing" Name="chkSkysurfing" Click="CheckBox_Click" IsThreeState="True" />
+				<CheckBox Margin="5" Content="Vert Triples" IsChecked="True" Name="chkVertTriples" Click="CheckBox_Click" IsThreeState="True" />
+				<CheckBox Margin="5" Content="Super-Modified Shovel Racing" Name="chkShovelRacing" Click="CheckBox_Click" IsThreeState="True" IsChecked="False" />
+			</StackPanel>
+		</GroupBox>
+	</Grid>
+</Window>

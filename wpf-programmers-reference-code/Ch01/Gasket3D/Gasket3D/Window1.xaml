@@ -1,0 +1,76 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Gasket3D.Window1"
+	x:Name="Window"
+	Title="Gasket3D"
+    Height="269" Width="372" Loaded="Window_Loaded">
+	<Window.Resources>
+		<Storyboard x:Key="RotateModel">
+			<Rotation3DAnimationUsingKeyFrames BeginTime="00:00:00" RepeatBehavior="Forever"
+             Storyboard.TargetName="GasketModel"
+             Storyboard.TargetProperty="(Model3D.Transform).(Transform3DGroup.Children)[0].(RotateTransform3D.Rotation)">
+				<SplineRotation3DKeyFrame KeyTime="00:00:02">
+					<SplineRotation3DKeyFrame.Value>
+						<AxisAngleRotation3D Angle="180" Axis="0,1,0"/>
+					</SplineRotation3DKeyFrame.Value>
+				</SplineRotation3DKeyFrame>
+				<SplineRotation3DKeyFrame KeyTime="00:00:04">
+					<SplineRotation3DKeyFrame.Value>
+						<AxisAngleRotation3D Angle="359" Axis="0,1,0"/>
+					</SplineRotation3DKeyFrame.Value>
+				</SplineRotation3DKeyFrame>
+			</Rotation3DAnimationUsingKeyFrames>
+		</Storyboard>
+	</Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="AliceBlue" Offset="0" />
+            <GradientStop Color="Blue" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource RotateModel}"/>
+		</EventTrigger>
+	</Window.Triggers>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Level:" />
+            <ComboBox Width="40" SelectedIndex="1" Margin="3,0,0,0" Name="cboLevel" SelectionChanged="cboLevel_SelectionChanged" IsTabStop="False">
+                <ComboBoxItem Content="0" />
+                <ComboBoxItem Content="1" />
+                <ComboBoxItem Content="2" />
+            </ComboBox>
+        </StackPanel>
+        <Viewport3D Margin="4,4,4,4" Width="337" Height="195">
+        	<Viewport3D.Camera>
+        		<PerspectiveCamera
+        			Position="2, 2, 4"
+        			LookDirection="-2, -2, -4"
+        			UpDirection="0, 1, 0"
+        			FieldOfView="60"/>
+        	</Viewport3D.Camera>
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <Model3DGroup x:Name="GasketModel">
+                    	<Model3DGroup.Transform>
+                    		<Transform3DGroup>
+                    			<RotateTransform3D />
+                    		</Transform3DGroup>
+                    	</Model3DGroup.Transform>
+                        
+                        <!-- Lights -->
+                        <AmbientLight Color="Gray" />
+                        <DirectionalLight Color="White" Direction="0,-1,0" />
+                        <DirectionalLight Color="LightGray" Direction="1,0,0" />
+                        
+						<!-- 3D objects go here. -->
+						
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+
+        </Viewport3D>
+    </StackPanel>
+</Window>

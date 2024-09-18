@@ -1,0 +1,125 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ResourceDictionaries.Window1"
+	x:Name="Window"
+	Title="ResourceDictionaries"
+	Width="600" Height="250">
+
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ResRed.xaml"/>
+				<ResourceDictionary Source="ResBlue.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+
+	<Window.FontFamily>
+		<StaticResource ResourceKey="fntName"/>
+	</Window.FontFamily>
+	<Window.FontSize>
+		<StaticResource ResourceKey="fntSize"/>
+	</Window.FontSize>
+	<Window.FontWeight>
+		<StaticResource ResourceKey="fntWeight"/>
+	</Window.FontWeight>
+	<Window.Background>
+		<StaticResource ResourceKey="brBackground"/>
+	</Window.Background>
+	<Window.Foreground>
+		<StaticResource ResourceKey="brForeground"/>
+	</Window.Foreground>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="2*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.Column="0"
+			RadiusX="{StaticResource dblRadX}"
+			RadiusY="{StaticResource dblRadY}"
+			Fill="{StaticResource brRectFill}"
+			Stroke="{StaticResource brRectStroke}"
+			StrokeThickness="{StaticResource dblRectStrokeThickness}"
+			Margin="{StaticResource thkMargin}"
+		 />
+        <Label Grid.Row="0" Grid.Column="0"
+			Content="{StaticResource strLabel0}"
+			Margin="{StaticResource thkLabelMargin}"
+			HorizontalAlignment="{StaticResource haliLabel}"
+			VerticalAlignment="{StaticResource valiLabel}"
+			Foreground="{StaticResource brForeground}"
+			Background="{StaticResource brLabelBackground}"
+		>
+			<Label.BitmapEffect>
+				<BitmapEffectGroup>
+					<StaticResource ResourceKey="bmeLabel0"/>
+				</BitmapEffectGroup>
+			</Label.BitmapEffect>
+		</Label>
+
+		<ListBox Grid.Row="1" Grid.Column="0" Margin="5" Background="Transparent"
+		 ItemsSource="{Binding Source={StaticResource datBreakfast}, XPath=Foods/Value}"
+		 ItemTemplate="{StaticResource temList}"/>
+		
+		<Rectangle Grid.Row="0" Grid.Column="1"
+			RadiusX="{StaticResource dblRadX}"
+			RadiusY="{StaticResource dblRadY}"
+			Fill="{StaticResource brRectFill}"
+			Stroke="{StaticResource brRectStroke}"
+			StrokeThickness="{StaticResource dblRectStrokeThickness}"
+			Margin="{StaticResource thkMargin}"
+		/>
+		<Label Grid.Row="0" Grid.Column="1"
+			Content="{StaticResource strLabel1}"
+			Margin="{StaticResource thkLabelMargin}"
+			HorizontalAlignment="{StaticResource haliLabel}"
+			VerticalAlignment="{StaticResource valiLabel}"
+			Foreground="{StaticResource brForeground}"
+			Background="{StaticResource brLabelBackground}"
+		>
+			<Label.BitmapEffect>
+				<BitmapEffectGroup>
+					<StaticResource ResourceKey="bmeLabel1"/>
+				</BitmapEffectGroup>
+			</Label.BitmapEffect>
+		</Label>
+
+		<ListBox Grid.Row="1" Grid.Column="1" Margin="5" Background="Transparent"
+		 ItemsSource="{Binding Source={StaticResource datLunch}, XPath=Foods/Value}"
+		 ItemTemplate="{StaticResource temList}"/>
+
+		<Rectangle Grid.Row="0" Grid.Column="2"
+			RadiusX="{StaticResource dblRadX}"
+			RadiusY="{StaticResource dblRadY}"
+			Fill="{StaticResource brRectFill}"
+			Stroke="{StaticResource brRectStroke}"
+			StrokeThickness="{StaticResource dblRectStrokeThickness}"
+			Margin="{StaticResource thkMargin}"
+		/>
+		<Label Grid.Row="0" Grid.Column="2"
+			Content="{StaticResource strLabel2}"
+			Margin="{StaticResource thkLabelMargin}"
+			HorizontalAlignment="{StaticResource haliLabel}"
+			VerticalAlignment="{StaticResource valiLabel}"
+			Foreground="{StaticResource brForeground}"
+			Background="{StaticResource brLabelBackground}"
+		>
+			<Label.BitmapEffect>
+				<BitmapEffectGroup>
+					<StaticResource ResourceKey="bmeLabel2"/>
+				</BitmapEffectGroup>
+			</Label.BitmapEffect>
+		</Label>
+
+		<ListBox Grid.Row="1" Grid.Column="2" Margin="5" Background="Transparent"
+		 ItemsSource="{Binding Source={StaticResource datDinner}, XPath=Foods/Value}"
+		 ItemTemplate="{StaticResource temList}"/>
+	</Grid>
+</Window>

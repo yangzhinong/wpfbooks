@@ -1,0 +1,75 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="TransformedControls.Window1"
+	x:Name="Window"
+	Title="TransformedControls"
+	Width="480" Height="348">
+	<Window.Resources>
+		<Style TargetType="Image" x:Key="ImageStyle">
+			<Setter Property="HorizontalAlignment" Value="Center" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+			<Setter Property="Margin" Value="5" />
+			<Setter Property="Stretch" Value="Uniform" />
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<DropShadowBitmapEffect/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="Label" x:Key="LabelStyle">
+			<Setter Property="HorizontalAlignment" Value="Center" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+			<Setter Property="Margin" Value="5" />
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="FontSize" Value="20" />
+			<Setter Property="BitmapEffect">
+				<Setter.Value>
+					<OuterGlowBitmapEffect/>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<Style TargetType="Label" x:Key="LabelStyle2" BasedOn="{StaticResource LabelStyle}">
+			<Setter Property="LayoutTransform">
+				<Setter.Value>
+					<RotateTransform Angle="-90" />
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+	<Grid x:Name="LayoutRoot">
+		<Grid.Background>
+			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+				<GradientStop Color="White" Offset="0"/>
+				<GradientStop Color="Red" Offset="1"/>
+			</LinearGradientBrush>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"/>
+			<RowDefinition Height="0.33*"/>
+			<RowDefinition Height="0.33*"/>
+			<RowDefinition Height="0.33*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="50"/>
+			<ColumnDefinition Width="0.33*"/>
+			<ColumnDefinition Width="0.33*"/>
+			<ColumnDefinition Width="0.33*"/>
+		</Grid.ColumnDefinitions>
+		<Label Grid.Row="0" Grid.Column="1" Content="Air" Style="{StaticResource LabelStyle}" /> 
+		<Label Grid.Row="0" Grid.Column="2" Content="Ground" Style="{StaticResource LabelStyle}" /> 
+		<Label Grid.Row="0" Grid.Column="3" Content="Water" Style="{StaticResource LabelStyle}" /> 
+		<Label Grid.Row="1" Grid.Column="0" Content="Animal" Style="{StaticResource LabelStyle2}" /> 
+		<Label Grid.Row="2" Grid.Column="0" Content="Vehicle" Style="{StaticResource LabelStyle2}" /> 
+		<Label Grid.Row="3" Grid.Column="0" Content="Sport" Style="{StaticResource LabelStyle2}" /> 
+		<Image Grid.Row="1" Grid.Column="1" Source="Butterfly.jpg" Style="{StaticResource ImageStyle}" />
+		<Image Grid.Row="1" Grid.Column="2" Source="Tiger.jpg" Style="{StaticResource ImageStyle}" />
+		<Image Grid.Row="1" Grid.Column="3" Source="Platypus.jpg" Style="{StaticResource ImageStyle}" />
+		<Image Grid.Row="2" Grid.Column="1" Source="Jet.jpg" Style="{StaticResource ImageStyle}" />
+		<Image Grid.Row="2" Grid.Column="2" Source="Car.jpg" Style="{StaticResource ImageStyle}" />
+		<Image Grid.Row="2" Grid.Column="3" Source="Sub.jpg" Style="{StaticResource ImageStyle}" />
+		<Image Grid.Row="3" Grid.Column="1" Source="Volleyball.jpg" Style="{StaticResource ImageStyle}" />
+		<Image Grid.Row="3" Grid.Column="2" Source="Soccer.jpg" Style="{StaticResource ImageStyle}" />
+		<Image Grid.Row="3" Grid.Column="3" Source="Golf.jpg" Style="{StaticResource ImageStyle}" />
+	</Grid>
+</Window>

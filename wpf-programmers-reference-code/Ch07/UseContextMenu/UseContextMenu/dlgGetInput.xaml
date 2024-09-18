@@ -1,0 +1,10 @@
+﻿<Window x:Class="UseContextMenu.dlgGetInput"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="dlgGetInput" Height="135" Width="341">
+    <Grid>
+        <TextBox Name="txtValue" Height="Auto" VerticalAlignment="Top" Margin="10"/>
+        <Button IsDefault="True" Height="23" Margin="0,0,83,12" Name="btnOk" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="65" Click="btnOk_Click">OK</Button>
+        <Button IsCancel="True" HorizontalAlignment="Right" Margin="0,0,12,12" Name="btnCancel" Width="65" Height="23" VerticalAlignment="Bottom" Click="btnCancel_Click">Cancel</Button>
+    </Grid>
+</Window>

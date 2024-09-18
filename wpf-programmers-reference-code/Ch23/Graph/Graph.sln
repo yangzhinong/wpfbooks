@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{3DB91F5F-67D3-45C0-BFC6-32D520D3C57B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DB91F5F-67D3-45C0-BFC6-32D520D3C57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB91F5F-67D3-45C0-BFC6-32D520D3C57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB91F5F-67D3-45C0-BFC6-32D520D3C57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB91F5F-67D3-45C0-BFC6-32D520D3C57B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

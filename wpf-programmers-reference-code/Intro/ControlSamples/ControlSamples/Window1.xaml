@@ -1,0 +1,21 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ControlSamples.Window1"
+	x:Name="Window"
+	Title="ControlSamples"
+	Width="360" Height="148" Background="#FF00A4FF">
+	<Grid x:Name="LayoutRoot">
+		<Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="Button" Margin="8,8,0,0" Height="34" Width="68.42"/>
+		<Label HorizontalAlignment="Left" VerticalAlignment="Top" Content="Label" Margin="94.007,12.02,0,0"/>
+		<TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Text="TextBox" TextWrapping="Wrap" Margin="136,14.02,0,0" Width="72"/>
+		<Polygon Stroke="Red" StrokeThickness="5" Points="220,20 320,40 230,70 280,10 310,90" />
+		<CheckBox HorizontalAlignment="Left" Margin="8,46,0,40" Content="CheckBox" Width="88"/>
+		<ComboBox HorizontalAlignment="Left" Margin="8,0,0,18.04"
+		 VerticalAlignment="Bottom" IsSynchronizedWithCurrentItem="True"
+		 Width="100" SelectedIndex="0">
+			<ListBoxItem Height="20" Content="ComboBox" />
+		</ComboBox>
+		<Image Margin="120,41.98,128,1.506" Source="Car.jpg"/>
+	</Grid>
+</Window>

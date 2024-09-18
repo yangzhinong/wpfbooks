@@ -1,0 +1,253 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace UseRichTextBox
+{
+	/// <summary>
+	/// Interaction logic for Window1.xaml
+	/// </summary>
+	public partial class Window1 : Window
+	{
+		public Window1()
+		{
+			this.InitializeComponent();
+			
+			// Insert code required on object creation below this point.
+		}
+
+        // Update the menu's checkboxes.
+        private void mnuFontStyle_SubmenuOpened(object sender, RoutedEventArgs e)
+        {
+            // Bold.
+            Object fw_obj = rchBody.Selection.GetPropertyValue(
+                TextElement.FontWeightProperty);
+            if (fw_obj is FontWeight)
+            {
+                FontWeight fw = (FontWeight)fw_obj;
+                mnuFontStyleBold.IsChecked = (fw == FontWeights.Bold);
+            } else {
+                mnuFontStyleBold.IsChecked = false;
+            }
+
+            // Italic.
+            Object it_obj = rchBody.Selection.GetPropertyValue(
+                TextElement.FontStyleProperty);
+            if (it_obj is FontStyle)
+            {
+                FontStyle it = (FontStyle)it_obj;
+                mnuFontStyleItalic.IsChecked = (it == FontStyles.Italic);
+            } else {
+                mnuFontStyleItalic.IsChecked = false;
+            }
+
+            // Underlined.
+            Object ul_obj = rchBody.Selection.GetPropertyValue(Paragraph.TextDecorationsProperty);
+            if (ul_obj is TextDecorationCollection)
+            {
+                TextDecorationCollection decorations = (TextDecorationCollection)ul_obj;
+                mnuFontStyleUnderline.IsChecked = ((decorations.Count > 0) &&
+                    (decorations[0].Location == TextDecorationLocation.Underline));
+            } else {
+                mnuFontStyleUnderline.IsChecked = false;
+            }
+        }
+
+        // Update the FontSize menu.
+        private void mnuFontSize_SubmenuOpened(object sender, RoutedEventArgs e)
+        {
+            Object fs_obj = rchBody.Selection.GetPropertyValue(
+                TextElement.FontSizeProperty);
+            if (fs_obj == DependencyProperty.UnsetValue)
+            {
+                mnuFontSizeSmall.IsChecked = false;
+                mnuFontSizeMedium.IsChecked = false;
+                mnuFontSizeLarge.IsChecked = false;
+            }
+            else
+            {
+                double fs = (double)fs_obj;
+                mnuFontSizeSmall.IsChecked = (fs < 16.0);
+                mnuFontSizeMedium.IsChecked = ((fs >= 16.0) && (fs < 22.0));
+                mnuFontSizeLarge.IsChecked = (fs >= 22.0);
+            }
+        }
+
+        // Set the selected font's size.
+        private void FontSize_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem mnu = (MenuItem)sender;
+            switch (mnu.Header.ToString())
+            {
+                case "_Small":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, 10.0);
+                    break;
+                case "_Medium":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, 16.0);
+                    break;
+                case "_Large":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, 22.0);
+                    break;
+            }
+        }
+
+        // Update the Text Color menu.
+        private void mnuFontTextColor_SubmenuOpened(object sender, RoutedEventArgs e)
+        {
+            Object br_obj = rchBody.Selection.GetPropertyValue(
+                TextElement.ForegroundProperty);
+            if (br_obj is SolidColorBrush)
+            {
+                SolidColorBrush br = (SolidColorBrush)br_obj;
+                mnuFontTextColorBlack.IsChecked = (br.Color.Equals(Colors.Black));
+                mnuFontTextColorRed.IsChecked = (br.Color.Equals(Colors.Red));
+                mnuFontTextColorGreen.IsChecked = (br.Color.Equals(Colors.Green));
+                mnuFontTextColorBlue.IsChecked = (br.Color.Equals(Colors.Blue));
+            }
+            else
+            {
+                mnuFontTextColorBlack.IsChecked = false;
+                mnuFontTextColorRed.IsChecked = false;
+                mnuFontTextColorGreen.IsChecked = false;
+                mnuFontTextColorBlue.IsChecked = false;
+            }
+        }
+
+        // Set the selection's text color.
+        private void mnuFontTextColor_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem mnu = (MenuItem)sender;
+            switch (mnu.Header.ToString())
+            {
+                case "_Black":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Black);
+                    break;
+                case "_Red":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Red);
+                    break;
+                case "_Green":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Green);
+                    break;
+                case "B_lue":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, Brushes.Blue);
+                    break;
+            }
+        }
+
+        // Update the Background Color menu.
+        private void mnuFontBackgroundColor_SubmenuOpened(object sender, RoutedEventArgs e)
+        {
+            Object br_obj = rchBody.Selection.GetPropertyValue(
+                TextElement.BackgroundProperty);
+            if (br_obj is SolidColorBrush)
+            {
+                SolidColorBrush br = (SolidColorBrush)br_obj;
+                mnuFontBackgroundColorLightBlue.IsChecked = (br.Color.Equals(Colors.LightBlue));
+                mnuFontBackgroundColorWhite.IsChecked = (br.Color.Equals(Colors.White));
+                mnuFontBackgroundColorYellow.IsChecked = (br.Color.Equals(Colors.Yellow));
+            }
+            else
+            {
+                mnuFontBackgroundColorLightBlue.IsChecked = false;
+                mnuFontBackgroundColorWhite.IsChecked = false;
+                mnuFontBackgroundColorYellow.IsChecked = false;
+            }
+        }
+
+        // Set the background color.
+        private void mnuFontBackgroundColor_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem mnu = (MenuItem)sender;
+            switch (mnu.Header.ToString())
+            {
+                case "_Light Blue":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.LightBlue);
+                    break;
+                case "_White":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.White);
+                    break;
+                case "_Yellow":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.BackgroundProperty, Brushes.Yellow);
+                    break;
+            }
+        }
+
+        // Update the font family menu.
+        private void mnuFontFamily_SubmenuOpened(object sender, RoutedEventArgs e)
+        {
+            Object ff_obj = rchBody.Selection.GetPropertyValue(
+                TextElement.FontFamilyProperty);
+            if (ff_obj is FontFamily)
+            {
+                FontFamily ff = (FontFamily)ff_obj;
+                mnuFontFamilyTimes.IsChecked = (ff.Equals(new FontFamily("Times New Roman")));
+                mnuFontFamilyArial.IsChecked = (ff.Equals(new FontFamily("Arial")));
+                mnuFontFamilyCourier.IsChecked = (ff.Equals(new FontFamily("Courier New")));
+            }
+            else
+            {
+                mnuFontFamilyTimes.IsChecked = false;
+                mnuFontFamilyArial.IsChecked = false;
+                mnuFontFamilyCourier.IsChecked = false;
+            }
+        }
+
+        // Set the font family.
+        private void mnuFontFamily_Click(object sender, RoutedEventArgs e)
+        {
+            MenuItem mnu = (MenuItem)sender;
+            switch (mnu.Header.ToString())
+            {
+                case "_Times New Roman":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.FontFamilyProperty, new FontFamily("Times New Roman"));
+                    break;
+                case "_Arial":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.FontFamilyProperty, new FontFamily("Arial"));
+                    break;
+                case "_Courier New":
+                    rchBody.Selection.ApplyPropertyValue(TextElement.FontFamilyProperty, new FontFamily("Courier New"));
+                    break;
+            }
+        }
+
+        // Enable or disable the Undo and Redo commands.
+        private void mnuEdit_SubmenuOpened(object sender, RoutedEventArgs e)
+        {
+            mnuEditUndo.IsEnabled = (rchBody.CanUndo);
+            mnuEditRedo.IsEnabled = (rchBody.CanRedo);
+        }
+
+        // Undo.
+        private void mnuEditUndo_Click(object sender, RoutedEventArgs e)
+        {
+            rchBody.Undo();
+        }
+
+        // Redo.
+        private void mnuEditRedo_Click(object sender, RoutedEventArgs e)
+        {
+            rchBody.Redo();
+        }
+
+        // Toggle the selection's bullet state.
+        private void mnuParaBullet_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleBullets.Execute(null, rchBody);
+        }
+
+        // Toggle the selection's number state.
+        private void mnuParaNumber_Click(object sender, RoutedEventArgs e)
+        {
+            EditingCommands.ToggleNumbering.Execute(null, rchBody);
+        }
+	}
+}

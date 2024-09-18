@@ -1,0 +1,49 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="BareBonesRadioButton.Window1"
+	x:Name="Window"
+	Title="BareBonesRadioButton"
+	Width="350" Height="150"
+	FontSize="16" Background="LightGray">
+	<Window.Resources>
+		<ControlTemplate x:Key="temRadioButton" TargetType="RadioButton">
+			<BulletDecorator>
+				<BulletDecorator.Bullet>
+					<Grid Height="15" Width="15">
+						<Path Name="pathChecked" Data="M4,11 L11,4 M4,4 L11,11"
+						 Stroke="Blue" StrokeThickness="2" Opacity="1"/>
+						<Ellipse Stroke="Black" StrokeThickness="1"/>
+					</Grid>
+				</BulletDecorator.Bullet>
+				<ContentPresenter Margin="5,0,0,0"/>
+			</BulletDecorator>
+			<ControlTemplate.Triggers>
+				<Trigger Property="IsChecked" Value="True">
+					<Setter TargetName="pathChecked" Property="Stroke" Value="Green"/>
+					<Setter TargetName="pathChecked" Property="Opacity" Value="1"/>
+				</Trigger>
+				<Trigger Property="IsChecked" Value="False">
+					<Setter TargetName="pathChecked" Property="Opacity" Value="0"/>
+				</Trigger>
+				<Trigger Property="IsChecked" Value="{x:Null}">
+					<Setter TargetName="pathChecked" Property="Stroke" Value="Gray"/>
+					<Setter TargetName="pathChecked" Property="Opacity" Value="1"/>
+				</Trigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Window.Resources>	
+
+	<StackPanel Orientation="Horizontal">
+		<StackPanel Margin="10">
+			<RadioButton Template="{StaticResource temRadioButton}" Content="Checked" IsChecked="True"/>
+			<RadioButton Template="{StaticResource temRadioButton}" Content="Not Checked" IsChecked="False"/>
+			<RadioButton Template="{StaticResource temRadioButton}" Content="Null" IsChecked="{x:Null}"/>
+		</StackPanel>
+		<StackPanel Margin="10">
+			<RadioButton Content="Checked" IsChecked="True"/>
+			<RadioButton Content="Not Checked" IsChecked="False"/>
+			<RadioButton Content="Null" IsChecked="{x:Null}"/>
+		</StackPanel>
+	</StackPanel>
+</Window>

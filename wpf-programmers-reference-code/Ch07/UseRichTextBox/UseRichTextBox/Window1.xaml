@@ -1,0 +1,63 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseRichTextBox.Window1"
+	x:Name="Window"
+	Title="UseRichTextBox"
+	Width="430" Height="260">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" VerticalAlignment="Top">
+            <MenuItem Name="mnuEdit" Header="_Edit" SubmenuOpened="mnuEdit_SubmenuOpened">
+                <MenuItem Name="mnuEditUndo" Header="Undo" Click="mnuEditUndo_Click"/>
+                <MenuItem Name="mnuEditRedo" Header="Redo" Click="mnuEditRedo_Click"/>
+            </MenuItem>
+            <MenuItem Header="F_ont">
+                <MenuItem Name="mnuFontStyle" Header="_Style" SubmenuOpened="mnuFontStyle_SubmenuOpened">
+                    <MenuItem Name="mnuFontStyleBold" Header="_Bold" IsCheckable="True" InputGestureText="Ctrl+B" Command="EditingCommands.ToggleBold"/>
+                    <MenuItem Name="mnuFontStyleItalic" Header="_Italic" IsCheckable="True" InputGestureText="Ctrl+I" Command="EditingCommands.ToggleItalic"/>
+                    <MenuItem Name="mnuFontStyleUnderline" Header="_Underline" IsCheckable="True" InputGestureText="Ctrl+U" Command="EditingCommands.ToggleUnderline"/>
+                </MenuItem>
+                <MenuItem Name="mnuFontSize" Header="S_ize" SubmenuOpened="mnuFontSize_SubmenuOpened" Click="mnuFontSize_SubmenuOpened">
+                    <MenuItem Name="mnuFontSizeSmall" Header="_Small" IsCheckable="True" Click="FontSize_Click" />
+                    <MenuItem Name="mnuFontSizeMedium" Header="_Medium" IsCheckable="True" Click="FontSize_Click" />
+                    <MenuItem Name="mnuFontSizeLarge" Header="_Large" IsCheckable="True" Click="FontSize_Click" />
+                </MenuItem>
+                <MenuItem Name="mnuFontTextColor" Header="_Text Color" SubmenuOpened="mnuFontTextColor_SubmenuOpened">
+                    <MenuItem Name="mnuFontTextColorBlack" Header="_Black" Click="mnuFontTextColor_Click"/>
+                    <MenuItem Name="mnuFontTextColorRed" Header="_Red" Click="mnuFontTextColor_Click"/>
+                    <MenuItem Name="mnuFontTextColorGreen" Header="_Green" Click="mnuFontTextColor_Click"/>
+                    <MenuItem Name="mnuFontTextColorBlue" Header="B_lue" Click="mnuFontTextColor_Click"/>
+                </MenuItem>
+                <MenuItem Name="mnuFontBackgroundColor" Header="_Background Color" SubmenuOpened="mnuFontBackgroundColor_SubmenuOpened">
+                    <MenuItem Name="mnuFontBackgroundColorLightBlue" Header="_Light Blue" Click="mnuFontBackgroundColor_Click"/>
+                    <MenuItem Name="mnuFontBackgroundColorWhite" Header="_White" Click="mnuFontBackgroundColor_Click"/>
+                    <MenuItem Name="mnuFontBackgroundColorYellow" Header="_Yellow" Click="mnuFontBackgroundColor_Click"/>
+                </MenuItem>
+                <MenuItem Name="mnuFontFamily" Header="_Font Family" SubmenuOpened="mnuFontFamily_SubmenuOpened">
+                    <MenuItem Name="mnuFontFamilyTimes" Header="_Times New Roman" Click="mnuFontFamily_Click"/>
+                    <MenuItem Name="mnuFontFamilyArial" Header="_Arial" Click="mnuFontFamily_Click"/>
+                    <MenuItem Name="mnuFontFamilyCourier" Header="_Courier New" Click="mnuFontFamily_Click"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="_Paragraph">
+                <MenuItem Name="mnuParaBullet" Header="_Bullet" Click="mnuParaBullet_Click"/>
+                <MenuItem Name="mnuParaNumber" Header="_Number" Click="mnuParaNumber_Click"/>
+                <MenuItem Name="mnuParaAlign" Header="_Alignment">
+                    <MenuItem Name="mnuParaAlignLeft" Header="_Left" Command="EditingCommands.AlignLeft"/>
+                    <MenuItem Name="mnuParaAlignCenter" Header="_Center" Command="EditingCommands.AlignCenter"/>
+                    <MenuItem Name="mnuParaAlignRight" Header="_Right" Command="EditingCommands.AlignRight"/>
+                    <MenuItem Name="mnuParaAlignJustify" Header="_Justify" Command="EditingCommands.AlignJustify"/>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <RichTextBox HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+         Name="rchBody" FontSize="16" FontFamily="Arial" Background="LightBlue" SpellCheck.IsEnabled="True">
+            <FlowDocument>
+                <Paragraph>
+                    <Run>If spell checking is enobled and you left-click over a misspelled word, then the context menu also includes a list of possible correct spellings and an Ignore All command.</Run>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </DockPanel>
+</Window>

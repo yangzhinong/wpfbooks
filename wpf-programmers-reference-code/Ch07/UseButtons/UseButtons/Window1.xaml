@@ -1,0 +1,42 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseButtons.Window1"
+	x:Name="Window"
+	Title="UseButtons"
+	Width="460" Height="260"
+	FontWeight="Bold" FontSize="16">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFFF0000" Offset="0"/>
+			<GradientStop Color="#FF000000" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+		<StackPanel Margin="10">
+			<Button Content="Show Time" x:Name="btnShowTime" Width="150" Height="50" Margin="5" Click="btnShowTime_Click" />
+	        <Button Content="Find Primes" x:Name="btnFindPrime" Width="150" Height="50" Margin="5" Click="btnFindPrime_Click" />
+	        <Button Content="Find Fibonacci" x:Name="btnFindFibonacci" Width="150" Height="50" Margin="5" Click="btnFindFibonacci_Click" />
+		</StackPanel>
+		<Button Width="250" Height="200" Name="btnNothing" Click="btnNothing_Click">
+			<Grid Width="250" Height="200" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Image Grid.Row="0" Grid.Column="0" Source="Daisy.jpg" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="UniformToFill"/>
+				<Label Grid.Row="0" Grid.Column="0" Content="This" HorizontalAlignment="Left"/>
+				<Label Grid.Row="0" Grid.Column="2" Content="button" HorizontalAlignment="Right"/>
+				<Label Grid.Row="1" Grid.Column="1" Content="doesn't" HorizontalAlignment="Center"/>
+				<Label Grid.Row="2" Grid.Column="0" Content="do" HorizontalAlignment="Left"/>
+				<Label Grid.Row="2" Grid.Column="2" Content="anything" HorizontalAlignment="Right"/>
+			</Grid>
+		</Button>
+	</StackPanel>
+</Window>

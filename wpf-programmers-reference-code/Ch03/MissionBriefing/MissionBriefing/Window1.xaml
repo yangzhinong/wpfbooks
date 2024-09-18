@@ -1,0 +1,153 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	x:Class="Window1"
+	x:Name="Window"
+	Title="Window1"
+	Width="640" Height="480"
+	AllowsTransparency="True" WindowStyle="None"
+	Background="{DynamicResource TopHighlight}"
+	mc:Ignorable="d">
+	<Window.Resources>
+		<SolidColorBrush x:Key="TopHighlight" Color="#00FFFFFF"/>
+		<Storyboard x:Key="RingRotate">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="pathRotatingRing" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" RepeatBehavior="Forever">
+				<SplineDoubleKeyFrame KeyTime="00:00:02" Value="360"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="DetailExpand">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="gridDetails" Storyboard.TargetProperty="(FrameworkElement.Width)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="475"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ellExpandLens" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ellCollapseLens" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<MediaTimeline BeginTime="00:00:01" Storyboard.TargetName="Speech_On_wav" Source="Speech On.wav" d:DesignTimeNaturalDuration="0.8359184"/>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Speech_On_wav" Storyboard.TargetProperty="(MediaElement.Volume)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="Speech_On_wav" Storyboard.TargetProperty="(MediaElement.LoadedBehavior)">
+				<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static MediaState.Play}"/>
+			</ObjectAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="DetailCollapse">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="gridDetails" Storyboard.TargetProperty="(FrameworkElement.Width)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="20"/>
+			</DoubleAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ellCollapseLens" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ellExpandLens" Storyboard.TargetProperty="(UIElement.Visibility)">
+				<DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+		</Storyboard>
+	</Window.Resources>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
+			<BeginStoryboard Storyboard="{StaticResource RingRotate}" x:Name="RingRotate_BeginStoryboard"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="ellCollapseLens">
+			<BeginStoryboard Storyboard="{StaticResource DetailCollapse}" x:Name="DetailExpand_BeginStoryboard"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Mouse.MouseDown" SourceName="ellExpandLens">
+			<BeginStoryboard Storyboard="{StaticResource DetailExpand}" x:Name="DetailExpand_BeginStoryboard1"/>
+		</EventTrigger>
+	</Window.Triggers>
+	<Canvas Width="Auto" Height="Auto">
+		<Grid Width="475" Height="151" Canvas.Left="107" Canvas.Top="125" x:Name="gridDetails" RenderTransformOrigin="0.5,0.5">
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+			<Rectangle Fill="#FF068F8E" Stroke="#FF000000" StrokeThickness="0" RadiusX="20" RadiusY="20" HorizontalAlignment="Stretch" Margin="5,5,5,5" x:Name="rectContent" Width="Auto"/>
+			<Rectangle Stroke="#FFFFFFFF" StrokeThickness="10" RadiusX="20" RadiusY="20" HorizontalAlignment="Stretch" Margin="5,5,5,5" Width="Auto" x:Name="rectHighlight" Fill="{x:Null}">
+				<Rectangle.BitmapEffect>
+					<BlurBitmapEffect Radius="20"/>
+				</Rectangle.BitmapEffect>
+			</Rectangle>
+			<Rectangle Fill="{x:Null}" Stroke="#FF000000" StrokeThickness="10" RadiusX="20" RadiusY="20" x:Name="rectBorder"/>
+			<Rectangle Fill="{x:Null}" StrokeThickness="10" RadiusX="20" RadiusY="20" x:Name="rectBorderHighlight">
+				<Rectangle.BitmapEffect>
+					<BlurBitmapEffect Radius="10"/>
+				</Rectangle.BitmapEffect>
+				<Rectangle.Stroke>
+					<LinearGradientBrush EndPoint="1.056,0.987" StartPoint="0.341,0.006">
+						<GradientStop Color="#FF000000" Offset="0"/>
+						<GradientStop Color="#FF320032" Offset="1"/>
+						<GradientStop Color="#FF000000" Offset="0.754"/>
+						<GradientStop Color="#FF787878" Offset="0.237"/>
+					</LinearGradientBrush>
+				</Rectangle.Stroke>
+			</Rectangle>
+			<MediaElement HorizontalAlignment="Left" x:Name="Speech_On_wav" VerticalAlignment="Top" Width="0" Height="0" Stretch="Fill" LoadedBehavior="Manual"/>
+		</Grid>
+		<Grid HorizontalAlignment="Left" Margin="0,100,0,0" x:Name="gridLens" VerticalAlignment="Top" Width="200" Height="200">
+			<Ellipse Stroke="#FF000000" StrokeThickness="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="200" x:Name="ellRing">
+				<Ellipse.Fill>
+					<RadialGradientBrush>
+						<GradientStop Color="#FF068E8C" Offset="0"/>
+						<GradientStop Color="#FF012827" Offset="1"/>
+					</RadialGradientBrush>
+				</Ellipse.Fill>
+			</Ellipse>
+			<Ellipse Stroke="#FF000000" StrokeThickness="0" Margin="34,34,36,36" Width="130" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ellLensHighlight1">
+				<Ellipse.BitmapEffect>
+					<BlurBitmapEffect Radius="15"/>
+				</Ellipse.BitmapEffect>
+				<Ellipse.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#33FFFFFF" Offset="0.179"/>
+						<GradientStop Color="#00FFFFFF" Offset="0.562"/>
+					</LinearGradientBrush>
+				</Ellipse.Fill>
+			</Ellipse>
+			<Path Fill="#660D7C7B" Stretch="Fill" Stroke="#FF0D7C7B" StrokeThickness="0" HorizontalAlignment="Center" x:Name="pathRotatingRing" VerticalAlignment="Center" Width="150" Height="149.899" RenderTransformOrigin="0.5,0.5" Data="M136.34692,107.53861 L141.11882,110.29367 140.94791,110.64846 C139.79332,112.77386 138.53899,114.83721 137.19118,116.83222 135.84337,118.82723 134.4021,120.75391 132.87364,122.60597 131.34518,124.45804 129.72955,126.23547 128.033,127.93201 126.33646,129.62856 124.55903,131.24419 122.70696,132.77265 120.8549,134.30111 118.92822,135.74238 116.93321,137.09019 114.9382,138.438 112.87486,139.69233 110.74945,140.84692 108.62405,142.0015 106.43661,143.05634 104.19338,144.00513 101.95016,144.95394 99.651177,145.79672&#xa;97.302704,146.52715 94.954231,147.25761 92.556274,147.87574 90.115112,148.37528 87.673958,148.87481 85.189598,149.25575 82.668312,149.51179 80.147034,149.76785 77.588837,149.89901 75,149.89901 72.411163,149.89901 69.852966,149.76785 67.331688,149.51179 64.810402,149.25575 62.326042,148.87481 59.884884,148.37528 57.443726,147.87574 55.045765,147.25761 52.697292,146.52715 50.348824,145.79672 48.049835,144.95394 45.806614,144.00513 43.563397,143.05634&#xa;41.375946,142.0015 39.250546,140.84692 37.125149,139.69233 35.061798,138.438 33.066788,137.09019 31.071774,135.74238 29.145096,134.30111 27.293036,132.77265 25.440975,131.24419 23.663532,129.62856 21.966991,127.93201 20.270451,126.23547 18.65481,124.45804 17.126352,122.60597 15.597898,120.75391 14.156627,118.82723 12.808822,116.83222 L9.202858,110.89662 13.962331,108.14874 17.369507,113.75712 C18.618473,115.60584 19.954052,117.39122 21.370421,119.10747 22.786791,120.82371 24.283951,122.4708 25.856079,124.04293 27.428207,125.61506 29.075304,127.11222 30.791544,128.52859 32.50779,129.94495 34.293179,131.28054 36.141888,132.5295 37.990601,133.77847 39.902638,134.94082 41.872173,136.01073 43.841709,137.08065 45.868748,138.05813 47.947464,138.93736 50.02618,139.81658 52.156574,140.59754 54.332825,141.27442 56.509079,141.95132 58.731186,142.52412&#xa;60.993324,142.98702 63.255467,143.44991 65.55764,143.80291 67.894028,144.04018 70.230415,144.27746 72.601013,144.39901 75,144.39901 77.398987,144.39901 79.769585,144.27746 82.105972,144.04018 84.44236,143.80291 86.74453,143.44991 89.006676,142.98702 91.268814,142.52412 93.490921,141.95132 95.667175,141.27442 97.843422,140.59754 99.973816,139.81658 102.05254,138.93736 104.13126,138.05813 106.15829,137.08065 108.12783,136.01073 110.09737,134.94082&#xa;112.0094,133.77847 113.85811,132.5295 115.70683,131.28054 117.49221,129.94495 119.20846,128.52859 120.9247,127.11222 122.57179,125.61506 124.14392,124.04293 125.71605,122.4708 127.21321,120.82371 128.62958,119.10747 130.04594,117.39122 131.38153,115.60584 132.63049,113.75712 133.87946,111.90841 135.04181,109.99638 136.11172,108.02684 L136.34692,107.53861 z M77,0 L82.668312,0.28622746 C85.189598,0.54227644 87.673958,0.92320979 90.115112,1.4227443 92.556274,1.922277 94.954231,2.5404108 97.302704,3.27086 99.651177,4.0013125 101.95016,4.8440802 104.19338,5.7928832 106.43661,6.7416832 108.62405,7.796519 110.74945,8.9511063 112.87486,10.105691 114.9382,11.360028 116.93321,12.707833 118.92822,14.055637 120.8549,15.496907 122.70696,17.025362 124.55903,18.55382 126.33646,20.169461 128.033,21.866001 129.72955,23.562542 131.34518,25.339985&#xa;132.87364,27.192045 134.4021,29.044106 135.84337,30.970783 137.19118,32.965798 138.53899,34.960808 139.79332,37.024159 140.94791,39.149555 142.10249,41.274956 143.15733,43.462406 144.10612,45.705624 145.05493,47.948845 145.89771,50.247833 146.62814,52.596302 147.3586,54.944775 147.97673,57.342736 148.47627,59.783894 148.9758,62.225052 149.35674,64.709412 149.61278,67.230698 149.86884,69.751976 150,72.310173 150,74.89901 150,77.487847&#xa;149.86884,80.046044 149.61278,82.567322 149.35674,85.088608 148.9758,87.572968 148.47627,90.014122 147.97673,92.455284 147.3586,94.853241 146.62814,97.201714 145.89771,99.550186 145.05493,101.84917 144.10612,104.09239 L142.85963,106.67994 138.08774,103.92488 139.03835,101.95155 C139.91757,99.872826 140.69853,97.742432 141.37541,95.566185 142.05231,93.389931 142.62511,91.167824 143.08801,88.905686 143.5509,86.64354 143.9039,84.34137 144.14117,82.004982 144.37845,79.668595 144.5,77.297997 144.5,74.89901 144.5,72.500023 144.37845,70.129425 144.14117,67.793038 143.9039,65.45665 143.5509,63.154476 143.08801,60.892334 142.62511,58.630196 142.05231,56.408089 141.37541,54.231835 140.69853,52.055584 139.91757,49.92519&#xa;139.03835,47.846474 138.15912,45.767758 137.18164,43.740719 136.11172,41.771183 135.04181,39.801647 133.87946,37.889611 132.63049,36.040898 131.38153,34.192189 130.04594,32.4068 128.62958,30.690554 127.21321,28.974314 125.71605,27.327217 124.14392,25.755091 122.57179,24.182961 120.9247,22.685801 119.20846,21.26943 117.49221,19.853062 115.70683,18.517483 113.85811,17.268517 112.0094,16.019554 110.09737,14.857201 108.12783,13.787283 106.15829,12.717368&#xa;104.13126,11.739887 102.05254,10.860662 99.973816,9.9814417 97.843422,9.2004769 95.667175,8.5235932 93.490921,7.8467081 91.268814,7.2739041 89.006676,6.8110006 86.74453,6.3481019 84.44236,5.9951036 82.105972,5.7578309 L77,5.5000017 77,0 z M73,0 L73,5.5000017 67.894028,5.7578309 C65.55764,5.9951036 63.255467,6.3481019 60.993324,6.8110006 58.731186,7.2739041 56.509079,7.8467081 54.332825,8.5235932 52.156574,9.2004769 50.02618,9.9814417 47.947464,10.860662 45.868748,11.739887 43.841709,12.717368 41.872173,13.787283 39.902638,14.857201 37.990601,16.019554 36.141888,17.268517 34.293179,18.517483 32.50779,19.853062 30.791544,21.26943 29.075304,22.685801 27.428207,24.182961 25.856079,25.755091 24.283951,27.327217 22.786791,28.974314&#xa;21.370421,30.690554 19.954052,32.4068 18.618473,34.192189 17.369507,36.040898 16.120545,37.889611 14.958191,39.801647 13.888275,41.771183 12.818358,43.740719 11.840878,45.767758 10.961654,47.846474 10.082432,49.92519 9.301467,52.055584 8.6245824,54.231835 7.9476982,56.408089 7.3748942,58.630196 6.9119921,60.892334 6.449092,63.154476 6.0960937,65.45665 5.8588229,67.793038 5.6215478,70.129425 5.5000001,72.500023 5.4999991,74.89901 5.5000001,77.297997&#xa;5.6215478,79.668595 5.8588229,82.004982 6.0960937,84.34137 6.449092,86.64354 6.9119921,88.905686 7.3748942,91.167824 7.9476982,93.389931 8.6245824,95.566185 9.301467,97.742432 10.082432,99.872826 10.961654,101.95155 L12.20951,104.54194 7.4376102,107.297 5.8938728,104.09239 C4.9450703,101.84917 4.1023026,99.550186 3.371852,97.201714 2.6414009,94.853241 2.0232671,92.455284 1.5237339,90.014122 1.0241999,87.572968 0.64326657,85.088608 0.38721712,82.567322 0.13116665,80.046044 7.4505806E-08,77.487847 0,74.89901 7.4505806E-08,72.310173 0.13116665,69.751976 0.38721712,67.230698 0.64326657,64.709412 1.0241999,62.225052 1.5237339,59.783894 2.0232671,57.342736 2.6414009,54.944775 3.371852,52.596302 4.1023026,50.247833 4.9450703,47.948845&#xa;5.8938728,45.705624 6.8426734,43.462406 7.8975092,41.274956 9.0520955,39.149555 10.206681,37.024159 11.461018,34.960808 12.808822,32.965798 14.156627,30.970783 15.597898,29.044106 17.126352,27.192045 18.65481,25.339985 20.270451,23.562542 21.966991,21.866001 23.663532,20.169461 25.440975,18.55382 27.293036,17.025362 29.145096,15.496907 31.071774,14.055637 33.066788,12.707833 35.061798,11.360028 37.125149,10.105691 39.250546,8.9511063 41.375946,7.796519&#xa;43.563397,6.7416832 45.806614,5.7928832 48.049835,4.8440802 50.348824,4.0013125 52.697292,3.27086 55.045765,2.5404108 57.443726,1.922277 59.884884,1.4227443 62.326042,0.92320979 64.810402,0.54227644 67.331688,0.28622746 L73,0 z">
+				<Path.RenderTransform>
+					<TransformGroup>
+						<ScaleTransform ScaleX="1" ScaleY="1"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Path.RenderTransform>
+			</Path>
+			<Ellipse Stroke="#FF000000" StrokeThickness="0" HorizontalAlignment="Center" Margin="0,0,0,16" VerticalAlignment="Center" Width="130" Height="120" x:Name="ellLensHighlight">
+				<Ellipse.BitmapEffect>
+					<BlurBitmapEffect Radius="20"/>
+				</Ellipse.BitmapEffect>
+				<Ellipse.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#35FFFFFF" Offset="0"/>
+						<GradientStop Color="#00FFFFFF" Offset="1"/>
+						<GradientStop Color="#07FFFFFF" Offset="0.768"/>
+					</LinearGradientBrush>
+				</Ellipse.Fill>
+			</Ellipse>
+			<Ellipse StrokeThickness="5" Fill="{x:Null}" Width="185" Height="185" x:Name="ellRingHighlight">
+				<Ellipse.BitmapEffect>
+					<BlurBitmapEffect/>
+				</Ellipse.BitmapEffect>
+				<Ellipse.Stroke>
+					<LinearGradientBrush EndPoint="1.019,0.489" StartPoint="-0.022,0.492">
+						<GradientStop Color="#FF000000" Offset="0"/>
+						<GradientStop Color="#FF333333" Offset="1"/>
+						<GradientStop Color="#FF646478" Offset="0.232"/>
+						<GradientStop Color="#FF000000" Offset="0.737"/>
+					</LinearGradientBrush>
+				</Ellipse.Stroke>
+			</Ellipse>
+			<Ellipse Stroke="{x:Null}" StrokeThickness="0" x:Name="ellCollapseLens" Margin="20,20,20,20" Fill="#00FFFFFF"/>
+			<Ellipse Stroke="{x:Null}" StrokeThickness="0" x:Name="ellExpandLens" Fill="#00FFFFFF" Margin="20,20,20,20" Visibility="Hidden"/>
+		</Grid>
+		<Label Content="Label" FontFamily="Old English Text MT" x:Name="___No_Name_" />
+	</Canvas>
+</Window>

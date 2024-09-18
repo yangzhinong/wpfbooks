@@ -1,0 +1,126 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	x:Class="StudentData.Window1"
+	x:Name="Window"
+	Title="StudentData"
+	Width="600" Height="300"
+    FontSize="14" FontWeight="Bold"
+    Loaded="Window_Loaded">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="Blue" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Data">
+                <MenuItem Header="Save Changes" Click="mnuDataSaveChanges_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid Name="grdMain">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- The list of students. -->
+            <ListBox Grid.Row="0" Grid.Column="0" Margin="10" Name="lstStudents"
+             IsSynchronizedWithCurrentItem="True"
+             DataContext="{Binding Tables[Students]}"
+             ItemsSource="{Binding}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackPanel Orientation="Horizontal" Margin="3,0,3,0">
+                                <TextBlock Text="{Binding Path=FirstName}" />
+                                <TextBlock Text=" " />
+                                <TextBlock Text="{Binding Path=LastName}" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- Grid holding header, Students information, and test scores. -->
+            <Grid Grid.Row="0" Grid.Column="1" Margin="0,10,10,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Header giving student name. -->
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Label Content="{Binding Path=Tables[Students]/FirstName}"
+                 FontSize="30" Foreground="Blue"/>
+                    <Label Content="{Binding Path=Tables[Students]/LastName}"
+                 FontSize="30" Foreground="Blue"/>
+                </StackPanel>
+
+                <!-- Grid holding Students data and test scores. -->
+                <Grid Grid.Row="1" Grid.Column="0" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Content="Street:"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="3" Text="{Binding Path=Tables[Students]/Street}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Content="City:"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Margin="3" Text="{Binding Path=Tables[Students]/City}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Content="State:"/>
+                    <ComboBox Grid.Row="2" Grid.Column="1" Margin="3"
+                     IsSynchronizedWithCurrentItem="True"
+                     ItemsSource="{Binding Path=Tables[States]}"
+                     DisplayMemberPath="StateName"
+                     SelectedValuePath="State"
+                     SelectedValue="{Binding Path=Tables[Students]/State}"
+                     />
+
+                    <Label Grid.Row="3" Grid.Column="0" Content="Zip:"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Margin="3" Text="{Binding Path=Tables[Students]/Zip}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0" Content="Phone:"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Margin="3" Text="{Binding Path=Tables[Students]/Phone}"/>
+
+                    <Label Grid.Row="5" Grid.Column="0" Content="Cell:"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Margin="3" Text="{Binding Path=Tables[Students]/Cell}"/>
+
+                    <!-- ListBox giving test scores. -->
+                    <ListBox Name="lstTestScores" Grid.Row="0" Grid.Column="2" Grid.RowSpan="100"
+                     Margin="10,3,0,0" IsSynchronizedWithCurrentItem="True"
+                     DataContext="{Binding Path=Tables[Students]}"
+                     ItemsSource="{Binding Path=relStudents_TestScores}"
+                     >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal" Margin="3,0,3,0">
+                                        <TextBlock Text="Test: " />
+                                        <TextBlock Text="{Binding Path=TestNumber}" />
+                                        <TextBlock Text=", Score: " />
+                                        <TextBlock Text="{Binding Path=Score}" />
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>

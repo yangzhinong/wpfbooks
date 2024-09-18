@@ -1,0 +1,104 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ImageOpacityMask.Window1"
+	x:Name="Window"
+	Title="ImageOpacityMask"
+	Width="615" Height="340"
+	FontFamily="Comic Sans MS" FontSize="16" FontWeight="Bold">
+	<StackPanel>
+		<StackPanel Orientation="Horizontal">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF00FFFF" Offset="0"/>
+					<GradientStop Color="#FF00FF00" Offset="1"/>
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<StackPanel>
+				<Label Content="Image" HorizontalAlignment="Center"/>
+				<Image Margin="10" Source="PlainSmiley.png" Stretch="None"/>
+			</StackPanel>
+			<StackPanel>
+				<Label Content="Mask" HorizontalAlignment="Center"/>
+				<Image Margin="10" Source="PlainSmileyMask.png" Stretch="None"/>
+			</StackPanel>
+			<StackPanel>
+				<Label Content="Masked Image" HorizontalAlignment="Center"/>
+				<Image Margin="10" Source="PlainSmiley.png" Stretch="None">
+					<Image.OpacityMask>
+						<ImageBrush ImageSource="PlainSmileyMask.png" Stretch="None"/>
+					</Image.OpacityMask>
+				</Image>
+			</StackPanel>
+			<StackPanel>
+				<Label Content="Transparent" HorizontalAlignment="Center"/>
+				<Image Margin="10" Source="TransparentSmiley.png" Stretch="None"/>
+			</StackPanel>
+			<StackPanel>
+				<Label Content="Button" HorizontalAlignment="Center"/>
+				<Button Content="Button" Height="105" Width="105">
+					<Button.OpacityMask>
+						<ImageBrush ImageSource="PlainSmileyMask.png" Stretch="None"/>
+					</Button.OpacityMask>
+				</Button>
+			</StackPanel>
+		</StackPanel>
+
+		<StackPanel Orientation="Horizontal">
+			<StackPanel.Background>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF00FFFF" Offset="0"/>
+					<GradientStop Color="#FF00FF00" Offset="1"/>
+				</LinearGradientBrush>
+			</StackPanel.Background>
+			<StackPanel>
+				<Label Content="Image" HorizontalAlignment="Center"/>
+				<Image Margin="10" Source="PlainSmiley.png" Stretch="None">
+					<Image.BitmapEffect>
+						<DropShadowBitmapEffect/>
+					</Image.BitmapEffect>
+				</Image>
+			</StackPanel>
+			<StackPanel>
+				<Label Content="Mask" HorizontalAlignment="Center"/>
+				<Image Margin="10" Source="PlainSmileyMask.png" Stretch="None">
+					<Image.BitmapEffect>
+						<DropShadowBitmapEffect/>
+					</Image.BitmapEffect>
+				</Image>
+			</StackPanel>
+			<StackPanel>
+				<Label Content="Masked Image" HorizontalAlignment="Center"/>
+				<Image Source="PlainSmiley.png" Stretch="None" Width="110" Height="110">
+					<Image.OpacityMask>
+						<ImageBrush ImageSource="PlainSmileyMask.png" Stretch="None"
+						 Viewbox="0,0,100,100" ViewboxUnits="Absolute"
+						 Viewport="0,0,100,100" ViewportUnits="Absolute"/>
+					</Image.OpacityMask>
+					<Image.BitmapEffect>
+						<DropShadowBitmapEffect/>
+					</Image.BitmapEffect>
+				</Image>
+			</StackPanel>
+			<StackPanel>
+				<Label Content="Transparent" HorizontalAlignment="Center"/>
+				<Image Margin="10" Source="TransparentSmiley.png" Stretch="None">
+					<Image.BitmapEffect>
+						<DropShadowBitmapEffect/>
+					</Image.BitmapEffect>
+				</Image>
+			</StackPanel>
+			<StackPanel>
+				<Label Content="Button" HorizontalAlignment="Center"/>
+				<Button Content="Button" Height="105" Width="105">
+					<Button.BitmapEffect>
+						<DropShadowBitmapEffect/>
+					</Button.BitmapEffect>
+					<Button.OpacityMask>
+						<ImageBrush ImageSource="PlainSmileyMask.png" Stretch="None"/>
+					</Button.OpacityMask>
+				</Button>
+			</StackPanel>
+		</StackPanel>
+	</StackPanel>
+</Window>

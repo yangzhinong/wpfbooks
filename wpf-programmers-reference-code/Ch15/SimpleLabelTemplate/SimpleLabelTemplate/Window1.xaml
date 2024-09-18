@@ -1,0 +1,54 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="SimpleLabelTemplate.Window1"
+	x:Name="Window"
+	Title="SimpleLabelTemplate"
+	Width="400" Height="150"
+	FontSize="18" FontWeight="Bold">
+
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="Blue" Offset="0"/>
+            <GradientStop Color="Purple" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <Window.Resources>
+        <ControlTemplate x:Key="temSimpleLabel" TargetType="Label">
+            <Border BorderBrush="Red" BorderThickness="1">
+                <ContentPresenter/>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+
+	<UniformGrid Rows="1" Columns="2">
+		<UniformGrid.Resources>
+			<LinearGradientBrush x:Key="brForeground" StartPoint="0,0" EndPoint="1,0">
+				<GradientStop Color="Yellow" Offset="0"/>
+				<GradientStop Color="Orange" Offset="1"/>
+			</LinearGradientBrush>
+			<LinearGradientBrush x:Key="brBackground" StartPoint="0,0" EndPoint="1,0">
+				<GradientStop Color="DarkRed" Offset="0"/>
+				<GradientStop Color="Red" Offset="1"/>
+			</LinearGradientBrush>
+		</UniformGrid.Resources>
+
+		<Label Margin="5" Content="No Template"
+         HorizontalContentAlignment="Right"
+		 VerticalContentAlignment="Center"
+		 BorderBrush="Yellow" BorderThickness="2"
+		 Foreground="{StaticResource brForeground}"
+		 Background="{StaticResource brBackground}"
+		/>
+
+        <Label Margin="5" Content="Simple Template"
+         HorizontalContentAlignment="Right"
+		 VerticalContentAlignment="Center"
+		 BorderBrush="Yellow" BorderThickness="2"
+		 Foreground="{StaticResource brForeground}"
+		 Background="{StaticResource brBackground}"
+		 Template="{StaticResource temSimpleLabel}"
+		/>
+    </UniformGrid>
+</Window>

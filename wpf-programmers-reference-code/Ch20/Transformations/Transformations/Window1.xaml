@@ -1,0 +1,104 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="Transformations.Window1"
+	x:Name="Window"
+	Title="Transformations"
+	Width="600" Height="270"
+	FontFamily="Comic Sans MS" FontSize="16" FontWeight="Bold">
+	<Window.Background>
+		<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="Lime" Offset="0"/>
+			<GradientStop Color="DarkGreen" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Window.Resources>
+		<Style TargetType="Label">
+			<Setter Property="BorderBrush" Value="Black"/>
+			<Setter Property="BorderThickness" Value="1"/>
+		</Style>
+	</Window.Resources>
+	<Canvas>
+		<Label Canvas.Left="10" Canvas.Top="10"
+		 Background="Yellow" Foreground="Green"
+		 Content="Scale 5x, 1y">
+			<Label.RenderTransform>
+				<ScaleTransform ScaleX="5" ScaleY="1"/>
+			</Label.RenderTransform>
+		</Label>
+		<Label Canvas.Left="320" Canvas.Top="50"
+		 Background="White" Foreground="Blue"
+		 Content="Scale -1x, 1y">
+			<Label.RenderTransform>
+				<ScaleTransform ScaleX="-1" ScaleY="1"/>
+			</Label.RenderTransform>
+		</Label>
+		<Label Canvas.Left="10" Canvas.Top="60"
+		 Background="Pink" Foreground="Blue"
+		 Content="Skew 20x, 0y" Width="120">
+			<Label.RenderTransform>
+				<SkewTransform AngleX="20" AngleY="0"/>
+			</Label.RenderTransform>
+		</Label>
+		<Label Canvas.Left="50" Canvas.Top="100"
+		 Background="LightBlue" Foreground="Green"
+		 Content="Skew 0x, 20y" Width="120">
+			<Label.RenderTransform>
+				<SkewTransform AngleX="0" AngleY="20"/>
+			</Label.RenderTransform>
+		</Label>
+		<Label Canvas.Left="20" Canvas.Top="140"
+		 Background="Violet" Foreground="Red"
+		 Content="Skew 20x, 20y" Width="130">
+			<Label.RenderTransform>
+				<SkewTransform AngleX="20" AngleY="20"/>
+			</Label.RenderTransform>
+		</Label>
+		<Label Canvas.Left="170" Canvas.Top="60"
+		 Background="LightGreen" Foreground="Red"
+		 Content="Rotate 45 degrees">
+			<Label.RenderTransform>
+				<RotateTransform Angle="45"/>
+			</Label.RenderTransform>
+		</Label>
+		<Label Canvas.Left="270" Canvas.Top="190"
+		 Background="Orange" Foreground="Purple"
+		 Content="Rotate -30 degrees">
+			<Label.RenderTransform>
+				<RotateTransform Angle="-20"/>
+			</Label.RenderTransform>
+		</Label>
+		<Label Canvas.Left="570" Canvas.Top="60"
+		 Background="Green" Foreground="Yellow"
+		 Content="Rotate 90 degrees">
+			<Label.RenderTransform>
+				<RotateTransform Angle="90"/>
+			</Label.RenderTransform>
+		</Label>
+		<Border Canvas.Left="325" Canvas.Top="50" Width="200" Height="70"
+		 BorderBrush="Blue" BorderThickness="3" Background="Cyan">
+		 	<Canvas>
+				<Label Content="Translate 20, 10" Canvas.Left="0" Canvas.Top="0"
+				 Background="Orange">
+					<Label.RenderTransform>
+				    	<TranslateTransform X="20" Y="10"/>
+					</Label.RenderTransform>
+				</Label>
+			</Canvas>
+		</Border>
+		<Label Canvas.Left="470" Canvas.Top="125"
+		 Background="Blue" Foreground="Orange"
+		 Content="Matrix">
+			<Label.RenderTransform>
+				<MatrixTransform Matrix="0.5 1 -0.5 1 0 0"/>
+				<!-- The following is equivalent.
+				<MatrixTransform>
+					<MatrixTransform.Matrix>
+						<Matrix M11="0.5" M12="1" M21="-0.5" M22="1" OffsetX="0" OffsetY="0"/>
+					</MatrixTransform.Matrix>
+				</MatrixTransform>
+				-->
+			</Label.RenderTransform>
+		</Label>
+	</Canvas>
+</Window>

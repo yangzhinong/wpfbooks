@@ -1,0 +1,235 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!-- Resource dictionary entries should be defined here. -->
+	<Storyboard x:Key="ToGreen">
+		<!-- Email -->
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectEmail"
+		 Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Green"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectEmail"
+		 Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Lime"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectEmail"
+		 Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Green"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectEmail"
+		 Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Lime"/>
+		</ColorAnimationUsingKeyFrames>
+		<PointAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectEmail"
+		 Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.EndPoint)">
+			<SplinePointKeyFrame KeyTime="00:00:01" Value="1,1"/>
+		</PointAnimationUsingKeyFrames>
+		<PointAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectEmail"
+		 Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.StartPoint)">
+			<SplinePointKeyFrame KeyTime="00:00:01" Value="0,0"/>
+		</PointAnimationUsingKeyFrames>
+		<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="btnEmail" Storyboard.TargetProperty="(ContentControl.Content)">
+			<DiscreteObjectKeyFrame KeyTime="00:00:00.5000000" Value="Email"/>
+		</ObjectAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectEmail"
+		 Storyboard.TargetProperty="(Rectangle.RadiusX)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectEmail"
+		 Storyboard.TargetProperty="(Rectangle.RadiusY)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+
+		<!-- Phone -->
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPhone"
+		 Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Green"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPhone"
+		 Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Lime"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPhone"
+		 Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Green"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPhone"
+		 Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Lime"/>
+		</ColorAnimationUsingKeyFrames>
+		<PointAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPhone"
+		 Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.EndPoint)">
+			<SplinePointKeyFrame KeyTime="00:00:01" Value="1,1"/>
+		</PointAnimationUsingKeyFrames>
+		<PointAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPhone"
+		 Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.StartPoint)">
+			<SplinePointKeyFrame KeyTime="00:00:01" Value="0,0"/>
+		</PointAnimationUsingKeyFrames>
+		<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="btnPhone" Storyboard.TargetProperty="(ContentControl.Content)">
+			<DiscreteObjectKeyFrame KeyTime="00:00:00.5000000" Value="Phone"/>
+		</ObjectAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPhone"
+		 Storyboard.TargetProperty="(Rectangle.RadiusX)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPhone"
+		 Storyboard.TargetProperty="(Rectangle.RadiusY)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+
+		<!-- Post -->
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPost"
+		 Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Green"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPost"
+		 Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Lime"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPost"
+		 Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Green"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPost"
+		 Storyboard.TargetProperty="(Shape.Stroke).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="Lime"/>
+		</ColorAnimationUsingKeyFrames>
+		<PointAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPost"
+		 Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.EndPoint)">
+			<SplinePointKeyFrame KeyTime="00:00:01" Value="1,1"/>
+		</PointAnimationUsingKeyFrames>
+		<PointAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPost"
+		 Storyboard.TargetProperty="(Shape.Stroke).(LinearGradientBrush.StartPoint)">
+			<SplinePointKeyFrame KeyTime="00:00:01" Value="0,0"/>
+		</PointAnimationUsingKeyFrames>
+		<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="btnPost"
+		 Storyboard.TargetProperty="(ContentControl.Content)">
+			<DiscreteObjectKeyFrame KeyTime="00:00:00.5000000" Value="Post"/>
+		</ObjectAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPost"
+		 Storyboard.TargetProperty="(Rectangle.RadiusX)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectPost"
+		 Storyboard.TargetProperty="(Rectangle.RadiusY)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+
+		<!-- Main window -->
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}"
+		 Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="LightGreen"/>
+		</ColorAnimationUsingKeyFrames>
+		<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}"
+		 Storyboard.TargetProperty="(Panel.Background).(GradientBrush.GradientStops)[0].(GradientStop.Color)">
+			<SplineColorKeyFrame KeyTime="00:00:01" Value="LightGreen"/>
+		</ColorAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="{x:Null}"
+		 Storyboard.TargetProperty="(FrameworkElement.Height)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="200"/>
+		</DoubleAnimationUsingKeyFrames>
+
+		<!-- Geometry -->
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ellToBlue"
+		 Storyboard.TargetProperty="(UIElement.Opacity)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="ellToGreen"
+		 Storyboard.TargetProperty="(UIElement.Opacity)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdEmail"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdEmail"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdEmail"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdEmail"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+		</DoubleAnimationUsingKeyFrames>
+
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdPhone"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdPhone"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdPhone"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdPhone"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+		</DoubleAnimationUsingKeyFrames>
+
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdPost"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdPost"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdPost"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grdPost"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+		</DoubleAnimationUsingKeyFrames>
+
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="imgPerson"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="imgPerson"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="imgPerson"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="imgPerson"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+		</DoubleAnimationUsingKeyFrames>
+
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="tbName"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="tbName"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="tbTitle"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="tbTitle"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="tbPhone"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="tbPhone"
+		 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+			<SplineDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+		</DoubleAnimationUsingKeyFrames>
+	</Storyboard>
+</ResourceDictionary>

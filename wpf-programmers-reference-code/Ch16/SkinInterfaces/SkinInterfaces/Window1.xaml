@@ -1,0 +1,13 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="SkinInterfaces.Window1"
+	x:Name="Window"
+	Title="SkinInterfaces"
+	Width="220" Height="180"
+    AllowsTransparency="True"
+    WindowStyle="None"
+    Background="Transparent"
+>
+    <Grid/>
+</Window>

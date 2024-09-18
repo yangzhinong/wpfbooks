@@ -1,0 +1,28 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	x:Class="NumberList.Window1"
+	x:Name="Window"
+	Title="NumberList"
+	Width="200" Height="170"
+	FontSize="16" FontWeight="Bold">
+	<Window.Background>
+		<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="Red" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Window.Resources>
+		<x:Array x:Key="numbers" Type="sys:Int32">
+			<sys:Int32>100</sys:Int32>
+			<sys:Int32>200</sys:Int32>
+			<sys:Int32>50</sys:Int32>
+			<sys:Int32>800</sys:Int32>
+			<sys:Int32>175</sys:Int32>
+		</x:Array>
+	</Window.Resources>
+	<Grid>
+		<ListBox ItemsSource="{StaticResource numbers}" Background="Transparent"/>
+	</Grid>
+</Window>

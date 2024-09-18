@@ -1,0 +1,22 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="PlayVideos.Window1"
+	x:Name="Window"
+	Title="PlayVideos"
+	Width="528" Height="180" Background="#FF20A420">
+	<StackPanel Orientation="Horizontal">
+		<StackPanel Margin="10">
+			<MediaElement Width="150" Height="100" Source="Bear.wmv"/>
+			<Label FontWeight="Bold" Content="Bear" HorizontalAlignment="Center" />
+		</StackPanel>
+		<StackPanel Margin="10">
+			<MediaElement Width="150" Height="100" Source="EvolvingJuliaSet.wmv"/>
+			<Label FontWeight="Bold" Content="Evolving Julia Set" HorizontalAlignment="Center" />
+		</StackPanel>
+		<StackPanel Margin="10">
+			<MediaElement Width="150" Height="100" Source="Butterfly.wmv"/>
+			<Label FontWeight="Bold" Content="Butterfly" HorizontalAlignment="Center" />
+		</StackPanel>
+	</StackPanel>
+</Window>

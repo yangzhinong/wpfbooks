@@ -1,0 +1,112 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="SpheresWithNormals.Window1"
+	x:Name="Window"
+	Title="SpheresWithNormals"
+    Height="300" Width="400"
+    Loaded="Window_Loaded">
+    <Window.Resources>
+        <Color x:Key="Color1" A="1" R="0" G="0" B="139"/>       <!-- DarkBlue -->
+        <Color x:Key="Color2" A="1" R="173" G="216" B="230"/>   <!-- LightBlue -->
+        <Transform3DGroup x:Key="CameraTransform">
+            <RotateTransform3D>
+                <RotateTransform3D.Rotation>
+                    <AxisAngleRotation3D Axis="1,0,0"
+                     Angle="{Binding ElementName=sliX,Path=Value}"/>
+                </RotateTransform3D.Rotation>
+            </RotateTransform3D>
+            <RotateTransform3D>
+                <RotateTransform3D.Rotation>
+                    <AxisAngleRotation3D Axis="0,1,0"
+                     Angle="{Binding ElementName=sliY,Path=Value}"/>
+                </RotateTransform3D.Rotation>
+            </RotateTransform3D>
+        </Transform3DGroup>
+        <PerspectiveCamera x:Key="Camera"
+			Position="0, 0, 3"
+			LookDirection="0, 0, -3"
+			UpDirection="0, 1, 0"
+			FieldOfView="60"
+            Transform="{DynamicResource CameraTransform}"/>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="AliceBlue" Offset="0"/>
+            <GradientStop Color="Blue" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <Slider Name="sliX" Grid.Row="0" Grid.Column="1" Orientation="Vertical" 
+		 Minimum="-90" Maximum="90" Value="0"
+		 TickFrequency="10" TickPlacement="None">
+            <Slider.LayoutTransform>
+                <ScaleTransform ScaleX="1" ScaleY="-1"/>
+            </Slider.LayoutTransform>
+        </Slider>
+
+        <Slider Name="sliY" Grid.Row="1" Grid.Column="0" Orientation="Horizontal"
+		 Minimum="-180" Maximum="180" Value="0"
+		 TickFrequency="10" TickPlacement="None"/>
+
+        <UniformGrid Rows="2" Columns="2">
+            <Viewport3D Margin="4,4,4,4" Camera="{DynamicResource Camera}">
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <Model3DGroup x:Name="Sphere00">
+                            <!-- Lights -->
+                            <AmbientLight Color="{StaticResource Color1}"/>
+                            <DirectionalLight Color="{StaticResource Color2}" Direction="-1,-1,-1"/>
+                        </Model3DGroup>
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+            </Viewport3D>
+            
+            <Viewport3D Margin="4,4,4,4" Camera="{DynamicResource Camera}">
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <Model3DGroup x:Name="Sphere01">
+                            <!-- Lights -->
+                            <AmbientLight Color="{StaticResource Color1}"/>
+                            <DirectionalLight Color="{StaticResource Color2}" Direction="-1,-1,-1"/>
+                        </Model3DGroup>
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+            </Viewport3D>
+
+            <Viewport3D Margin="4,4,4,4" Camera="{DynamicResource Camera}">
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <Model3DGroup x:Name="Sphere10">
+                            <!-- Lights -->
+                            <AmbientLight Color="{StaticResource Color1}"/>
+                            <DirectionalLight Color="{StaticResource Color2}" Direction="-1,-1,-1"/>
+                        </Model3DGroup>
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+            </Viewport3D>
+
+            <Viewport3D Margin="4,4,4,4" Camera="{DynamicResource Camera}">
+                <ModelVisual3D>
+                    <ModelVisual3D.Content>
+                        <Model3DGroup x:Name="Sphere11">
+                            <!-- Lights -->
+                            <AmbientLight Color="{StaticResource Color1}"/>
+                            <DirectionalLight Color="{StaticResource Color2}" Direction="-1,-1,-1"/>
+                        </Model3DGroup>
+                    </ModelVisual3D.Content>
+                </ModelVisual3D>
+            </Viewport3D>
+
+        </UniformGrid>
+    </Grid>
+</Window>

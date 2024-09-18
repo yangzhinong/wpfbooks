@@ -1,0 +1,41 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseRadioButton.Window1"
+	x:Name="Window"
+	Title="UseRadioButton"
+	Width="520" Height="160"
+	FontSize="16" FontWeight="Bold">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+			<GradientStop Color="Red" Offset="0"/>
+			<GradientStop Color="Pink" Offset="0.33"/>
+			<GradientStop Color="Red" Offset="0.5"/>
+			<GradientStop Color="Pink" Offset="0.66"/>
+			<GradientStop Color="Red" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<StackPanel Orientation="Horizontal">
+		<GroupBox Width="160" Margin="4" Header="Dorm">
+			<StackPanel Margin="8">
+				<RadioButton Content="Blatherly Hall"/>
+				<RadioButton Content="Cheatem Apts" IsChecked="True"/>
+				<RadioButton Content="Pheidaux Hall"/>
+			</StackPanel>
+		</GroupBox>
+		<GroupBox Width="160" Margin="4" Header="Meal Plan">
+			<StackPanel Margin="8">
+				<RadioButton Content="Full Dining Hall"/>
+				<RadioButton Content="Double Daily"/>
+				<RadioButton Content="Leftover Lover" IsChecked="True"/>
+			</StackPanel>
+		</GroupBox>
+		<GroupBox Width="160" Margin="4" Header="Parking">
+			<StackPanel Margin="8">
+				<RadioButton Content="Close-In"/>
+				<RadioButton Content="On Campus" IsChecked="True"/>
+				<RadioButton Content="Same ZIP Code"/>
+			</StackPanel>
+		</GroupBox>
+	</StackPanel>
+</Window>

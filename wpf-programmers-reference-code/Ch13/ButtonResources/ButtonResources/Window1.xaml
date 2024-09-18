@@ -1,0 +1,159 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	x:Class="ButtonResources.Window1"
+	x:Name="Window"
+	Title="ButtonResources"
+	Width="445" Height="150">
+
+	<Window.Background>
+		<RadialGradientBrush>
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="Blue" Offset="1"/>
+		</RadialGradientBrush>
+	</Window.Background>
+
+	<Window.Resources>
+		<LinearGradientBrush x:Key="btnFill" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="Blue" Offset="0"/>
+			<GradientStop Color="White" Offset="0.5"/>
+			<GradientStop Color="Blue" Offset="1"/>
+		</LinearGradientBrush>
+		<LinearGradientBrush x:Key="btnStroke" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="Blue" Offset="0.5"/>
+			<GradientStop Color="White" Offset="1"/>
+		</LinearGradientBrush>
+		<sys:Double x:Key="btnStrokeThickness">5</sys:Double>
+		<sys:Double x:Key="btnWidth">75</sys:Double>
+		<sys:Double x:Key="btnHeight">40</sys:Double>
+		<sys:Double x:Key="btnRadiusX">10</sys:Double>
+		<sys:Double x:Key="btnRadiusY">10</sys:Double>
+		<Thickness x:Key="btnMargin">5</Thickness>
+		<FontFamily x:Key="btnFontFamily">Segoe</FontFamily>
+		<FontWeight x:Key="btnFontWeight">Bold</FontWeight>
+		<sys:Double x:Key="btnFontSize">16</sys:Double>
+		<BitmapEffectGroup x:Key="btnTextBitmapEffect">
+			<OuterGlowBitmapEffect GlowColor="White" GlowSize="10"/>
+		</BitmapEffectGroup>
+		<sys:String x:Key="btnText0">File</sys:String>
+		<sys:String x:Key="btnText1">Edit</sys:String>
+		<sys:String x:Key="btnText2">View</sys:String>
+		<sys:String x:Key="btnText3">Data</sys:String>
+		<sys:String x:Key="btnText4">Help</sys:String>
+	</Window.Resources>
+
+	<!-- Menu area -->
+	<StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+		<!-- File -->
+		<Grid
+			 Width="{StaticResource btnWidth}"
+			 Height="{StaticResource btnHeight}"
+			 Margin="{StaticResource btnMargin}"
+		>
+			<Rectangle
+			 Fill="{StaticResource btnFill}"
+			 Stroke="{StaticResource btnStroke}"
+			 StrokeThickness="{StaticResource btnStrokeThickness}"
+			 RadiusX="{StaticResource btnRadiusX}"
+			 RadiusY="{StaticResource btnRadiusY}"
+			/>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="{StaticResource btnFontFamily}"
+			 FontSize="{StaticResource btnFontSize}"
+			 FontWeight="{StaticResource btnFontWeight}"
+			 BitmapEffect="{StaticResource btnTextBitmapEffect}"
+			 Text="{StaticResource btnText0}"
+			/>
+		</Grid>
+
+		<!-- Edit -->
+		<Grid
+			 Width="{StaticResource btnWidth}"
+			 Height="{StaticResource btnHeight}"
+			 Margin="{StaticResource btnMargin}"
+		>
+			<Rectangle
+			 Fill="{StaticResource btnFill}"
+			 Stroke="{StaticResource btnStroke}"
+			 StrokeThickness="{StaticResource btnStrokeThickness}"
+			 RadiusX="{StaticResource btnRadiusX}"
+			 RadiusY="{StaticResource btnRadiusY}"
+			/>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="{StaticResource btnFontFamily}"
+			 FontSize="{StaticResource btnFontSize}"
+			 FontWeight="{StaticResource btnFontWeight}"
+			 BitmapEffect="{StaticResource btnTextBitmapEffect}"
+			 Text="{StaticResource btnText1}"
+			/>
+		</Grid>
+
+		<!-- View -->
+		<Grid
+			 Width="{StaticResource btnWidth}"
+			 Height="{StaticResource btnHeight}"
+			 Margin="{StaticResource btnMargin}"
+		>
+			<Rectangle
+			 Fill="{StaticResource btnFill}"
+			 Stroke="{StaticResource btnStroke}"
+			 StrokeThickness="{StaticResource btnStrokeThickness}"
+			 RadiusX="{StaticResource btnRadiusX}"
+			 RadiusY="{StaticResource btnRadiusY}"
+			/>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="{StaticResource btnFontFamily}"
+			 FontSize="{StaticResource btnFontSize}"
+			 FontWeight="{StaticResource btnFontWeight}"
+			 BitmapEffect="{StaticResource btnTextBitmapEffect}"
+			 Text="{StaticResource btnText2}"
+			/>
+		</Grid>
+
+		<!-- Data -->
+		<Grid
+			 Width="{StaticResource btnWidth}"
+			 Height="{StaticResource btnHeight}"
+			 Margin="{StaticResource btnMargin}"
+		>
+			<Rectangle
+			 Fill="{StaticResource btnFill}"
+			 Stroke="{StaticResource btnStroke}"
+			 StrokeThickness="{StaticResource btnStrokeThickness}"
+			 RadiusX="{StaticResource btnRadiusX}"
+			 RadiusY="{StaticResource btnRadiusY}"
+			/>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="{StaticResource btnFontFamily}"
+			 FontSize="{StaticResource btnFontSize}"
+			 FontWeight="{StaticResource btnFontWeight}"
+			 BitmapEffect="{StaticResource btnTextBitmapEffect}"
+			 Text="{StaticResource btnText3}"
+			/>
+		</Grid>
+
+		<!-- Help -->
+		<Grid
+			 Width="{StaticResource btnWidth}"
+			 Height="{StaticResource btnHeight}"
+			 Margin="{StaticResource btnMargin}"
+		>
+			<Rectangle
+			 Fill="{StaticResource btnFill}"
+			 Stroke="{StaticResource btnStroke}"
+			 StrokeThickness="{StaticResource btnStrokeThickness}"
+			 RadiusX="{StaticResource btnRadiusX}"
+			 RadiusY="{StaticResource btnRadiusY}"
+			/>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="{StaticResource btnFontFamily}"
+			 FontSize="{StaticResource btnFontSize}"
+			 FontWeight="{StaticResource btnFontWeight}"
+			 BitmapEffect="{StaticResource btnTextBitmapEffect}"
+			 Text="{StaticResource btnText4}"
+			/>
+		</Grid>
+	</StackPanel>
+</Window>

@@ -1,0 +1,144 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Planets"
+	x:Class="Planets.Window1"
+	x:Name="Window"
+	Title="Planets"
+	Width="600" Height="410">
+    <Window.Background>
+        <ImageBrush ImageSource="Stars.jpg"/>
+    </Window.Background>
+    <Window.Resources>
+        <x:Array x:Key="planets" Type="local:Planet">
+            <local:Planet Name="Mercury"    Picture="Mercury.jpg"   Stats="Distance: 0.39 AU, Radius: 0.38, Mass: 0.05, Day: 59 days, Year: 88 days"/>
+            <local:Planet Name="Venus"      Picture="Venus.jpg"     Stats="Distance: 0.72 AU, Radius: 0.95, Mass: 0.89, Day: 243 days, Year: 224 days"/>
+            <local:Planet Name="Earth"      Picture="Earth.jpg"     Stats="Distance: 1 AU, Radius: 1, Mass: 1, Day: 1 day, Year: 365 days"/>
+            <local:Planet Name="Mars"       Picture="Mars.jpg"      Stats="Distance: 1.5 AU, Radius: 0.53, Mass: 0.11, Day: 1.026 days, Year: 687 days"/>
+            <local:Planet Name="Jupiter"    Picture="Jupiter.jpg"   Stats="Distance: 5.2 AU, Radius: 11, Mass: 318, Day: 0.411 days, Year: 11.8 years"/>
+            <local:Planet Name="Saturn"     Picture="Saturn.jpg"    Stats="Distance: 9.5 AU, Radius: 9, Mass: 95, Day: 0.43 days, Year: 29.5 years"/>
+            <local:Planet Name="Uranus"     Picture="Uranus.jpg"    Stats="Distance: 19.2 AU, Radius: 4, Mass: 14, Day: 0.75 days, Year: 84 years"/>
+            <local:Planet Name="Neptune"    Picture="Neptune.jpg"   Stats="Distance: 30.1 AU, Radius: 3.8, Mass: 17, Day: 0.8 days, Year: 165 years"/>
+            <local:Planet Name="Pluto"      Picture="Pluto.jpg"     Stats="Distance: 39.5 AU, Radius: 0.18, Mass: 0.002, Day: 0.27 days, Year: 248 years"/>
+        </x:Array>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+         Content="Planets" FontSize="30" FontWeight="Bold"
+		 Foreground="DarkBlue" HorizontalAlignment="Center">
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect GlowSize="15" GlowColor="LightBlue"/>
+            </Label.BitmapEffect>
+        </Label>
+
+        <ListBox Grid.Row="1" Grid.Column="0"
+         ItemsSource="{StaticResource planets}" Background="Transparent">
+            <ListBox.Resources>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Margin" Value="3"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                </Style>
+                <!-- The other styles must be set
+                     in DataTemplate.Resources. -->
+            </ListBox.Resources>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+			            <!-- The ListBoxItem style must be set
+			                 in the ListBox.Resources section. -->
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="3"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Height" Value="50"/>
+                            <Setter Property="Margin" Value="3"/>
+                            <Setter Property="Stretch" Value="Uniform"/>
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Margin" Value="3"/>
+                            <Setter Property="Width" Value="250"/>
+                            <Setter Property="Background" Value="SkyBlue"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="IsReadOnly" Value="True"/>
+                        </Style>
+                    </DataTemplate.Resources>
+                    <StackPanel>
+                        <Grid>
+                            <TextBlock Text="{Binding Name}"/>
+                            <Image Source="{Binding Picture}"
+                             Height="50"/>
+                        </Grid>
+                        <TextBox Text="{Binding Stats}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ComboBox Grid.Row="1" Grid.Column="1" Height="100" VerticalAlignment="Top"
+         ItemsSource="{StaticResource planets}" Background="LightBlue" SelectedIndex="5">
+            <ComboBox.Resources>
+                <Style TargetType="ComboBoxItem">
+                    <Setter Property="Margin" Value="3"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                </Style>
+                <!-- The other styles must be set
+                     in DataTemplate.Resources. -->
+            </ComboBox.Resources>
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <DataTemplate.Resources>
+                        <!-- The ComboBoxItem style must be set
+                             in ComboBox.Resources. -->
+                        <Style TargetType="ComboBoxItem">
+                            <Setter Property="Margin" Value="3"/>
+                            <Setter Property="Background" Value="LightBlue"/>
+                        </Style>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="3"/>
+                            <Setter Property="HorizontalAlignment" Value="Left"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Height" Value="50"/>
+                            <Setter Property="Margin" Value="3"/>
+                            <Setter Property="Stretch" Value="Uniform"/>
+                            <Setter Property="HorizontalAlignment" Value="Right"/>
+                        </Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Margin" Value="3"/>
+                            <Setter Property="Width" Value="250"/>
+                            <Setter Property="Background" Value="SkyBlue"/>
+                            <Setter Property="TextWrapping" Value="Wrap"/>
+                            <Setter Property="IsReadOnly" Value="True"/>
+                        </Style>
+                    </DataTemplate.Resources>
+                    <StackPanel>
+                        <Grid>
+                            <TextBlock Text="{Binding Name}"/>
+                            <Image Source="{Binding Picture}"
+                             Height="50"/>
+                        </Grid>
+                        <TextBox Text="{Binding Stats}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </Grid>
+</Window>

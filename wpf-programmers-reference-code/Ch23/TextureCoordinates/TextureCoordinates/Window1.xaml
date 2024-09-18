@@ -1,0 +1,102 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="TextureCoordinates.Window1"
+	x:Name="Window"
+	Title="TextureCoordinates"
+    Height="250" Width="400"
+	FontSize="60" FontWeight="Bold">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="AliceBlue" Offset="0"/>
+            <GradientStop Color="Blue" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="40"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<Label Grid.Row="1" Grid.Column="0" Content="Texture"
+		 FontSize="16" FontWeight="Bold" HorizontalAlignment="Center">
+		 	<Label.BitmapEffect>
+				<OuterGlowBitmapEffect/>
+			</Label.BitmapEffect>
+		</Label>
+		<Label Grid.Row="1" Grid.Column="1" Content="3D Surface"
+		 FontSize="16" FontWeight="Bold" HorizontalAlignment="Center">
+		 	<Label.BitmapEffect>
+				<OuterGlowBitmapEffect/>
+			</Label.BitmapEffect>
+		</Label>
+
+		<Viewbox Grid.Column="0" Margin="4">
+			<Canvas Width="704" Height="396">
+				<Image Grid.Column="0" Source="wood.jpg" Width="704" Height="396"/>
+				<Label Canvas.Top="10" Canvas.Left="10" Content="(0, 0)"/>
+				<Label Canvas.Bottom="10" Canvas.Left="10" Content="(0, 1)"/>
+				<Label Canvas.Top="10" Canvas.Right="10" Content="(1, 0)"/>
+				<Label Canvas.Bottom="10" Canvas.Right="10" Content="(1, 1)"/>
+			</Canvas>
+		</Viewbox>
+		
+		<!-- Make a brush with labeled points to use on the 3D surface. -->
+		<Canvas Name="canTexture" Width="704" Height="396" Margin="1000,0,0,0">
+			<Image Grid.Column="0" Source="wood.jpg" Width="704" Height="396"/>
+			<Polygon Stroke="Red" StrokeThickness="10" 
+			 Points="0,0 0,386 694,0"/>
+			<Polygon Stroke="Green" StrokeThickness="10"
+			 Points="0,396 704,0 704,396"/>
+			<Label Canvas.Top="5" Canvas.Left="20" Content="A"/>
+			<Label Canvas.Bottom="5" Canvas.Left="20" Content="B"/>
+			<Label Canvas.Top="5" Canvas.Right="20" Content="C"/>
+			<Label Canvas.Bottom="5" Canvas.Right="20" Content="D"/>
+		</Canvas>
+
+        <Viewport3D Grid.Column="1" Margin="4,4,4,4">
+			<Viewport3D.Resources>
+				<MaterialGroup x:Key="matWood">
+					<DiffuseMaterial>
+						<DiffuseMaterial.Brush>
+							<VisualBrush Visual="{Binding ElementName=canTexture}"/>
+						</DiffuseMaterial.Brush>
+					</DiffuseMaterial>
+				</MaterialGroup>
+            </Viewport3D.Resources>
+        	<Viewport3D.Camera>
+        		<PerspectiveCamera
+        			Position="-1, -1, 3"
+        			LookDirection="1, 1, -2.5"
+        			UpDirection="0, 1, 0"
+        			FieldOfView="60">
+				</PerspectiveCamera>
+        	</Viewport3D.Camera>
+            <ModelVisual3D >
+				<ModelVisual3D.Content>
+                    <Model3DGroup x:Name="BlocksModel">
+                        <!-- Lights -->
+                        <AmbientLight Color="White"/>
+
+						<!-- 3D objects go here. -->
+						<!-- +Z -->
+						<GeometryModel3D Material="{StaticResource matWood}">
+							<GeometryModel3D.Geometry>
+								<MeshGeometry3D
+			                     Positions="-1,1,1 -1,-1,1 1,1,1 1,-1,1"
+			                     TriangleIndices="0,1,2 2,1,3"
+			                     TextureCoordinates="0,0 0,1 1,0 1,1"
+								 />
+							</GeometryModel3D.Geometry>
+						</GeometryModel3D>
+
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+        </Viewport3D>
+    </Grid>
+</Window>

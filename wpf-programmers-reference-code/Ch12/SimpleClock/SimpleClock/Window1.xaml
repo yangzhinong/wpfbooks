@@ -1,0 +1,47 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	x:Class="SimpleClock.Window1"
+	x:Name="Window"
+	Title="SimpleClock"
+	Width="400" Height="250"
+    FontFamily="Times New Roman">
+    <Window.Resources>
+        <sys:String x:Key="TimeNow">1:00:00 AM</sys:String>
+    </Window.Resources>
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="Lime" Offset="0"/>
+            <GradientStop Color="ForestGreen" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+	<Viewbox Stretch="Fill">
+        <StackPanel>
+            <Label Margin="5" HorizontalAlignment="Stretch"
+             Content="{StaticResource TimeNow}"
+             Background="Green"
+             Foreground="YellowGreen"/>
+
+            <Label Margin="5" HorizontalAlignment="Stretch"
+             Content="{DynamicResource TimeNow}"
+             Background="{DynamicResource lblBackground}"
+             Foreground="{DynamicResource lblForeground}"
+            >
+                <Label.Resources>
+                    <SolidColorBrush x:Key="lblBackground" Color="Green"/>
+                    <SolidColorBrush x:Key="lblForeground" Color="YellowGreen"/>
+                </Label.Resources>
+            </Label>
+
+            <Label Margin="5" HorizontalAlignment="Stretch"
+             Content="{DynamicResource TimeNow}"
+             Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"
+            >
+                <Label.Background>
+                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.DesktopColorKey}}"/>
+                </Label.Background>
+            </Label>
+        </StackPanel>
+	</Viewbox>
+</Window>

@@ -1,0 +1,46 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseMediaElement.Window1"
+	x:Name="Window"
+	Title="UseMediaElement"
+	Width="439" Height="204" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			<GradientStop Color="#FF0000FF" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnSoundPlayerAction">
+	        <SoundPlayerAction Source="notify.wav"/>
+		</EventTrigger>
+	</Window.Triggers>
+	<Grid x:Name="LayoutRoot">
+		<MediaElement x:Name="mmJulia" Source="EvolvingJuliaSet.wmv"
+		 LoadedBehavior="Manual"
+		 Margin="283.556,24,0,0" HorizontalAlignment="Left"
+		 VerticalAlignment="Top" Height="88" />
+		<MediaElement x:Name="mmAudio" Source="Windows XP Startup.wav"
+		 LoadedBehavior="Manual"
+		 Margin="0,116,106.444,28" HorizontalAlignment="Right"
+		 Width="114" />	
+        <GroupBox Header="Audio" Margin="8,8" HorizontalAlignment="Left" Width="120" Height="150">
+        	<StackPanel Margin="5,5,5,5">
+        		<Button Content="Play"   x:Name="btnPlayAudio"   Width="75" Height="30" Margin="5" Click="btnPlayAudio_Click" />
+        		<Button Content="Pause"  x:Name="btnPauseAudio"  Width="75" Height="30" Margin="5" Click="btnPauseAudio_Click" />
+        		<Button Content="Rewind" x:Name="btnRewindAudio" Width="75" Height="30" Margin="5" Click="btnRewindAudio_Click" />
+        	</StackPanel>
+        </GroupBox>
+        <GroupBox Header="Video" Margin="148,8" HorizontalAlignment="Left" Width="120" Height="150">
+            <StackPanel Margin="5,5,5,5">
+                <Button Content="Play"   x:Name="btnPlayVideo"   Width="75" Height="30" Margin="5" Click="btnPlayVideo_Click" />
+                <Button Content="Pause"   x:Name="btnPauseVideo" Width="75" Height="30" Margin="5" Click="btnPauseVideo_Click" />
+                <Button Content="Rewind" x:Name="btnRewindVideo" Width="75" Height="30" Margin="5" Click="btnRewindVideo_Click" />
+            </StackPanel>
+        </GroupBox>
+		<Button Name="btnSoundPlayerAction" Width="121" Height="30"
+         HorizontalAlignment="Left" Margin="283.556,0,0,8"
+         VerticalAlignment="Bottom">Sound Player Action</Button>
+    </Grid>
+</Window>

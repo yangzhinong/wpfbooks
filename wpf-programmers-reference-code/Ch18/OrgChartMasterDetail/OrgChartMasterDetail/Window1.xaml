@@ -1,0 +1,196 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:OrgChartMasterDetail"
+	x:Class="OrgChartMasterDetail.Window1"
+	x:Name="Window"
+	Title="OrgChartMasterDetail"
+	Width="540" Height="480"
+    FontSize="12" FontWeight="Bold"
+    Loaded="Window_Loaded">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="Green" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- ********** -->
+        <!-- By Manager -->
+        <!-- ********** -->
+        <Label Grid.Row="0" Grid.Column="0" Content="By Manager"
+         HorizontalAlignment="Center" VerticalAlignment="Center"
+         FontSize="20" Foreground="Green">
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect/>
+            </Label.BitmapEffect>
+        </Label>
+        <StackPanel Name="spByManager" Grid.Row="1" Grid.Column="0" Margin="10,0,5,0">
+            <Label Content="Region:"/>
+            <ListBox Name="lstByManagerRegion" ItemsSource="{Binding}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=RegionName}" Foreground="Red">
+                            <TextBlock.BitmapEffect>
+                                <OuterGlowBitmapEffect/>
+                            </TextBlock.BitmapEffect>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Content="Department:" Margin="20,0,0,0"/>
+            <ListBox Name="lstByManagerDepartment" Margin="20,0,0,0"
+             ItemsSource="{Binding ElementName=lstByManagerRegion,
+                           Path=SelectedItem.Departments}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}" Foreground="DarkBlue"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Content="Manager:" Margin="40,0,0,0"/>
+            <ListBox Name="lstByManagerManager" Margin="40,0,0,0"
+             ItemsSource="{Binding ElementName=lstByManagerDepartment,
+                           Path=SelectedItem.Managers}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Grid.RowSpan="2" Grid.ColumnSpan="2"
+                             Width="150" RadiusX="5" RadiusY="5"
+                             Stroke="Blue" Fill="LightBlue"/>
+                            <StackPanel Margin="5,0,5,0" Grid.Row="0" Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Title}"/>
+                            </StackPanel>
+                            <StackPanel Margin="5,0,5,0" Grid.Row="1" Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=FirstName}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding Path=LastName}"/>
+                                <TextBlock Text=" (x"/>
+                                <TextBlock Text="{Binding Path=Extension}"/>
+                                <TextBlock Text=")"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Content="Employee:" Margin="60,0,0,0"/>
+            <ListBox Name="lstByManagerEmployee" Margin="60,0,0,0"
+             ItemsSource="{Binding ElementName=lstByManagerManager,
+                           Path=SelectedItem.Reports}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding Path=LastName}"/>
+                            <TextBlock Text=" (x"/>
+                            <TextBlock Text="{Binding Path=Extension}"/>
+                            <TextBlock Text=")"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <!-- ********** -->
+        <!-- By Project -->
+        <!-- ********** -->
+        <Label Grid.Row="0" Grid.Column="1" Content="By Project"
+         HorizontalAlignment="Center" VerticalAlignment="Center"
+         FontSize="20" Foreground="Green">
+            <Label.BitmapEffect>
+                <OuterGlowBitmapEffect/>
+            </Label.BitmapEffect>
+        </Label>
+        <StackPanel Name="spByProject" Grid.Row="1" Grid.Column="1" Margin="5,0,10,0">
+            <Label Content="Region:"/>
+            <ListBox Name="lstByProjectRegion" ItemsSource="{Binding}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=RegionName}" Foreground="Red">
+                            <TextBlock.BitmapEffect>
+                                <OuterGlowBitmapEffect/>
+                            </TextBlock.BitmapEffect>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Content="Department:" Margin="20,0,0,0"/>
+            <ListBox Name="lstByProjectDepartment" Margin="20,0,0,0"
+             ItemsSource="{Binding ElementName=lstByProjectRegion,
+                           Path=SelectedItem.Departments}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}" Foreground="DarkBlue"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Content="Project:" Margin="40,0,0,0"/>
+            <ListBox Name="lstByProjectProject" Margin="40,0,0,0"
+             ItemsSource="{Binding ElementName=lstByProjectDepartment,
+                           Path=SelectedItem.Projects}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="200">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Grid.RowSpan="3" RadiusX="5" RadiusY="5"
+                         Stroke="Blue" Fill="Goldenrod"/>
+                            <StackPanel Grid.Row="0" Margin="5,0,5,0"
+                         Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Text="Project "/>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </StackPanel>
+                            <TextBlock Grid.Row="1" Margin="5,0,5,0" Text="{Binding Path=Description}" TextTrimming="CharacterEllipsis"/>
+                            <StackPanel Grid.Row="2" Margin="5,0,5,0" Orientation="Horizontal">
+                                <TextBlock Text="Lead: "/>
+                                <TextBlock Text="{Binding Path=TeamLead.FirstName}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding Path=TeamLead.LastName}"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Label Content="Employee:" Margin="60,0,0,0"/>
+            <ListBox Name="lstByProjectEmployee" Margin="60,0,0,0"
+             ItemsSource="{Binding ElementName=lstByProjectProject,
+                           Path=SelectedItem.TeamMembers}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding Path=LastName}"/>
+                            <TextBlock Text=" (x"/>
+                            <TextBlock Text="{Binding Path=Extension}"/>
+                            <TextBlock Text=")"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>

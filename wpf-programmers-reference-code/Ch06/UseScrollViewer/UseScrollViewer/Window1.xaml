@@ -1,0 +1,15 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseScrollViewer.Window1"
+	x:Name="Window"
+	Title="UseScrollViewer"
+	Width="600" Height="300">
+	<Grid x:Name="LayoutRoot">
+    	<ScrollViewer
+         HorizontalScrollBarVisibility="Auto"
+         VerticalScrollBarVisibility="Auto">
+        	<Image Source="ColoradoFlowers.jpg" Stretch="None"/>
+		</ScrollViewer>
+	</Grid>
+</Window>

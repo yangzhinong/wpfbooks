@@ -1,0 +1,51 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseScrollBar.Window1"
+	x:Name="Window"
+	Title="UseScrollBar"
+	Width="450" Height="130"
+	FontSize="16" FontWeight="Bold">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+			<GradientStop Color="#FFFFFF00" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="30"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="150"/>
+			<ColumnDefinition Width="60"/>
+			<ColumnDefinition Width="150"/>
+			<ColumnDefinition Width="60"/>
+		</Grid.ColumnDefinitions>
+		<Label Name="lblSample" Background="#FF0080FF" BorderThickness="1" BorderBrush="Black"
+         Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="4"/>
+
+		<Label Content="Red" Grid.Row="0" Grid.Column="1"/>
+		<ScrollBar Name="sbarRed" Orientation="Horizontal" Minimum="0" Maximum="255" Value="0"
+		 Grid.Row="0" Grid.Column="2" SmallChange="1" LargeChange="20" />
+		<Label Name="lblRed" Content="0"
+		 Grid.Row="0" Grid.Column="3"
+		 HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
+
+		<Label Content="Green" Grid.Row="1" Grid.Column="1"/>
+		<ScrollBar Name="sbarGreen" Orientation="Horizontal" Minimum="0" Maximum="255" Value="128"
+		 Grid.Row="1" Grid.Column="2" SmallChange="1" LargeChange="20"/>
+		<Label Name="lblGreen" Content="128"
+		 Grid.Row="1" Grid.Column="3"
+		 HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
+
+		<Label Content="Blue" Grid.Row="2" Grid.Column="1"/>
+		<ScrollBar Name="sbarBlue" Orientation="Horizontal" Minimum="0" Maximum="255" Value="255"
+		 Grid.Row="2" Grid.Column="2" SmallChange="1" LargeChange="20" />
+		<Label Name="lblBlue" Content="255"
+		 Grid.Row="2" Grid.Column="3"
+		 HorizontalAlignment="Right" HorizontalContentAlignment="Right"/>
+	</Grid>
+</Window>

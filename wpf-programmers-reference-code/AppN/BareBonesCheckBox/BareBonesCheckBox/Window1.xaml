@@ -1,0 +1,46 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="BareBonesCheckBox.Window1"
+	x:Name="Window"
+	Title="BareBonesCheckBox"
+	Width="350" Height="150"
+	FontSize="16" Background="LightGray">
+	<Window.Resources>
+		<ControlTemplate x:Key="temCheckBox" TargetType="CheckBox">
+			<BulletDecorator>
+				<BulletDecorator.Bullet>
+					<Grid Height="15" Width="15">
+						<Border CornerRadius="2" BorderBrush="Black" BorderThickness="1"/>
+						<Border Name="brdChecked" Margin="2" CornerRadius="6"/>
+					</Grid>
+				</BulletDecorator.Bullet>
+				<ContentPresenter Margin="5,0,0,0"/>
+			</BulletDecorator>
+			<ControlTemplate.Triggers>
+				<Trigger Property="IsChecked" Value="True">
+					<Setter TargetName="brdChecked" Property="Background" Value="Green"/>
+				</Trigger>
+				<Trigger Property="IsChecked" Value="False">
+					<Setter TargetName="brdChecked" Property="Background" Value="Red"/>
+				</Trigger>
+				<Trigger Property="IsChecked" Value="{x:Null}">
+					<Setter TargetName="brdChecked" Property="Background" Value="Gray"/>
+				</Trigger>
+			</ControlTemplate.Triggers>
+		</ControlTemplate>
+	</Window.Resources>
+
+	<StackPanel Orientation="Horizontal">
+		<StackPanel Margin="10">
+			<CheckBox Template="{StaticResource temCheckBox}" Content="Checked" IsChecked="True"/>
+			<CheckBox Template="{StaticResource temCheckBox}" Content="Not checked" IsChecked="False"/>
+			<CheckBox Template="{StaticResource temCheckBox}" Content="Null" IsChecked="{x:Null}"/>
+		</StackPanel>
+		<StackPanel Margin="10">
+			<CheckBox Content="Checked" IsChecked="True"/>
+			<CheckBox Content="Not checked" IsChecked="False"/>
+			<CheckBox Content="Null" IsChecked="{x:Null}"/>
+		</StackPanel>
+	</StackPanel>
+</Window>

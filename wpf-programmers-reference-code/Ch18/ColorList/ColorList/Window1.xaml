@@ -1,0 +1,41 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	x:Class="ColorList.Window1"
+	x:Name="Window"
+	Title="ColorList"
+	Width="250" Height="200"
+	FontSize="16" FontWeight="Bold">
+	<Window.Background>
+		<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+			<GradientStop Color="LightBlue" Offset="0"/>
+			<GradientStop Color="Blue" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Grid Margin="10">
+		<Grid.DataContext>
+			<x:Array Type="sys:String">
+				<sys:String>Red</sys:String>
+				<sys:String>Yellow</sys:String>
+				<sys:String>Lime</sys:String>
+				<sys:String>Cyan</sys:String>
+				<sys:String>Blue</sys:String>
+				<sys:String>Magenta</sys:String>
+			</x:Array>
+		</Grid.DataContext>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<ListBox Name="lstColors" Grid.Column="0" Background="Transparent"
+		 IsSynchronizedWithCurrentItem="True"
+		 ItemsSource="{Binding}"/>
+
+		<Label Grid.Column="1" BorderBrush="Black" BorderThickness="1"
+		 HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+		 Content="{Binding Path=/}"
+		 Background="{Binding Path=/}"/>
+	</Grid>
+</Window>

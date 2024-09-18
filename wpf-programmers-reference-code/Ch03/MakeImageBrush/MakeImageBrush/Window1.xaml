@@ -1,0 +1,15 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="MakeImageBrush.Window1"
+	x:Name="Window"
+	Title="MakeImageBrush"
+	Width="216" Height="156">
+	<Window.Resources>
+		<ImageBrush x:Key="SmileyBrush" ImageSource="Smiley.bmp" TileMode="FlipY" Stretch="Fill"/>
+	</Window.Resources>
+
+	<Grid x:Name="LayoutRoot">
+		<Rectangle Fill="{DynamicResource SmileyBrush}" Stroke="#FF000000" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="100"/>
+	</Grid>
+</Window>

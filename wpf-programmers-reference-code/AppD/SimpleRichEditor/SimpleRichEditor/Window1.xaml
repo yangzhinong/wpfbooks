@@ -1,0 +1,62 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="SimpleRichEditor.Window1"
+	x:Name="Window"
+	Title="SimpleRichEditor"
+	Width="640" Height="480">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Open" Click="mnuFileOpen_Click"/>
+                <MenuItem Header="Save" Click="mnuFileSave_Click"/>
+            </MenuItem>
+        </Menu>
+        <ToolBar DockPanel.Dock="Top">
+            <ComboBox Name="cboFont" Width="140"
+             SelectionChanged="cboFont_SelectionChanged">
+                <ComboBoxItem Content="Times New Roman"/>
+                <ComboBoxItem Content="Arial"/>
+                <ComboBoxItem Content="Segoe"/>
+                <ComboBoxItem Content="Comic Sans MS"/>
+            </ComboBox>
+            <ComboBox Name="cboSize" Width="40"
+             SelectionChanged="cboSize_SelectionChanged">
+                <ComboBoxItem Content="10"/>
+                <ComboBoxItem Content="12"/>
+                <ComboBoxItem Content="14"/>
+                <ComboBoxItem Content="16"/>
+                <ComboBoxItem Content="18"/>
+                <ComboBoxItem Content="24"/>
+                <ComboBoxItem Content="36"/>
+            </ComboBox>
+            <ComboBox Name="cboColor" Width="70"
+             SelectionChanged="cboColor_SelectionChanged">
+                <ComboBoxItem Content="Black"/>
+                <ComboBoxItem Content="Red"/>
+                <ComboBoxItem Content="Green"/>
+            </ComboBox>
+            <ComboBox Name="cboWeight" Width="70"
+             SelectionChanged="cboWeight_SelectionChanged">
+                <ComboBoxItem Content="Normal"/>
+                <ComboBoxItem Content="Bold"/>
+            </ComboBox>
+            <ComboBox Name="cboStyle" Width="70"
+             SelectionChanged="cboStyle_SelectionChanged">
+                <ComboBoxItem Content="Normal"/>
+                <ComboBoxItem Content="Italic"/>
+            </ComboBox>
+        </ToolBar>
+
+        <RichTextBox SelectionChanged="rchNotes_SelectionChanged" Name="rchNotes" Grid.Row="1" SpellCheck.IsEnabled="True">
+            <FlowDocument FontFamily="Times New Roman">
+                <Paragraph FontSize="18" FontWeight="Bold">
+                    XAML Example
+                </Paragraph>
+                <Paragraph FontSize="14">
+                    The following code creates a RichTextBox that contains a simple FlowDocument.
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </DockPanel>
+</Window>

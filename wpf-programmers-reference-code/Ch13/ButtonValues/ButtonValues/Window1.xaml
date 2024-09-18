@@ -1,0 +1,164 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="ButtonValues.Window1"
+	x:Name="Window"
+	Title="ButtonValues"
+	Width="445" Height="150">
+
+	<Window.Background>
+		<RadialGradientBrush>
+			<GradientStop Color="White" Offset="0"/>
+			<GradientStop Color="Blue" Offset="1"/>
+		</RadialGradientBrush>
+	</Window.Background>
+
+	<!-- Menu area -->
+	<StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+		<!-- File -->
+		<Grid Width="75" Height="40" Margin="5">
+			<Rectangle StrokeThickness="5"
+			 RadiusX="10" RadiusY="10"
+			>
+				<Rectangle.Fill>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="Blue" Offset="0"/>
+						<GradientStop Color="White" Offset="0.5"/>
+						<GradientStop Color="Blue" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+				<Rectangle.Stroke>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="White" Offset="0"/>
+						<GradientStop Color="Blue" Offset="0.5"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Stroke>
+			</Rectangle>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="Segoe" FontSize="16" FontWeight="Bold" Text="File"
+			>
+				<TextBlock.BitmapEffect>
+					<OuterGlowBitmapEffect GlowColor="White" GlowSize="10"/>
+				</TextBlock.BitmapEffect>			 
+			</TextBlock>
+		</Grid>
+
+		<!-- Edit -->
+		<Grid Width="75" Height="40" Margin="5">
+			<Rectangle StrokeThickness="5"
+			 RadiusX="10" RadiusY="10"
+			>
+				<Rectangle.Fill>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="Blue" Offset="0"/>
+						<GradientStop Color="White" Offset="0.5"/>
+						<GradientStop Color="Blue" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+				<Rectangle.Stroke>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="White" Offset="0"/>
+						<GradientStop Color="Blue" Offset="0.5"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Stroke>
+			</Rectangle>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="Segoe" FontSize="16" FontWeight="Bold" Text="Edit"
+			>
+				<TextBlock.BitmapEffect>
+					<OuterGlowBitmapEffect GlowColor="White" GlowSize="10"/>
+				</TextBlock.BitmapEffect>			 
+			</TextBlock>
+		</Grid>
+
+		<!-- View -->
+		<Grid Width="75" Height="40" Margin="5">
+			<Rectangle StrokeThickness="5"
+			 RadiusX="10" RadiusY="10"
+			>
+				<Rectangle.Fill>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="Blue" Offset="0"/>
+						<GradientStop Color="White" Offset="0.5"/>
+						<GradientStop Color="Blue" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+				<Rectangle.Stroke>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="White" Offset="0"/>
+						<GradientStop Color="Blue" Offset="0.5"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Stroke>
+			</Rectangle>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="Segoe" FontSize="16" FontWeight="Bold" Text="View"
+			>
+				<TextBlock.BitmapEffect>
+					<OuterGlowBitmapEffect GlowColor="White" GlowSize="10"/>
+				</TextBlock.BitmapEffect>			 
+			</TextBlock>
+		</Grid>
+
+		<!-- Data -->
+		<Grid Width="75" Height="40" Margin="5">
+			<Rectangle StrokeThickness="5"
+			 RadiusX="10" RadiusY="10"
+			>
+				<Rectangle.Fill>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="Blue" Offset="0"/>
+						<GradientStop Color="White" Offset="0.5"/>
+						<GradientStop Color="Blue" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+				<Rectangle.Stroke>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="White" Offset="0"/>
+						<GradientStop Color="Blue" Offset="0.5"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Stroke>
+			</Rectangle>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="Segoe" FontSize="16" FontWeight="Bold" Text="Data"
+			>
+				<TextBlock.BitmapEffect>
+					<OuterGlowBitmapEffect GlowColor="White" GlowSize="10"/>
+				</TextBlock.BitmapEffect>			 
+			</TextBlock>
+		</Grid>
+
+		<!-- Help -->
+		<Grid Width="75" Height="40" Margin="5">
+			<Rectangle StrokeThickness="5"
+			 RadiusX="10" RadiusY="10"
+			>
+				<Rectangle.Fill>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="Blue" Offset="0"/>
+						<GradientStop Color="White" Offset="0.5"/>
+						<GradientStop Color="Blue" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+				<Rectangle.Stroke>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="White" Offset="0"/>
+						<GradientStop Color="Blue" Offset="0.5"/>
+						<GradientStop Color="White" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Stroke>
+			</Rectangle>
+			<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+			 FontFamily="Segoe" FontSize="16" FontWeight="Bold" Text="Help"
+			>
+				<TextBlock.BitmapEffect>
+					<OuterGlowBitmapEffect GlowColor="White" GlowSize="10"/>
+				</TextBlock.BitmapEffect>			 
+			</TextBlock>
+		</Grid>
+
+	</StackPanel>
+</Window>

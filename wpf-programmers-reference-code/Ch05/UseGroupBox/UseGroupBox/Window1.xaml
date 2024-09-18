@@ -1,0 +1,40 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="UseGroupBox.Window1"
+	x:Name="Window"
+	Title="UseGroupBox"
+	Width="328" Height="204">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFFFFFFF" Offset="0.004"/>
+			<GradientStop Color="#FF0080FF" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.Background>
+	<Grid x:Name="LayoutRoot">
+		<GroupBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+		 Header="Customer Information" Margin="8,8,8,8" BorderThickness="1">
+			<Grid Margin="5">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="30"/>
+				</Grid.RowDefinitions>
+				<Label Grid.Row="0" Grid.Column="0" Content="First Name:"/>
+				<TextBox Grid.Row="0" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="1" Grid.Column="0" Content="Last Name:"/>
+				<TextBox Grid.Row="1" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="2" Grid.Column="0" Content="Shoe Size:"/>
+				<TextBox Grid.Row="2" Grid.Column="1" Height="22"/>
+				<Label Grid.Row="3" Grid.Column="0" Content="Favorite Music:"/>
+				<TextBox Grid.Row="3" Grid.Column="1" Height="22"/>
+			</Grid>
+		</GroupBox>
+	</Grid>
+</Window>

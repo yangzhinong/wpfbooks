@@ -1,0 +1,186 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="AnimatedSkins.Window1"
+	x:Name="Window"
+	Title="AnimatedSkins"
+	Width="430" Height="200"
+	FontSize="16">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="ResToBlue.xaml"/>
+				<ResourceDictionary Source="ResToGreen.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+    </Window.Resources>
+	<Window.Background>
+		<RadialGradientBrush>
+			<GradientStop Color="LightGreen" Offset="0"/>
+			<GradientStop Color="LightGreen" Offset="1"/>
+		</RadialGradientBrush>
+	</Window.Background>
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="Rectangle.MouseDown" SourceName="ellToGreen">
+			<BeginStoryboard Storyboard="{StaticResource ToGreen}"/>
+		</EventTrigger>
+        <EventTrigger RoutedEvent="Rectangle.MouseDown" SourceName="ellToBlue">
+            <BeginStoryboard Storyboard="{StaticResource ToBlue}"/>
+        </EventTrigger>
+    </Window.Triggers>
+	<Canvas>
+		<TextBlock Canvas.Left="10" Canvas.Top="10"
+		 Name="tbNamePrompt" FontWeight="Bold">Name:</TextBlock>
+		<TextBlock Canvas.Left="10" Canvas.Top="30"
+		 Name="tbName" Margin="15,0,0,0" RenderTransformOrigin="0.5,0.5">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>Rod Stephens</TextBlock>
+
+		<TextBlock Canvas.Left="10" Canvas.Top="55"
+		 Name="tbTitlePrompt" FontWeight="Bold">Title:</TextBlock>
+		<TextBlock Canvas.Left="10" Canvas.Top="75"
+		 Name="tbTitle" Margin="15,0,0,0" RenderTransformOrigin="0.5,0.5">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>President</TextBlock>
+
+		<TextBlock Canvas.Left="10" Canvas.Top="100"
+		 Name="tbPhonePrompt" FontWeight="Bold">Phone:</TextBlock>
+		<TextBlock Canvas.Left="10" Canvas.Top="120"
+		 Name="tbPhone" Margin="15,0,0,0" RenderTransformOrigin="0.5,0.5">
+			<TextBlock.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</TextBlock.RenderTransform>1-900-555-WPF1</TextBlock>
+
+		<Image Name="imgPerson" Source="RodStephens.bmp"
+		 Canvas.Top="10" Canvas.Left="170" Width="100" Height="130"
+		 Grid.Row="0" Grid.Column="1" Grid.RowSpan="6" Stretch="Uniform" RenderTransformOrigin="0.5,0.5">
+			<Image.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Image.RenderTransform>
+		</Image>
+
+		<StackPanel Name="spButtons">
+		</StackPanel>
+		<Grid Name="grdEmail" Canvas.Left="340" Canvas.Top="30" Margin="-50,-20,0,0"
+		 Width="100" Height="40" RenderTransformOrigin="0.5,0.5"
+		 MouseDown="grdEmail_MouseDown">
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+	        <Rectangle Name="rectEmail" StrokeThickness="5">
+	            <Rectangle.Stroke>
+	                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+	                    <GradientStop Color="Lime" Offset="0"/>
+	                    <GradientStop Color="Green" Offset="1"/>
+	                </LinearGradientBrush>
+	            </Rectangle.Stroke>
+	            <Rectangle.Fill>
+	                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+	                    <GradientStop Color="Lime" Offset="0"/>
+	                    <GradientStop Color="Green" Offset="1"/>
+	                </LinearGradientBrush>
+	            </Rectangle.Fill>
+	        </Rectangle>
+	        <Label Name="btnEmail"
+			 FontFamily="Arial" FontSize="20" FontWeight="Bold" FontStyle="Normal"
+			 HorizontalAlignment="Center" VerticalAlignment="Center"
+			 Content="Email"/>
+		</Grid>
+
+		<Grid Name="grdPhone" Canvas.Left="340" Canvas.Top="80" Margin="-50,-20,0,0"
+		 Width="100" Height="40" RenderTransformOrigin="0.5,0.5"
+		 MouseDown="grdPhone_MouseDown">
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+	        <Rectangle Name="rectPhone" StrokeThickness="5">
+	            <Rectangle.Stroke>
+	                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+	                    <GradientStop Color="Lime" Offset="0"/>
+	                    <GradientStop Color="Green" Offset="1"/>
+	                </LinearGradientBrush>
+	            </Rectangle.Stroke>
+	            <Rectangle.Fill>
+	                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+	                    <GradientStop Color="Lime" Offset="0"/>
+	                    <GradientStop Color="Green" Offset="1"/>
+	                </LinearGradientBrush>
+	            </Rectangle.Fill>
+	        </Rectangle>
+	        <Label Name="btnPhone"
+			 FontFamily="Arial" FontSize="20" FontWeight="Bold" FontStyle="Normal"
+			 HorizontalAlignment="Center" VerticalAlignment="Center"
+			 Content="Phone"/>
+		</Grid>
+
+		<Grid Name="grdPost" Canvas.Left="340" Canvas.Top="130" Margin="-50,-20,0,0"
+		 Width="100" Height="40" RenderTransformOrigin="0.5,0.5"
+		 MouseDown="grdPost_MouseDown">
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform ScaleX="1" ScaleY="1"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+	        <Rectangle Name="rectPost" StrokeThickness="5">
+	            <Rectangle.Stroke>
+	                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+	                    <GradientStop Color="Lime" Offset="0"/>
+	                    <GradientStop Color="Green" Offset="1"/>
+	                </LinearGradientBrush>
+	            </Rectangle.Stroke>
+	            <Rectangle.Fill>
+	                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+	                    <GradientStop Color="Lime" Offset="0"/>
+	                    <GradientStop Color="Green" Offset="1"/>
+	                </LinearGradientBrush>
+	            </Rectangle.Fill>
+	        </Rectangle>
+	        <Label Name="btnPost"
+			 FontFamily="Arial" FontSize="20" FontWeight="Bold" FontStyle="Normal"
+			 HorizontalAlignment="Center" VerticalAlignment="Center"
+			 Content="Post"/>
+		</Grid>
+
+        <StackPanel Canvas.Right="0" Canvas.Top="0">
+            <Ellipse Width="10" Height="10" Margin="2" Name="ellToGreen"
+             Fill="Lime" Stroke="Green" Opacity="0"/>
+            <Ellipse Width="10" Height="10" Margin="2" Name="ellToBlue"
+             Fill="LightBlue" Stroke="Blue"/>
+        </StackPanel>
+	</Canvas>
+</Window>

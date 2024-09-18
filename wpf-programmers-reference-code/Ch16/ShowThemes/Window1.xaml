@@ -1,0 +1,123 @@
+﻿<Window x:Class="ShowThemes.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="ShowThemes"
+	Width="650" Height="350" Background="LightGray">
+    <Window.Resources>
+        <Style x:Key="lblStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="Yellow"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="LightBlue" Offset="0"/>
+                        <GradientStop Color="Blue" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <!-- Add references to:
+        PresentationFramework.Aero
+        PresentationFramework.Classic
+        PresentationFramework.Luna
+        PresentationFramework.Royale
+    -->
+
+    <UniformGrid Rows="2" Columns="4">
+        <StackPanel>
+            <Label Style="{StaticResource lblStyle}" Content="default"/>
+            <Button Margin="10" Content="Click Me"/>
+            <CheckBox Margin="10" Content="Check Me"/>
+            <RadioButton Margin="10" Content="Press Me"/>
+        </StackPanel>
+
+        <StackPanel>
+            <StackPanel.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/PresentationFramework.Aero;component/themes/aero.normalcolor.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </StackPanel.Resources>
+            <Label Style="{StaticResource lblStyle}" Content="aero.normalcolor"/>
+            <Button Margin="10" Content="Click Me"/>
+            <CheckBox Margin="10" Content="Check Me"/>
+            <RadioButton Margin="10" Content="Press Me"/>
+        </StackPanel>
+
+        <StackPanel>
+            <StackPanel.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/PresentationFramework.Classic;component/themes/classic.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </StackPanel.Resources>
+            <Label Style="{StaticResource lblStyle}" Content="classic"/>
+            <Button Margin="10" Content="Click Me"/>
+            <CheckBox Margin="10" Content="Check Me"/>
+            <RadioButton Margin="10" Content="Press Me"/>
+        </StackPanel>
+
+        <StackPanel>
+            <StackPanel.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/PresentationFramework.Luna;component/themes/luna.homestead.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </StackPanel.Resources>
+            <Label Style="{StaticResource lblStyle}" Content="luna.homestead"/>
+            <Button Margin="10" Content="Click Me"/>
+            <CheckBox Margin="10" Content="Check Me"/>
+            <RadioButton Margin="10" Content="Press Me"/>
+        </StackPanel>
+
+        <StackPanel>
+            <StackPanel.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/PresentationFramework.Luna;component/themes/luna.metallic.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </StackPanel.Resources>
+            <Label Style="{StaticResource lblStyle}" Content="luna.metallic"/>
+            <Button Margin="10" Content="Click Me"/>
+            <CheckBox Margin="10" Content="Check Me"/>
+            <RadioButton Margin="10" Content="Press Me"/>
+        </StackPanel>
+
+        <StackPanel>
+            <StackPanel.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/PresentationFramework.Luna;component/themes/luna.normalcolor.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </StackPanel.Resources>
+            <Label Style="{StaticResource lblStyle}" Content="luna.normalcolor"/>
+            <Button Margin="10" Content="Click Me"/>
+            <CheckBox Margin="10" Content="Check Me"/>
+            <RadioButton Margin="10" Content="Press Me"/>
+        </StackPanel>
+
+        <StackPanel>
+            <StackPanel.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/PresentationFramework.Royale;component/themes/royale.normalcolor.xaml" />
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </StackPanel.Resources>
+            <Label Style="{StaticResource lblStyle}" Content="royale.normalcolor"/>
+            <Button Margin="10" Content="Click Me"/>
+            <CheckBox Margin="10" Content="Check Me"/>
+            <RadioButton Margin="10" Content="Press Me"/>
+        </StackPanel>
+    </UniformGrid>
+</Window>
